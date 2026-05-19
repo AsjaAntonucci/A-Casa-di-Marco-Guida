@@ -631,21 +631,68 @@
   </div><!-- #site -->
 
   <script>
+    // Mostra il sito in una lingua e aggiorna hash
     function showSite(lang) {
       document.getElementById('lang-screen').style.display = 'none';
       document.getElementById('site').style.display = 'block';
+
       document.documentElement.lang = lang;
-      document.querySelectorAll('[data-it]').forEach(function(el) {
+
+      document.querySelectorAll('[data-it]').forEach(function (el) {
         var val = el.getAttribute('data-' + lang);
         if (val) el.textContent = val;
       });
-      try { localStorage.setItem('guestGuideLang', lang); } catch(e) {}
+
+      try { localStorage.setItem('guestGuideLang', lang); } catch (e) {}
+
+      if (location.hash !== '#' + lang) {
+        history.pushState(null, '', '#' + lang);
+      }
     }
-    (function() {
-      try {
-        var saved = localStorage.getItem('guestGuideLang');
-        if (saved) showSite(saved);
-      } catch(e) {}
+
+    (function () {
+      function showLangScreen() {
+        document.getElementById('lang-screen').style.display = 'flex';
+        document.getElementById('site').style.display = 'none';
+        document.documentElement.lang = 'it';
+        if (location.hash !== '#lang') {
+          history.pushState(null, '', '#lang');
+        }
+      }
+
+      function initFromLocation() {
+        var hash = location.hash || '';
+        var lang = hash.replace('#', '');
+
+        if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
+          showSite(lang);
+        } else if (hash === '#lang') {
+          showLangScreen();
+        } else {
+          var saved = null;
+          try { saved = localStorage.getItem('guestGuideLang'); } catch (e) {}
+          if (saved === 'it' || saved === 'en' || saved === 'es' || saved === 'fr') {
+            history.replaceState(null, '', '#' + saved);
+            showSite(saved);
+          } else {
+            showLangScreen();
+          }
+        }
+      }
+
+      initFromLocation();
+
+      window.addEventListener('hashchange', function () {
+        var hash = location.hash || '';
+        if (hash === '#lang') {
+          showLangScreen();
+        } else {
+          var lang = hash.replace('#', '');
+          if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
+            showSite(lang);
+          }
+        }
+      });
     })();
   </script>
 
