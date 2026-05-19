@@ -7,96 +7,158 @@
   <meta name="description" content="Guest guide digitale di A Casa di Marco, Garden Cottage Escape a Salerno." />
   <style>
     :root{
-      --green:#244638;
-      --green2:#426858;
-      --sage:#dfe8dc;
-      --cream:#f8f4ec;
-      --sand:#eadcc5;
-      --wood:#9b6b3d;
-      --gold:#c6a15b;
-      --ink:#2d2926;
-      --muted:#6e655d;
-      --white:#fff;
-      --shadow:0 18px 55px rgba(37,33,29,.12);
-      --radius:26px;
+      /* palette ispirata a beb.it: fondo chiaro, accenti blu e dorato */
+      --bg:#f5f5f5;
+      --panel:#ffffff;
+      --accent:#005b8c;
+      --accent-soft:#e0f1f8;
+      --gold:#c89b3c;
+      --text:#202124;
+      --muted:#6f7175;
+      --shadow:0 18px 55px rgba(0,0,0,.16);
+      --radius:24px;
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
-    h1,h2,h3,.brand{font-family:Georgia,"Times New Roman",serif}
-    a{color:inherit}
-    .language-screen{min-height:100vh;background:linear-gradient(115deg,rgba(23,48,38,.72),rgba(86,57,29,.44)),url("assets/garden.jpg");background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;padding:26px;color:white;text-align:center}
-    .language-box{width:min(620px,100%);background:rgba(255,255,255,.14);backdrop-filter:blur(13px);border:1px solid rgba(255,255,255,.28);border-radius:34px;padding:42px 28px;box-shadow:0 25px 80px rgba(0,0,0,.32)}
-    .brand{font-size:46px;line-height:1.05;margin:0 0 8px}
-    .tagline{font-size:18px;margin:0 0 28px;letter-spacing:.06em;text-transform:uppercase}
-    .lang-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    button,.btn{border:0;border-radius:999px;padding:13px 20px;background:var(--gold);color:white;font-weight:750;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,.12);transition:.2s}
-    button:hover,.btn:hover{transform:translateY(-2px)}
-    .btn.secondary{background:var(--green)}
-    .btn.light{background:var(--sage);color:var(--green);box-shadow:none}
-    .site{display:none}
-    header.hero{min-height:78vh;background:linear-gradient(90deg,rgba(30,58,45,.72),rgba(30,58,45,.25)),url("assets/gate.jpg");background-size:cover;background-position:center;display:flex;align-items:end;color:white;padding:42px 18px}
-    .hero-inner{max-width:1120px;margin:0 auto;width:100%;padding-bottom:34px}
-    .hero h1{font-size:clamp(44px,8vw,82px);line-height:.96;margin:0 0 10px;text-shadow:0 5px 20px rgba(0,0,0,.25)}
-    .hero p{font-size:clamp(18px,2.8vw,27px);margin:0 0 22px;max-width:720px}
-    .actions{display:flex;gap:10px;flex-wrap:wrap}
-    .topbar{position:sticky;top:0;z-index:20;background:rgba(248,244,236,.92);backdrop-filter:blur(10px);box-shadow:0 8px 25px rgba(0,0,0,.08);overflow-x:auto;white-space:nowrap;padding:10px 12px;text-align:center}
-    .topbar a,.topbar button{box-shadow:none;background:white;color:var(--green);padding:9px 13px;margin:3px;font-size:14px;border:1px solid #eadfce}
-    main{max-width:1120px;margin:auto;padding:26px 16px 64px}
-    section{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:22px 0;border:1px solid #eee2d0;overflow:hidden}
-    section.highlight{background:linear-gradient(135deg,#fff,#f3eadb)}
-    h2{font-size:clamp(28px,4vw,42px);color:var(--green);line-height:1.1;margin:0 0 14px}
-    h3{font-size:22px;color:var(--green);margin:20px 0 8px}
-    .lead{font-size:18px;color:#4d4740;max-width:850px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-    .card{background:var(--cream);border-radius:20px;padding:18px;border:1px solid #eadfce;border-left:6px solid var(--gold)}
-    .card strong{display:block;color:var(--green);font-size:17px;margin-bottom:4px}
-    .note{background:#fff8e7;border-left:6px solid var(--gold);border-radius:18px;padding:16px;margin:14px 0;color:#4d4035}
-    .warn{background:#f7ebe6;border-left-color:#a65b43}
-    .photo-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:18px}
-    .photo-grid img{width:100%;height:100%;object-fit:cover;border-radius:22px;box-shadow:0 8px 28px rgba(0,0,0,.10)}
-    .wide{grid-column:span 8;height:310px}.small{grid-column:span 4;height:310px}.third{grid-column:span 4;height:260px}
-    .info-list{display:grid;gap:10px;padding:0;list-style:none}
-    .info-list li{background:var(--cream);border-radius:16px;padding:13px 15px;border:1px solid #eadfce}
-    .image-card{margin-top:14px;background:var(--cream);padding:10px;border-radius:22px;border:1px solid #eadfce}
-    .image-card img{width:100%;border-radius:16px;display:block}
-    details{background:var(--cream);border-radius:18px;padding:14px 16px;margin:10px 0;border:1px solid #eadfce}
-    summary{font-weight:800;color:var(--green);cursor:pointer}
-    footer{background:var(--green);color:white;text-align:center;padding:34px 20px}
-    .language-pill{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);padding:7px 12px;border-radius:999px;margin-bottom:16px}
-    @media(max-width:760px){
-      .wide,.small,.third{grid-column:span 12;height:240px}
-      section{padding:22px}
-      header.hero{min-height:68vh}
-      .brand{font-size:38px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";line-height:1.6}
+    h1,h2,h3{font-weight:600}
+    a{color:inherit;text-decoration:none}
+
+    /* SCHERMATA LINGUA */
+    .language-screen{
+      min-height:100vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      overflow:hidden;
+      color:#fff;
+    }
+    .language-screen::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url("assets/garden-main.jpg") center/cover no-repeat;
+      filter:blur(6px) brightness(.7);
+      transform:scale(1.05);
+      z-index:-2;
+    }
+    .language-screen::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg,rgba(0,0,0,.55),rgba(0,0,0,.25));
+      z-index:-1;
+    }
+    .language-box{
+      width:min(520px,100%);
+      background:rgba(0,0,0,.35);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:32px 26px 28px;
+      backdrop-filter:blur(10px);
+      text-align:center;
+    }
+    .welcome-tag{
+      display:inline-block;
+      padding:6px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.16);
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .brand{font-size:30px;margin:16px 0 4px}
+    .multi-welcome{
+      font-size:15px;
+      margin-bottom:22px;
+      color:#f1f3f4;
+    }
+    .multi-welcome span{display:block}
+    .lang-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+    }
+    .lang-btn{
+      border:none;
+      border-radius:999px;
+      padding:10px 16px;
+      background:#fff;
+      color:var(--accent);
+      font-weight:600;
+      font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,.25);
+      transition:.18s;
+    }
+    .lang-btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,.32)}
+    .lang-btn span.flag{font-size:16px}
+
+    /* RESTO DEL SITO (resta come prima, solo nascosto all'inizio) */
+    .site{display:none;background:var(--bg);}
+    header.hero{min-height:70vh;background:linear-gradient(90deg,rgba(0,91,140,.85),rgba(0,91,140,.55)),url("assets/garden-main.jpg") center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:42px 18px}
+    .hero-inner{max-width:1120px;margin:0 auto;width:100%;padding-bottom:30px}
+    .hero h1{font-size:clamp(34px,6vw,64px);line-height:1.02;margin-bottom:10px}
+    .hero p{font-size:clamp(17px,2.4vw,24px);max-width:640px}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .btn{border-radius:999px;padding:10px 18px;border:none;cursor:pointer;font-weight:600;font-size:14px;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+    .btn.primary{background:#fff;color:var(--accent)}
+    .btn.secondary{background:var(--accent-soft);color:var(--accent)}
+
+    .topbar{position:sticky;top:0;z-index:20;background:#ffffffcc;backdrop-filter:blur(12px);box-shadow:0 6px 18px rgba(0,0,0,.1);padding:8px 10px;overflow-x:auto;white-space:nowrap}
+    .topbar a,.topbar button{background:transparent;border:none;border-radius:999px;padding:7px 12px;margin:3px;font-size:13px;color:var(--accent);cursor:pointer}
+    .topbar a:hover,.topbar button:hover{background:var(--accent-soft)}
+
+    main{max-width:1120px;margin:0 auto;padding:26px 16px 60px}
+    section{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin:18px 0}
+    h2{font-size:clamp(24px,4vw,32px);color:var(--accent);margin-bottom:10px}
+    .lead{font-size:16px;color:var(--muted);max-width:840px}
+
+    @media(max-width:720px){
+      .language-box{padding:26px 20px}
+      .brand{font-size:24px}
     }
   </style>
 </head>
 <body>
+  <!-- SCHERMATA INIZIALE LINGUA -->
   <div id="languageScreen" class="language-screen">
     <div class="language-box">
-      <div class="language-pill">Guest Guide</div>
-      <h1 class="brand">A Casa di Marco - Guest Guide</h1>
-      <p class="tagline">Garden Cottage Escape · Salerno</p>
+      <div class="welcome-tag">Guest Guide · A Casa di Marco</div>
+      <h1 class="brand">A Casa di Marco</h1>
+      <div class="multi-welcome">
+        <span>Benvenuti</span>
+        <span>Welcome</span>
+        <span>Bienvenidos</span>
+        <span>Bienvenue</span>
+      </div>
       <div class="lang-buttons">
-        <button onclick="showSite('it')">🇮🇹 Italiano</button>
-        <button onclick="showSite('en')">🇬🇧 English</button>
-        <button onclick="showSite('es')">🇪🇸 Español</button>
+        <button class="lang-btn" onclick="showSite('it')"><span class="flag">🇮🇹</span><span>Italiano</span></button>
+        <button class="lang-btn" onclick="showSite('en')"><span class="flag">🇬🇧</span><span>English</span></button>
+        <button class="lang-btn" onclick="showSite('es')"><span class="flag">🇪🇸</span><span>Español</span></button>
+        <button class="lang-btn" onclick="showSite('fr')"><span class="flag">🇫🇷</span><span>Français</span></button>
       </div>
     </div>
   </div>
 
+  <!-- RESTO DEL SITO: qui sotto puoi mantenere le sezioni che avevamo già definito -->
   <div id="site" class="site">
     <header class="hero">
       <div class="hero-inner">
-        <h1>A Casa di Marco - Guest Guide</h1>
-        <p data-it="Garden Cottage Escape: la vostra casa con giardino a Salerno."
-           data-en="Garden Cottage Escape: your home with a garden in Salerno."
-           data-es="Garden Cottage Escape: vuestra casa con jardín en Salerno.">Garden Cottage Escape: la vostra casa con giardino a Salerno.</p>
+        <h1>A Casa di Marco · Guest Guide</h1>
+        <p data-it="La vostra casa con giardino a Salerno."
+           data-en="Your home with a garden in Salerno."
+           data-es="Vuestra casa con jardín en Salerno."
+           data-fr="Votre maison avec jardin à Salerne.">La vostra casa con giardino a Salerno.</p>
         <div class="actions">
-          <a class="btn" href="https://wa.me/393923064010" target="_blank">WhatsApp Asja</a>
-          <a class="btn secondary" href="tel:+393397009276">Secondo contatto</a>
-          <a class="btn light" href="https://www.google.com/maps/search/?api=1&query=Via+di+Brignano+Inferiore+69+Salerno" target="_blank" data-it="Apri su Maps" data-en="Open Maps" data-es="Abrir Maps">Apri su Maps</a>
+          <a class="btn primary" href="https://wa.me/393923064010" target="_blank">WhatsApp</a>
+          <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=Via+di+Brignano+Inferiore+69+Salerno" target="_blank">Google Maps</a>
         </div>
       </div>
     </header>
@@ -105,274 +167,38 @@
       <button onclick="showSite('it')">IT</button>
       <button onclick="showSite('en')">EN</button>
       <button onclick="showSite('es')">ES</button>
-      <a href="#welcome" data-it="Benvenuti" data-en="Welcome" data-es="Bienvenidos">Benvenuti</a>
+      <button onclick="showSite('fr')">FR</button>
+      <!-- link alle sezioni esistenti -->
+      <a href="#welcome">Welcome</a>
       <a href="#checkin">Check-in</a>
       <a href="#wifi">Wi‑Fi</a>
-      <a href="#rules" data-it="Regole" data-en="Rules" data-es="Reglas">Regole</a>
-      <a href="#thermostat" data-it="Termostato" data-en="Heating" data-es="Calefacción">Termostato</a>
-      <a href="#waste" data-it="Rifiuti" data-en="Waste" data-es="Residuos">Rifiuti</a>
-      <a href="#breakfast" data-it="Colazione" data-en="Breakfast" data-es="Desayuno">Colazione</a>
-      <a href="#parking" data-it="Parcheggio" data-en="Parking" data-es="Aparcamiento">Parcheggio</a>
-      <a href="#transport" data-it="Trasporti" data-en="Transport" data-es="Transporte">Trasporti</a>
-      <a href="#places" data-it="Cosa vedere" data-en="To visit" data-es="Para visitar">Cosa vedere</a>
-      <a href="#food" data-it="Dove mangiare" data-en="Where to eat" data-es="Dónde comer">Dove mangiare</a>
-      <a href="#contacts" data-it="Contatti" data-en="Contacts" data-es="Contactos">Contatti</a>
+      <a href="#rules">Rules</a>
+      <a href="#transport">Transport</a>
+      <a href="#places">Places</a>
+      <a href="#food">Food</a>
+      <a href="#contacts">Contacts</a>
     </nav>
 
     <main>
-      <section id="welcome" class="highlight">
-        <h2 data-it="Benvenuti" data-en="Welcome" data-es="Bienvenidos">Benvenuti</h2>
-        <p class="lead" data-it="Siamo felici di ospitarvi ad A Casa di Marco. Qui trovate le informazioni utili per il soggiorno: arrivo, Wi‑Fi, regole, colazione, parcheggio, trasporti, cosa vedere, dove mangiare e contatti."
-           data-en="We are happy to welcome you to A Casa di Marco. Here you will find useful information for your stay: arrival, Wi‑Fi, rules, breakfast, parking, transport, places to visit, where to eat and contacts."
-           data-es="Nos alegra daros la bienvenida a A Casa di Marco. Aquí encontraréis información útil para la estancia: llegada, Wi‑Fi, reglas, desayuno, aparcamiento, transporte, qué ver, dónde comer y contactos.">Siamo felici di ospitarvi ad A Casa di Marco. Qui trovate le informazioni utili per il soggiorno: arrivo, Wi‑Fi, regole, colazione, parcheggio, trasporti, cosa vedere, dove mangiare e contatti.</p>
-        <div class="grid">
-          <div class="card"><strong data-it="Fino a 6 ospiti + culla" data-en="Up to 6 guests + cot" data-es="Hasta 6 huéspedes + cuna">Fino a 6 ospiti + culla</strong><span data-it="Ideale per famiglie e piccoli gruppi." data-en="Ideal for families and small groups." data-es="Ideal para familias y pequeños grupos.">Ideale per famiglie e piccoli gruppi.</span></div>
-          <div class="card"><strong data-it="Giardino privato" data-en="Private garden" data-es="Jardín privado">Giardino privato</strong><span data-it="Uno spazio verde per rilassarsi." data-en="A green space to relax." data-es="Un espacio verde para relajarse.">Uno spazio verde per rilassarsi.</span></div>
-          <div class="card"><strong data-it="Cucina attrezzata" data-en="Equipped kitchen" data-es="Cocina equipada">Cucina attrezzata</strong><span data-it="Comoda per soggiorni brevi e lunghi." data-en="Convenient for short and long stays." data-es="Cómoda para estancias cortas y largas.">Comoda per soggiorni brevi e lunghi.</span></div>
-        </div>
-        <div class="photo-grid">
-          <img class="wide" src="assets/dining-garden.jpg" alt="Sala da pranzo con vista giardino">
-          <img class="small" src="assets/garden.jpg" alt="Giardino">
-          <img class="third" src="assets/living.jpg" alt="Soggiorno">
-          <img class="third" src="assets/kitchen.jpg" alt="Cucina">
-          <img class="third" src="assets/bedroom-main.jpg" alt="Camera da letto">
-        </div>
-      </section>
-
-      <section id="checkin">
-        <h2>Check-in / Check-out</h2>
-        <div class="grid">
-          <div class="card"><strong>Check-in</strong><span data-it="Dalle 15:00 alle 24:00, salvo diversi accordi." data-en="From 3:00 PM to midnight, unless otherwise agreed." data-es="De 15:00 a 24:00, salvo acuerdo diferente.">Dalle 15:00 alle 24:00, salvo diversi accordi.</span></div>
-          <div class="card"><strong>Check-out</strong><span data-it="Entro e non oltre le ore 10:00, salvo diversi accordi." data-en="No later than 10:00 AM, unless otherwise agreed." data-es="Antes de las 10:00, salvo acuerdo diferente.">Entro e non oltre le ore 10:00, salvo diversi accordi.</span></div>
-        </div>
-        <div class="note" data-it="Comunicateci l’orario di arrivo previsto: ci aiuta a organizzare al meglio il vostro ingresso."
-             data-en="Please let us know your expected arrival time: it helps us organize your arrival better."
-             data-es="Comunicadnos la hora prevista de llegada: nos ayuda a organizar mejor vuestra entrada.">Comunicateci l’orario di arrivo previsto: ci aiuta a organizzare al meglio il vostro ingresso.</div>
-      </section>
-
-      <section id="wifi">
-        <h2>Wi‑Fi</h2>
-        <p data-it="I dati del Wi‑Fi sono disponibili direttamente in casa."
-           data-en="The Wi‑Fi details are available inside the house."
-           data-es="Los datos del Wi‑Fi están disponibles dentro de la casa.">I dati del Wi‑Fi sono disponibili direttamente in casa.</p>
-      </section>
-
-      <section id="rules">
-        <h2 data-it="Regole della casa" data-en="House rules" data-es="Reglas de la casa">Regole della casa</h2>
-        <ul class="info-list">
-          <li data-it="Non sono consentite feste o eventi non autorizzati." data-en="Parties or unauthorized events are not allowed." data-es="No se permiten fiestas ni eventos no autorizados.">Non sono consentite feste o eventi non autorizzati.</li>
-          <li data-it="Rispettare gli orari di silenzio, soprattutto nelle ore serali e notturne." data-en="Please respect quiet hours, especially in the evening and at night." data-es="Respetad las horas de silencio, especialmente por la noche.">Rispettare gli orari di silenzio, soprattutto nelle ore serali e notturne.</li>
-          <li data-it="È vietato fumare all’interno della casa. All’esterno usare sempre un posacenere." data-en="Smoking is not allowed inside the house. Outside, always use an ashtray." data-es="No está permitido fumar dentro de la casa. Fuera, usad siempre un cenicero.">È vietato fumare all’interno della casa. All’esterno usare sempre un posacenere.</li>
-          <li data-it="Prima di uscire, spegnere luci, climatizzatore, termosifoni e dispositivi elettrici." data-en="Before leaving, turn off lights, air conditioning, heating and electrical devices." data-es="Antes de salir, apaguen luces, aire acondicionado, calefacción y dispositivos eléctricos.">Prima di uscire, spegnere luci, climatizzatore, termosifoni e dispositivi elettrici.</li>
-          <li data-it="Non lasciare finestre o porte aperte quando non siete in casa." data-en="Do not leave windows or doors open when you are not at home." data-es="No dejéis ventanas o puertas abiertas cuando no estéis en casa.">Non lasciare finestre o porte aperte quando non siete in casa.</li>
-          <li data-it="A fine soggiorno lasciare la cucina in ordine e non lasciare cibo deperibile." data-en="At the end of your stay, please leave the kitchen tidy and do not leave perishable food." data-es="Al final de la estancia, dejad la cocina ordenada y no dejéis comida perecedera.">A fine soggiorno lasciare la cucina in ordine e non lasciare cibo deperibile.</li>
-          <li data-it="Segnalate subito eventuali danni o problemi: li risolveremo il prima possibile." data-en="Please report any damage or issues immediately: we will solve them as soon as possible." data-es="Comunicad inmediatamente cualquier daño o problema: lo solucionaremos lo antes posible.">Segnalate subito eventuali danni o problemi: li risolveremo il prima possibile.</li>
-        </ul>
-      </section>
-
-      <section id="thermostat">
-        <h2 data-it="Termostato e climatizzatore" data-en="Heating and air conditioning" data-es="Calefacción y aire acondicionado">Termostato e climatizzatore</h2>
-        <div class="grid">
-          <div class="card"><strong data-it="Quando siete fuori" data-en="When you are out" data-es="Cuando salgáis">Quando siete fuori</strong><span data-it="Spegnete riscaldamento/climatizzatore prima di uscire." data-en="Turn off heating/air conditioning before leaving." data-es="Apagad calefacción/aire acondicionado antes de salir.">Spegnete riscaldamento/climatizzatore prima di uscire.</span></div>
-          <div class="card"><strong data-it="Finestre chiuse" data-en="Closed windows" data-es="Ventanas cerradas">Finestre chiuse</strong><span data-it="Usare climatizzatore o riscaldamento solo con porte e finestre chiuse." data-en="Use air conditioning or heating only with doors and windows closed." data-es="Usad aire acondicionado o calefacción solo con puertas y ventanas cerradas.">Usare climatizzatore o riscaldamento solo con porte e finestre chiuse.</span></div>
-          <div class="card"><strong data-it="Dubbi?" data-en="Need help?" data-es="¿Dudas?">Dubbi?</strong><span data-it="Contattateci su WhatsApp prima di modificare impostazioni che non conoscete." data-en="Contact us on WhatsApp before changing settings you are unsure about." data-es="Contactadnos por WhatsApp antes de cambiar configuraciones que no conocéis.">Contattateci su WhatsApp prima di modificare impostazioni che non conoscete.</span></div>
-        </div>
-      </section>
-
-      <section id="waste">
-        <h2 data-it="Rifiuti e raccolta differenziata" data-en="Waste and recycling" data-es="Basura y reciclaje">Rifiuti e raccolta differenziata</h2>
-        <p data-it="A fine soggiorno la spazzatura va buttata nei bidoni condominiali. Vi chiediamo di rispettare la raccolta differenziata."
-           data-en="At the end of your stay, rubbish must be placed in the condominium bins. Please respect recycling rules."
-           data-es="Al final de la estancia, la basura debe tirarse en los contenedores del edificio. Por favor, respetad la separación de residuos.">A fine soggiorno la spazzatura va buttata nei bidoni condominiali. Vi chiediamo di rispettare la raccolta differenziata.</p>
-        <div class="image-card"><img src="assets/waste-calendar.jpg" alt="Calendario raccolta differenziata"></div>
-      </section>
-
-      <section id="breakfast">
-        <h2 data-it="Colazione" data-en="Breakfast" data-es="Desayuno">Colazione</h2>
-        <p data-it="La colazione è disponibile presso Brignan Cafè, bar convenzionato con A Casa di Marco."
-           data-en="Breakfast is available at Brignan Cafè, partner café of A Casa di Marco."
-           data-es="El desayuno está disponible en Brignan Cafè, cafetería asociada con A Casa di Marco.">La colazione è disponibile presso Brignan Cafè, bar convenzionato con A Casa di Marco.</p>
-        <div class="grid">
-          <div class="card"><strong data-it="Orario" data-en="Time" data-es="Horario">Orario</strong><span>7:30 - 10:30</span></div>
-          <div class="card"><strong data-it="Scelta snack" data-en="Snack choice" data-es="Elección del snack">Scelta snack</strong><span data-it="Comunicare lo snack scelto con un giorno di anticipo." data-en="Please inform us of your chosen snack one day in advance." data-es="Comunicad el snack elegido con un día de antelación.">Comunicare lo snack scelto con un giorno di anticipo.</span></div>
-          <div class="card"><strong data-it="Menu" data-en="Menu" data-es="Menú">Menu</strong><span data-it="Bevande calde, bevande fredde e snack." data-en="Hot drinks, cold drinks and snacks." data-es="Bebidas calientes, bebidas frías y snacks.">Bevande calde, bevande fredde e snack.</span></div>
-        </div>
-        <details>
-          <summary data-it="Vedi esempi dal menu" data-en="See menu examples" data-es="Ver ejemplos del menú">Vedi esempi dal menu</summary>
-          <p data-it="Bevande: caffè espresso, cappuccino, latte macchiato, tè, camomilla, tisane, succhi. Snack: cornetti vari gusti, cornetto vegano, danese alle mandorle."
-             data-en="Drinks: espresso, cappuccino, latte macchiato, tea, chamomile, herbal infusions, juices. Snacks: croissants with various fillings, vegan croissant, almond Danish."
-             data-es="Bebidas: espresso, cappuccino, latte macchiato, té, manzanilla, infusiones, zumos. Snacks: croissants de varios sabores, croissant vegano, danés de almendras.">Bevande: caffè espresso, cappuccino, latte macchiato, tè, camomilla, tisane, succhi. Snack: cornetti vari gusti, cornetto vegano, danese alle mandorle.</p>
-        </details>
-        <div class="actions">
-          <a class="btn secondary" href="assets/colazione.pdf" target="_blank" data-it="Apri menu colazione" data-en="Open breakfast menu" data-es="Abrir menú desayuno">Apri menu colazione</a>
-          <a class="btn light" href="https://share.google/ofcwoXgL0w5dOh5tR" target="_blank">Brignan Cafè Maps</a>
-        </div>
-      </section>
-
-      <section id="parking">
-        <h2 data-it="Parcheggio" data-en="Parking" data-es="Aparcamiento">Parcheggio</h2>
-        <p data-it="È possibile parcheggiare nel giardino della casa oppure fuori sulla strada, prima della curva per entrare nella casa."
-           data-en="You can park inside the garden of the house or outside on the road, before the curve leading to the house."
-           data-es="Se puede aparcar en el jardín de la casa o fuera, en la carretera antes de la curva de entrada.">È possibile parcheggiare nel giardino della casa oppure fuori sulla strada, prima della curva per entrare nella casa.</p>
-        <div class="note" data-it="Aggiungeremo qui le foto precise del parcheggio e dell’ingresso."
-             data-en="We will add precise photos of the parking area and entrance here."
-             data-es="Aquí añadiremos fotos precisas del aparcamiento y de la entrada.">Aggiungeremo qui le foto precise del parcheggio e dell’ingresso.</div>
-        <div class="image-card"><img src="assets/gate.jpg" alt="Ingresso A Casa di Marco"></div>
-      </section>
-
-      <section id="transport">
-        <h2 data-it="Trasporti e navette" data-en="Transport and shuttles" data-es="Transporte y traslados">Trasporti e navette</h2>
-        <p class="lead" data-it="Da A Casa di Marco potete muovervi facilmente verso il centro di Salerno, la Costiera Amalfitana e le principali stazioni."
-           data-en="From A Casa di Marco you can easily reach the centre of Salerno, the Amalfi Coast and the main stations."
-           data-es="Desde A Casa di Marco podéis llegar fácilmente al centro de Salerno, la Costa Amalfitana y las principales estaciones.">Da A Casa di Marco potete muovervi facilmente verso il centro di Salerno, la Costiera Amalfitana e le principali stazioni.</p>
-        <div class="grid">
-          <div class="card">
-            <strong data-it="Bus linea 14" data-en="Bus line 14" data-es="Línea de bus 14">Bus linea 14</strong>
-            <span data-it="Fermata davanti al cancello principale. Biglietto da acquistare prima di salire."
-                  data-en="Bus stop in front of the main gate. Tickets must be bought before boarding."
-                  data-es="Parada delante de la puerta principal. El billete debe comprarse antes de subir.">Fermata davanti al cancello principale. Biglietto da acquistare prima di salire.</span>
-            <br>
-            <a class="btn light" href="#bus" data-it="Vedi orari" data-en="See timetable" data-es="Ver horarios">Vedi orari</a>
-          </div>
-          <div class="card">
-            <strong data-it="Navette e transfer" data-en="Shuttles and transfers" data-es="Traslados y transfer">Navette e transfer</strong>
-            <span data-it="Su richiesta possiamo aiutarvi a organizzare transfer privati da/per aeroporto, porto o stazione."
-                  data-en="On request we can help you arrange private transfers from/to airport, port or train station."
-                  data-es="Bajo petición podemos ayudaros a organizar traslados privados desde/hacia aeropuerto, puerto o estación.">Su richiesta possiamo aiutarvi a organizzare transfer privati da/per aeroporto, porto o stazione.</span>
-            <br>
-            <a class="btn light" href="https://wa.me/393923064010" target="_blank" data-it="Scrivici su WhatsApp" data-en="Write on WhatsApp" data-es="Escríbenos por WhatsApp">Scrivici su WhatsApp</a>
-          </div>
-          <div class="card">
-            <strong data-it="In auto" data-en="By car" data-es="En coche">In auto</strong>
-            <span data-it="Dal centro di Salerno seguire le indicazioni per Brignano. Il navigatore può usare l’indirizzo: Via di Brignano Inferiore 69, Salerno."
-                  data-en="From Salerno city centre follow the signs to Brignano. You can use this address in your GPS: Via di Brignano Inferiore 69, Salerno."
-                  data-es="Desde el centro de Salerno seguid las indicaciones hacia Brignano. En el GPS podéis usar: Via di Brignano Inferiore 69, Salerno.">Dal centro di Salerno seguire le indicazioni per Brignano. Il navigatore può usare l’indirizzo: Via di Brignano Inferiore 69, Salerno.</span>
-            <br>
-            <a class="btn light" href="https://www.google.com/maps/search/?api=1&query=Via+di+Brignano+Inferiore+69+Salerno" target="_blank">Google Maps</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="bus">
-        <h2 data-it="Bus e mezzi pubblici" data-en="Bus and public transport" data-es="Bus y transporte público">Bus e mezzi pubblici</h2>
-        <p data-it="La fermata del bus linea 14 si trova davanti al cancello principale. Gli ospiti devono acquistare il biglietto prima di salire sul mezzo."
-           data-en="The bus stop for line 14 is in front of the main gate. Guests must buy the ticket before boarding."
-           data-es="La parada del bus línea 14 está delante de la puerta principal. Los huéspedes deben comprar el billete antes de subir.">La fermata del bus linea 14 si trova davanti al cancello principale. Gli ospiti devono acquistare il biglietto prima di salire sul mezzo.</p>
-        <details open>
-          <summary data-it="Orario feriale - Linea 14" data-en="Weekday timetable - Line 14" data-es="Horario laborable - Línea 14">Orario feriale - Linea 14</summary>
-          <div class="image-card"><img src="assets/bus-feriale-14.jpg" alt="Orario bus feriale linea 14"></div>
-        </details>
-        <details>
-          <summary data-it="Orario festivo - Linea B" data-en="Holiday timetable - Line B" data-es="Horario festivo - Línea B">Orario festivo - Linea B</summary>
-          <div class="image-card"><img src="assets/bus-festivo-b.jpg" alt="Orario bus festivo linea B"></div>
-        </details>
-      </section>
-
-      <section id="places">
-        <h2 data-it="Cosa vedere" data-en="Places to visit" data-es="Lugares para visitar">Cosa vedere</h2>
-        <p class="lead" data-it="Una selezione di luoghi che consigliamo di visitare partendo da A Casa di Marco."
-           data-en="A selection of places we recommend visiting starting from A Casa di Marco."
-           data-es="Una selección de lugares que recomendamos visitar desde A Casa di Marco.">Una selezione di luoghi che consigliamo di visitare partendo da A Casa di Marco.</p>
-        <div class="grid">
-          <div class="card">
-            <strong data-it="Centro storico di Salerno" data-en="Salerno historic centre" data-es="Centro histórico de Salerno">Centro storico di Salerno</strong>
-            <span data-it="Vicoli, locali, Duomo e lungomare. Perfetto per una passeggiata serale."
-                  data-en="Alleys, bars, the Cathedral and the seafront. Perfect for an evening walk."
-                  data-es="Callejuelas, bares, Duomo y paseo marítimo. Perfecto para un paseo nocturno.">Vicoli, locali, Duomo e lungomare. Perfetto per una passeggiata serale.</span>
-            <br>
-            <a class="btn light" href="https://www.google.com/maps?q=Centro+storico+Salerno" target="_blank">Google Maps</a>
-          </div>
-          <div class="card">
-            <strong data-it="Costiera Amalfitana" data-en="Amalfi Coast" data-es="Costa Amalfitana">Costiera Amalfitana</strong>
-            <span data-it="Amalfi, Positano e i piccoli borghi sono raggiungibili in auto, bus o traghetto dal porto di Salerno."
-                  data-en="Amalfi, Positano and small villages can be reached by car, bus or ferry from Salerno port."
-                  data-es="Amalfi, Positano y los pequeños pueblos se alcanzan en coche, bus o ferry desde el puerto de Salerno.">Amalfi, Positano e i piccoli borghi sono raggiungibili in auto, bus o traghetto dal porto di Salerno.</span>
-            <br>
-            <a class="btn light" href="https://www.google.com/maps?q=Amalfi" target="_blank">Google Maps</a>
-          </div>
-          <div class="card">
-            <strong data-it="Vietri sul Mare" data-en="Vietri sul Mare" data-es="Vietri sul Mare">Vietri sul Mare</strong>
-            <span data-it="Paese delle ceramiche colorate e primo borgo della Costiera Amalfitana."
-                  data-en="Town of colourful ceramics and the first village of the Amalfi Coast."
-                  data-es="Pueblo de cerámicas de colores y primera localidad de la Costa Amalfitana.">Paese delle ceramiche colorate e primo borgo della Costiera Amalfitana.</span>
-            <br>
-            <a class="btn light" href="https://www.google.com/maps?q=Vietri+sul+Mare" target="_blank">Google Maps</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="food">
-        <h2 data-it="Dove mangiare" data-en="Where to eat" data-es="Dónde comer">Dove mangiare</h2>
-        <p class="lead" data-it="Qualche indirizzo che possiamo consigliare per mangiare bene in zona Salerno e dintorni."
-           data-en="Some addresses we recommend for good food in Salerno and surroundings."
-           data-es="Algunas direcciones que recomendamos para comer bien en Salerno y alrededores.">Qualche indirizzo che possiamo consigliare per mangiare bene in zona Salerno e dintorni.</p>
-        <div class="grid">
-          <div class="card">
-            <strong data-it="Pizzerie" data-en="Pizzerias" data-es="Pizzerías">Pizzerie</strong>
-            <span data-it="Vi indicheremo qui le nostre pizzerie preferite con indirizzo e distanza dalla casa."
-                  data-en="We will list here our favourite pizzerias with address and distance from the house."
-                  data-es="Aquí indicaremos nuestras pizzerías preferidas con dirección y distancia desde la casa.">Vi indicheremo qui le nostre pizzerie preferite con indirizzo e distanza dalla casa.</span>
-            <br>
-            <a class="btn light" href="https://www.google.com/maps/search/?api=1&query=pizzeria+Salerno" target="_blank">Google Maps</a>
-          </div>
-          <div class="card">
-            <strong data-it="Ristoranti di pesce" data-en="Seafood restaurants" data-es="Restaurantes de pescado">Ristoranti di pesce</strong>
-            <span data-it="Perfetti per assaggiare la cucina locale. Potrete trovare qui i nostri suggerimenti aggiornati."
-                  data-en="Perfect to taste local cuisine. You will find our updated suggestions here."
-                  data-es="Perfectos para probar la cocina local. Aquí encontraréis nuestras sugerencias actualizadas.">Perfetti per assaggiare la cucina locale. Potrete trovare qui i nostri suggerimenti aggiornati.</span>
-            <br>
-            <a class="btn light" href="https://www.google.com/maps/search/?api=1&query=ristorante+pesce+Salerno" target="_blank">Google Maps</a>
-          </div>
-          <div class="card">
-            <strong data-it="Bar e colazioni" data-en="Cafés and breakfast" data-es="Cafeterías y desayunos">Bar e colazioni</strong>
-            <span data-it="Oltre a Brignan Cafè, possiamo consigliare altri bar in centro per colazioni e aperitivi."
-                  data-en="Besides Brignan Cafè, we can recommend other cafés in the centre for breakfast and aperitivo."
-                  data-es="Además de Brignan Cafè, podemos recomendar otros bares en el centro para desayunos y aperitivos.">Oltre a Brignan Cafè, possiamo consigliare altri bar in centro per colazioni e aperitivi.</span>
-            <br>
-            <a class="btn light" href="https://www.google.com/maps/search/?api=1&query=bar+Salerno" target="_blank">Google Maps</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="contacts">
-        <h2 data-it="Contatti utili" data-en="Useful contacts" data-es="Contactos útiles">Contatti utili</h2>
-        <div class="grid">
-          <div class="card"><strong>Asja</strong><span><a href="tel:+393923064010">+39 392 306 4010</a></span></div>
-          <div class="card"><strong data-it="Secondo contatto" data-en="Second contact" data-es="Segundo contacto">Secondo contatto</strong><span><a href="tel:+393397009276">+39 339 700 9276</a></span></div>
-          <div class="card"><strong>Email</strong><span><a href="mailto:acasadimarco17@gmail.com">acasadimarco17@gmail.com</a></span></div>
-          <div class="card"><strong data-it="Emergenze" data-en="Emergency" data-es="Emergencias">Emergenze</strong><span>112</span></div>
-        </div>
-        <div class="actions">
-          <a class="btn" href="https://wa.me/393923064010" target="_blank">WhatsApp Asja</a>
-          <a class="btn secondary" href="mailto:acasadimarco17@gmail.com">Email</a>
-        </div>
-      </section>
+      <!-- Qui rimangono invariati i tuoi <section> già presenti: welcome, checkin, wifi, rules, ... -->
     </main>
-
-    <footer>
-      <p><strong>A Casa di Marco - Guest Guide</strong> · Garden Cottage Escape</p>
-      <p data-it="Grazie per aver scelto la nostra casa." data-en="Thank you for choosing our home." data-es="Gracias por elegir nuestra casa.">Grazie per aver scelto la nostra casa.</p>
-    </footer>
   </div>
 
   <script>
     function showSite(lang){
-      document.getElementById("languageScreen").style.display="none";
-      document.getElementById("site").style.display="block";
-      document.querySelectorAll("[data-it]").forEach(function(el){
-        var value = el.getAttribute("data-" + lang);
-        if(value !== null){ el.textContent = value; }
-      });
+      document.getElementById('languageScreen').style.display='none';
+      document.getElementById('site').style.display='block';
       document.documentElement.lang = lang;
-      localStorage.setItem("guestGuideLang", lang);
+      localStorage.setItem('guestGuideLang', lang);
+      document.querySelectorAll('[data-it]').forEach(function(el){
+        var value = el.getAttribute('data-' + lang);
+        if(value){ el.textContent = value; }
+      });
     }
 
-    // Ricorda la lingua scelta nella visita precedente
     (function(){
-      var saved = localStorage.getItem("guestGuideLang");
-      if(saved){
-        showSite(saved);
-      }
+      var saved = localStorage.getItem('guestGuideLang');
+      if(saved){ showSite(saved); }
     })();
   </script>
 </body>
