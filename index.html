@@ -727,8 +727,6 @@
         if (val) el.textContent = val;
       });
 
-      try { localStorage.setItem('guestGuideLang', lang); } catch (e) {}
-
       if (location.hash !== '#' + lang) {
         history.pushState(null, '', '#' + lang);
       }
@@ -753,14 +751,7 @@
         } else if (hash === '#lang') {
           showLangScreen();
         } else {
-          var saved = null;
-          try { saved = localStorage.getItem('guestGuideLang'); } catch (e) {}
-          if (saved === 'it' || saved === 'en' || saved === 'es' || saved === 'fr') {
-            history.replaceState(null, '', '#' + saved);
-            showSite(saved);
-          } else {
-            showLangScreen();
-          }
+          showLangScreen();
         }
       }
 
