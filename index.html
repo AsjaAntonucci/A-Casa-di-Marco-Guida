@@ -486,15 +486,15 @@
 
       <section id="home-menu" class="home-menu">
         <h2>Guida ospiti</h2>
-        <div class="page-buttons">
-          <a href="checkin.html">Check-in / Check-out</a>
-          <a href="regole.html">Regole della casa</a>
-          <a href="luoghi.html">Luoghi da visitare</a>
-          <a href="mangiare.html">Dove mangiare</a>
-          <a href="parcheggio.html">Dove parcheggiare</a>
-          <a href="spesa.html">Dove fare la spesa</a>
-          <a href="colazione.html">Colazione</a>
-          <a href="trasporti.html">Trasporti</a>
+          <div class="page-buttons">
+          <a data-href="checkin.html" href="checkin.html">Check-in / Check-out</a>
+          <a data-href="regole.html" href="regole.html">Regole della casa</a>
+          <a data-href="luoghi.html" href="luoghi.html">Luoghi da visitare</a>
+          <a data-href="mangiare.html" href="mangiare.html">Dove mangiare</a>
+          <a data-href="parcheggio.html" href="parcheggio.html">Dove parcheggiare</a>
+          <a data-href="spesa.html" href="spesa.html">Dove fare la spesa</a>
+          <a data-href="colazione.html" href="colazione.html">Colazione</a>
+          <a data-href="trasporti.html" href="trasporti.html">Trasporti</a>
         </div>
       </section>
 
@@ -517,12 +517,33 @@
   </div>
 
   <script>
-    function showSite(lang) {
-      document.getElementById('lang-screen').style.display = 'none';
-      document.getElementById('site').style.display = 'block';
+    function applyLanguage(lang) {
       document.documentElement.lang = lang || 'it';
 
-      if (lang && location.hash !== '#' + lang) {
+      document.querySelectorAll('[data-it]').forEach(function (el) {
+        var val = el.getAttribute('data-' + lang);
+        if (val) el.textContent = val;
+      });
+
+      document.querySelectorAll('a[data-href]').forEach(function (link) {
+        var base = link.getAttribute('data-href');
+        link.setAttribute('href', base + '?lang=' + lang);
+      });
+
+      try {
+        localStorage.setItem('guestGuideLang', lang);
+      } catch (e) {}
+    }
+
+    function showSite(lang) {
+      lang = lang || 'it';
+
+      document.getElementById('lang-screen').style.display = 'none';
+      document.getElementById('site').style.display = 'block';
+
+      applyLanguage(lang);
+
+      if (location.hash !== '#' + lang) {
         history.pushState(null, '', '#' + lang);
       }
     }
@@ -531,6 +552,7 @@
       document.getElementById('lang-screen').style.display = 'flex';
       document.getElementById('site').style.display = 'none';
       document.documentElement.lang = 'it';
+
       if (location.hash !== '#lang') {
         history.pushState(null, '', '#lang');
       }
@@ -554,13 +576,12 @@
 
       window.addEventListener('hashchange', function () {
         var hash = location.hash || '';
+        var lang = hash.replace('#', '');
+
         if (hash === '#lang') {
           showLangScreen();
-        } else {
-          var lang = hash.replace('#', '');
-          if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
-            showSite(lang);
-          }
+        } else if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
+          showSite(lang);
         }
       });
     })();

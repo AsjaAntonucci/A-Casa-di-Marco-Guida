@@ -24,19 +24,61 @@
   </style>
 </head>
 <body>
-  <header class="page-hero"><div><h1>Colazione</h1></div></header>
+  <header class="page-hero"><div><h1 data-it="Colazione" data-en="Breakfast" data-es="Desayuno" data-fr="Petit-déjeuner">Colazione</h1></div></header>
   <main>
-    <a class="back-home" href="index.html">← Torna alla home</a>
+    <a class="back-home" href="index.html" data-it="← Torna alla home" data-en="← Back to home" data-es="← Volver a la home" data-fr="← Retour à l'accueil">← Torna alla home</a>
     <section>
-      <h2>Colazione</h2>
-      <p>La colazione è disponibile presso Brignan Cafè, bar convenzionato con A Casa di Marco.</p>
+      <h2 data-it="Colazione" data-en="Breakfast" data-es="Desayuno" data-fr="Petit-déjeuner">Colazione</h2>
+      <p data-it="La colazione è disponibile presso Brignan Cafè, bar convenzionato con A Casa di Marco." data-en="Breakfast is available at Brignan Cafè, partner café of A Casa di Marco." data-es="El desayuno está disponible en Brignan Cafè, cafetería asociada con A Casa di Marco." data-fr="Le petit-déjeuner est disponible au Brignan Cafè, café partenaire de A Casa di Marco.">La colazione è disponibile presso Brignan Cafè, bar convenzionato con A Casa di Marco.</p>
       <ul class="info-list">
-        <li>La colazione è disponibile dalle 7:30 alle 10:30.</li>
-        <li>Vi chiediamo gentilmente di comunicarci gli snack scelti con un giorno di anticipo.</li>
-        <li>Il menù comprende bevande calde, bevande fredde e snack.</li>
+        <li data-it="La colazione è disponibile dalle 7:30 alle 10:30." data-en="Breakfast is available from 7:30 to 10:30." data-es="El desayuno está disponible de 7:30 a 10:30." data-fr="Le petit-déjeuner est disponible de 7h30 à 10h30.">La colazione è disponibile dalle 7:30 alle 10:30.</li>
+        <li data-it="Vi chiediamo gentilmente di comunicarci gli snack scelti con un giorno di anticipo." data-en="Please let us know your chosen snacks one day in advance." data-es="Os pedimos que nos comuniquéis los snacks elegidos con un día de antelación." data-fr="Merci de nous communiquer les snacks choisis un jour à l'avance.">Vi chiediamo gentilmente di comunicarci gli snack scelti con un giorno di anticipo.</li>
+        <li data-it="Il menù comprende bevande calde, bevande fredde e snack." data-en="The menu includes hot drinks, cold drinks and snacks." data-es="El menú incluye bebidas calientes, bebidas frías y snacks." data-fr="Le menu comprend des boissons chaudes, des boissons froides et des snacks.">Il menù comprende bevande calde, bevande fredde e snack.</li>
       </ul>
-      <a class="btn" href="assets/colazione.pdf" target="_blank">Apri menù colazione</a>
+      <a class="btn" href="assets/colazione.pdf" target="_blank" data-it="Apri menù colazione" data-en="Open breakfast menu" data-es="Abrir menú desayuno" data-fr="Ouvrir le menu du petit-déjeuner">Apri menù colazione</a>
     </section>
   </main>
+  <script>
+    function getCurrentLang() {
+      var params = new URLSearchParams(window.location.search);
+      var lang = params.get('lang');
+
+      if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
+        return lang;
+      }
+
+      try {
+        lang = localStorage.getItem('guestGuideLang');
+      } catch (e) {
+        lang = null;
+      }
+
+      if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
+        return lang;
+      }
+
+      return 'it';
+    }
+
+    function applyLanguage(lang) {
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-it]').forEach(function (el) {
+        var val = el.getAttribute('data-' + lang);
+        if (val) el.textContent = val;
+      });
+
+      var homeLink = document.querySelector('.back-home');
+      if (homeLink) {
+        homeLink.setAttribute('href', 'index.html#' + lang);
+      }
+
+      try {
+        localStorage.setItem('guestGuideLang', lang);
+      } catch (e) {}
+    }
+
+    applyLanguage(getCurrentLang());
+  </script>
 </body>
 </html>

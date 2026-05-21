@@ -31,5 +31,47 @@
       <div class="img-card"><img src="assets/gate.jpg" alt="Ingresso A Casa di Marco"></div>
     </section>
   </main>
+  <script>
+    function getCurrentLang() {
+      var params = new URLSearchParams(window.location.search);
+      var lang = params.get('lang');
+
+      if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
+        return lang;
+      }
+
+      try {
+        lang = localStorage.getItem('guestGuideLang');
+      } catch (e) {
+        lang = null;
+      }
+
+      if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
+        return lang;
+      }
+
+      return 'it';
+    }
+
+    function applyLanguage(lang) {
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-it]').forEach(function (el) {
+        var val = el.getAttribute('data-' + lang);
+        if (val) el.textContent = val;
+      });
+
+      var homeLink = document.querySelector('.back-home');
+      if (homeLink) {
+        homeLink.setAttribute('href', 'index.html#' + lang);
+      }
+
+      try {
+        localStorage.setItem('guestGuideLang', lang);
+      } catch (e) {}
+    }
+
+    applyLanguage(getCurrentLang());
+  </script>
 </body>
 </html>
