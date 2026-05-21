@@ -253,6 +253,12 @@
           <small data-it="Ristoranti di mare" data-en="Seafood restaurants" data-es="Restaurantes de pescado" data-fr="Restaurants de poisson">Ristoranti di mare</small>
         </button>
 
+        <button class="food-choice" onclick="showCategory('cucina')">
+          <span>🍽️</span>
+          <strong data-it="Ho voglia di cucina tipica" data-en="I feel like traditional food" data-es="Me apetece cocina típica" data-fr="J’ai envie de cuisine traditionnelle">Ho voglia di cucina tipica</strong>
+          <small data-it="Ristoranti di terra" data-en="Meat and local restaurants" data-es="Restaurantes de tierra" data-fr="Restaurants de terre">Ristoranti di terra</small>
+        </button>
+
         <button class="food-choice" onclick="showCategory('gelato')">
           <span>🍦</span>
           <strong data-it="Ho voglia di gelato" data-en="I feel like gelato" data-es="Me apetece helado" data-fr="J’ai envie de glace">Ho voglia di gelato</strong>
@@ -301,25 +307,113 @@
       },
       restaurants: [
         {
-          image: "assets/pizza.jpg",
-          mapsQuery: "pizzeria Salerno centro",
+          image: "assets/errico-porzio-salerno.jpg",
+          mapsUrl: "https://g.co/kgs/Dia6YTf",
           name: {
-            it: "Pizzerie di Salerno",
-            en: "Pizzerias in Salerno",
-            es: "Pizzerías en Salerno",
-            fr: "Pizzerias à Salerne"
+            it: "Pizzeria Errico Porzio Salerno",
+            en: "Pizzeria Errico Porzio Salerno",
+            es: "Pizzeria Errico Porzio Salerno",
+            fr: "Pizzeria Errico Porzio Salerno"
           },
           desc: {
-            it: "Salerno è piena di ottime pizzerie: dalle più tradizionali a quelle più moderne. Qui possiamo aggiungere le tue preferite con indirizzo preciso.",
-            en: "Salerno has many great pizzerias, from traditional ones to more modern places. Here we can add your favourites with precise addresses.",
-            es: "Salerno tiene muchas pizzerías excelentes, desde las tradicionales hasta las más modernas. Aquí podemos añadir tus favoritas con dirección exacta.",
-            fr: "Salerne compte de très bonnes pizzerias, des plus traditionnelles aux plus modernes. Nous pouvons ajouter ici tes préférées avec l’adresse exacte."
+            it: "Una pizzeria molto conosciuta, ideale se volete provare una pizza napoletana ricca, scenografica e molto social.",
+            en: "A very well-known pizzeria, ideal if you want to try a rich, eye-catching and very popular Neapolitan-style pizza.",
+            es: "Una pizzería muy conocida, ideal si queréis probar una pizza napolitana abundante, llamativa y muy popular.",
+            fr: "Une pizzeria très connue, idéale si vous voulez goûter une pizza napolitaine généreuse, spectaculaire et très populaire."
           },
           tip: {
-            it: "Consiglio: provate una pizza margherita o una pizza con prodotti campani.",
-            en: "Tip: try a margherita pizza or one with local Campania ingredients.",
-            es: "Consejo: probad una pizza margarita o una pizza con productos de Campania.",
-            fr: "Conseil : goûtez une pizza margherita ou une pizza avec des produits de Campanie."
+            it: "Consiglio: perfetta se vi piacciono pizze abbondanti e gusti particolari.",
+            en: "Tip: perfect if you like generous pizzas and special flavours.",
+            es: "Consejo: perfecta si os gustan las pizzas abundantes y los sabores especiales.",
+            fr: "Conseil : parfaite si vous aimez les pizzas généreuses et les saveurs originales."
+          }
+        },
+        {
+          image: "assets/pizzium-salerno.jpg",
+          mapsUrl: "https://g.co/kgs/Mm7WKix",
+          name: {
+            it: "Pizzium - Salerno",
+            en: "Pizzium - Salerno",
+            es: "Pizzium - Salerno",
+            fr: "Pizzium - Salerno"
+          },
+          desc: {
+            it: "Pizzeria colorata e moderna, con pizze ispirate alle diverse regioni italiane.",
+            en: "A colourful and modern pizzeria, with pizzas inspired by different Italian regions.",
+            es: "Una pizzería colorida y moderna, con pizzas inspiradas en distintas regiones italianas.",
+            fr: "Une pizzeria colorée et moderne, avec des pizzas inspirées des différentes régions italiennes."
+          },
+          tip: {
+            it: "Consiglio: scegliete una pizza regionale se volete provare qualcosa di diverso dalla classica margherita.",
+            en: "Tip: choose a regional pizza if you want to try something different from the classic margherita.",
+            es: "Consejo: elegid una pizza regional si queréis probar algo distinto de la clásica margarita.",
+            fr: "Conseil : choisissez une pizza régionale si vous voulez essayer autre chose que la classique margherita."
+          }
+        },
+        {
+          image: "assets/giagiu.jpg",
+          mapsUrl: "https://g.co/kgs/ukU2iTp",
+          name: {
+            it: "Giagiù",
+            en: "Giagiù",
+            es: "Giagiù",
+            fr: "Giagiù"
+          },
+          desc: {
+            it: "Locale consigliato per una pizza buona in un ambiente curato e piacevole.",
+            en: "A recommended place for good pizza in a pleasant and well-kept setting.",
+            es: "Un lugar recomendado para una buena pizza en un ambiente agradable y cuidado.",
+            fr: "Une adresse conseillée pour une bonne pizza dans un cadre agréable et soigné."
+          },
+          tip: {
+            it: "Consiglio: ottimo se cercate una pizzeria non troppo informale ma comunque accogliente.",
+            en: "Tip: great if you are looking for a pizzeria that is not too informal but still welcoming.",
+            es: "Consejo: ideal si buscáis una pizzería no demasiado informal pero acogedora.",
+            fr: "Conseil : idéal si vous cherchez une pizzeria pas trop informelle mais accueillante."
+          }
+        },
+        {
+          image: "assets/da-michele-salerno.jpg",
+          mapsQuery: "Da Michele Salerno",
+          name: {
+            it: "Da Michele Salerno",
+            en: "Da Michele Salerno",
+            es: "Da Michele Salerno",
+            fr: "Da Michele Salerno"
+          },
+          desc: {
+            it: "Una scelta perfetta per chi vuole una pizza classica, semplice e legata alla tradizione napoletana.",
+            en: "A perfect choice for those who want a classic, simple pizza linked to Neapolitan tradition.",
+            es: "Una opción perfecta para quienes quieren una pizza clásica, sencilla y ligada a la tradición napolitana.",
+            fr: "Un choix parfait pour ceux qui veulent une pizza classique, simple et liée à la tradition napolitaine."
+          },
+          tip: {
+            it: "Consiglio: provate la margherita o la marinara.",
+            en: "Tip: try the margherita or marinara.",
+            es: "Consejo: probad la margarita o la marinara.",
+            fr: "Conseil : goûtez la margherita ou la marinara."
+          }
+        },
+        {
+          image: "assets/pepe-nero.jpg",
+          mapsQuery: "Pepe Nero Salerno",
+          name: {
+            it: "Pepe Nero",
+            en: "Pepe Nero",
+            es: "Pepe Nero",
+            fr: "Pepe Nero"
+          },
+          desc: {
+            it: "Locale versatile: va bene per pizza, piatti di pesce e cucina di terra.",
+            en: "A versatile place: good for pizza, seafood dishes and meat/local cuisine.",
+            es: "Un lugar versátil: va bien para pizza, platos de pescado y cocina de tierra.",
+            fr: "Une adresse polyvalente : idéale pour la pizza, les plats de poisson et la cuisine de terre."
+          },
+          tip: {
+            it: "Consiglio: sceglietelo se nel gruppo non tutti hanno voglia della stessa cosa.",
+            en: "Tip: choose it if not everyone in the group wants the same type of food.",
+            es: "Consejo: elegidlo si en el grupo no todos quieren comer lo mismo.",
+            fr: "Conseil : choisissez-le si tout le groupe n’a pas envie de la même chose."
           }
         }
       ]
@@ -334,7 +428,7 @@
       },
       restaurants: [
         {
-          image: "assets/tramp.jpg",
+          image: "assets/tramp-ristorante.jpg",
           mapsQuery: "Tramp Ristorante Salerno",
           name: {
             it: "Tramp Ristorante",
@@ -376,6 +470,105 @@
             es: "Consejo: perfecto para una cena romántica o una noche especial.",
             fr: "Conseil : parfait pour un dîner romantique ou une soirée spéciale."
           }
+        },
+        {
+          image: "assets/pepe-nero.jpg",
+          mapsQuery: "Pepe Nero Salerno",
+          name: {
+            it: "Pepe Nero",
+            en: "Pepe Nero",
+            es: "Pepe Nero",
+            fr: "Pepe Nero"
+          },
+          desc: {
+            it: "Locale versatile: va bene per pizza, piatti di pesce e cucina di terra.",
+            en: "A versatile place: good for pizza, seafood dishes and meat/local cuisine.",
+            es: "Un lugar versátil: va bien para pizza, platos de pescado y cocina de tierra.",
+            fr: "Une adresse polyvalente : idéale pour la pizza, les plats de poisson et la cuisine de terre."
+          },
+          tip: {
+            it: "Consiglio: sceglietelo se nel gruppo non tutti hanno voglia della stessa cosa.",
+            en: "Tip: choose it if not everyone in the group wants the same type of food.",
+            es: "Consejo: elegidlo si en el grupo no todos quieren comer lo mismo.",
+            fr: "Conseil : choisissez-le si tout le groupe n’a pas envie de la même chose."
+          }
+        }
+      ]
+    },
+
+    cucina: {
+      title: {
+        it: "Cucina tipica e ristoranti di terra",
+        en: "Traditional cuisine and land restaurants",
+        es: "Cocina típica y restaurantes de tierra",
+        fr: "Cuisine traditionnelle et restaurants de terre"
+      },
+      restaurants: [
+        {
+          image: "assets/da-nonna-maria.jpg",
+          mapsUrl: "https://www.google.com/maps/search/?api=1&query=Da+Nonna+Maria+Salerno",
+          name: {
+            it: "Da Nonna Maria",
+            en: "Da Nonna Maria",
+            es: "Da Nonna Maria",
+            fr: "Da Nonna Maria"
+          },
+          desc: {
+            it: "Un posto adatto per chi cerca cucina semplice, tradizionale e sapori di casa.",
+            en: "A good place for those looking for simple, traditional food and home-style flavours.",
+            es: "Un lugar adecuado para quienes buscan cocina sencilla, tradicional y sabores caseros.",
+            fr: "Une bonne adresse pour ceux qui cherchent une cuisine simple, traditionnelle et familiale."
+          },
+          tip: {
+            it: "Consiglio: ideale per provare piatti più autentici e meno turistici.",
+            en: "Tip: ideal for trying more authentic and less touristy dishes.",
+            es: "Consejo: ideal para probar platos más auténticos y menos turísticos.",
+            fr: "Conseil : idéal pour goûter des plats plus authentiques et moins touristiques."
+          }
+        },
+        {
+          image: "assets/la-botte-pazza.jpg",
+          mapsUrl: "https://www.google.com/maps/search/?api=1&query=La+Botte+Pazza+Salerno",
+          name: {
+            it: "La Botte Pazza",
+            en: "La Botte Pazza",
+            es: "La Botte Pazza",
+            fr: "La Botte Pazza"
+          },
+          desc: {
+            it: "Locale consigliato per una cena tipica e conviviale, con piatti saporiti e atmosfera informale.",
+            en: "A recommended place for a typical and convivial dinner, with tasty dishes and an informal atmosphere.",
+            es: "Un lugar recomendado para una cena típica y agradable, con platos sabrosos y ambiente informal.",
+            fr: "Une adresse conseillée pour un dîner typique et convivial, avec des plats savoureux et une ambiance simple."
+          },
+          tip: {
+            it: "Consiglio: perfetto se volete una serata semplice, buona e molto salernitana.",
+            en: "Tip: perfect if you want a simple, good and very local evening.",
+            es: "Consejo: perfecto si queréis una noche sencilla, buena y muy local.",
+            fr: "Conseil : parfait si vous voulez une soirée simple, bonne et très locale."
+          }
+        },
+        {
+          image: "assets/pepe-nero.jpg",
+          mapsQuery: "Pepe Nero Salerno",
+          name: {
+            it: "Pepe Nero",
+            en: "Pepe Nero",
+            es: "Pepe Nero",
+            fr: "Pepe Nero"
+          },
+          desc: {
+            it: "Locale versatile: va bene per pizza, piatti di pesce e cucina di terra.",
+            en: "A versatile place: good for pizza, seafood dishes and meat/local cuisine.",
+            es: "Un lugar versátil: va bien para pizza, platos de pescado y cocina de tierra.",
+            fr: "Une adresse polyvalente : idéale pour la pizza, les plats de poisson et la cuisine de terre."
+          },
+          tip: {
+            it: "Consiglio: sceglietelo se nel gruppo non tutti hanno voglia della stessa cosa.",
+            en: "Tip: choose it if not everyone in the group wants the same type of food.",
+            es: "Consejo: elegidlo si en el grupo no todos quieren comer lo mismo.",
+            fr: "Conseil : choisissez-le si tout le groupe n’a pas envie de la même chose."
+          }
         }
       ]
     },
@@ -389,7 +582,7 @@
       },
       restaurants: [
         {
-          image: "assets/nettuno.jpg",
+          image: "assets/bar-gelateria-nettuno.jpg",
           mapsQuery: "Bar Gelateria Nettuno Salerno",
           name: {
             it: "Bar Gelateria Nettuno",
@@ -567,7 +760,7 @@
     title.textContent = category.title[currentLang];
 
     grid.innerHTML = category.restaurants.map(function (place) {
-      var mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(place.mapsQuery);
+      var mapsUrl = place.mapsUrl || "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(place.mapsQuery);
 
       return `
         <article class="restaurant-card">
