@@ -467,7 +467,10 @@
 
     <main>
       <section id="welcome-home" class="home-welcome">
-        <h2>Benvenuti</h2>
+        <h2 data-it="Benvenuti"
+            data-en="Welcome"
+            data-es="Bienvenidos"
+            data-fr="Bienvenue">Benvenuti</h2>
         <p>
           Benvenuti ad A Casa di Marco. Siamo felici di ospitarvi e speriamo che possiate sentirvi davvero a casa.
           In questa guida troverete tutte le informazioni utili per vivere al meglio il vostro soggiorno.
@@ -475,7 +478,10 @@
       </section>
 
       <section id="home-gallery" class="home-gallery">
-        <h2>La casa</h2>
+        <h2 data-it="La casa"
+            data-en="The house"
+            data-es="La casa"
+            data-fr="La maison">La casa</h2>
         <div class="carousel">
           <img src="assets/casa-1.jpg" alt="A Casa di Marco">
           <img src="assets/casa-2.jpg" alt="Giardino">
@@ -485,16 +491,58 @@
       </section>
 
       <section id="home-menu" class="home-menu">
-        <h2>Guida ospiti</h2>
+        <h2 data-it="Guida ospiti"
+          data-en="Guest guide"
+          data-es="Guía para huéspedes"
+          data-fr="Guide des invités">Guida ospiti</h2>
           <div class="page-buttons">
-          <a data-href="checkin.html" href="checkin.html">Check-in / Check-out</a>
-          <a data-href="regole.html" href="regole.html">Regole della casa</a>
-          <a data-href="luoghi.html" href="luoghi.html">Luoghi da visitare</a>
-          <a data-href="mangiare.html" href="mangiare.html">Dove mangiare</a>
-          <a data-href="parcheggio.html" href="parcheggio.html">Dove parcheggiare</a>
-          <a data-href="spesa.html" href="spesa.html">Dove fare la spesa</a>
-          <a data-href="colazione.html" href="colazione.html">Colazione</a>
-          <a data-href="trasporti.html" href="trasporti.html">Trasporti</a>
+         <a data-href="checkin.html" href="checkin.html"
+           data-it="Check-in / Check-out"
+           data-en="Check-in / Check-out"
+           data-es="Check-in / Check-out"
+           data-fr="Check-in / Check-out">Check-in / Check-out</a>
+
+         <a data-href="regole.html" href="regole.html"
+           data-it="Regole della casa"
+           data-en="House rules"
+           data-es="Reglas de la casa"
+           data-fr="Règles de la maison">Regole della casa</a>
+
+         <a data-href="luoghi.html" href="luoghi.html"
+           data-it="Luoghi da visitare"
+           data-en="Places to visit"
+           data-es="Lugares para visitar"
+           data-fr="Lieux à visiter">Luoghi da visitare</a>
+
+         <a data-href="mangiare.html" href="mangiare.html"
+           data-it="Dove mangiare"
+           data-en="Where to eat"
+           data-es="Dónde comer"
+           data-fr="Où manger">Dove mangiare</a>
+
+         <a data-href="parcheggio.html" href="parcheggio.html"
+           data-it="Dove parcheggiare"
+           data-en="Where to park"
+           data-es="Dónde aparcar"
+           data-fr="Où se garer">Dove parcheggiare</a>
+
+         <a data-href="spesa.html" href="spesa.html"
+           data-it="Dove fare la spesa"
+           data-en="Grocery shopping"
+           data-es="Dónde hacer la compra"
+           data-fr="Où faire les courses">Dove fare la spesa</a>
+
+         <a data-href="colazione.html" href="colazione.html"
+           data-it="Colazione"
+           data-en="Breakfast"
+           data-es="Desayuno"
+           data-fr="Petit-déjeuner">Colazione</a>
+
+         <a data-href="trasporti.html" href="trasporti.html"
+           data-it="Trasporti"
+           data-en="Transport"
+           data-es="Transporte"
+           data-fr="Transports">Trasporti</a>
         </div>
       </section>
 
@@ -516,75 +564,57 @@
     </footer>
   </div>
 
-  <script>
-    function applyLanguage(lang) {
-      document.documentElement.lang = lang || 'it';
+<script>
+  function translatePage(lang) {
+    document.documentElement.lang = lang;
 
-      document.querySelectorAll('[data-it]').forEach(function (el) {
-        var val = el.getAttribute('data-' + lang);
-        if (val) el.textContent = val;
-      });
-
-      document.querySelectorAll('a[data-href]').forEach(function (link) {
-        var base = link.getAttribute('data-href');
-        link.setAttribute('href', base + '?lang=' + lang);
-      });
-
-      try {
-        localStorage.setItem('guestGuideLang', lang);
-      } catch (e) {}
-    }
-
-    function showSite(lang) {
-      lang = lang || 'it';
-
-      document.getElementById('lang-screen').style.display = 'none';
-      document.getElementById('site').style.display = 'block';
-
-      applyLanguage(lang);
-
-      if (location.hash !== '#' + lang) {
-        history.pushState(null, '', '#' + lang);
+    document.querySelectorAll('[data-it]').forEach(function (el) {
+      var translation = el.getAttribute('data-' + lang);
+      if (translation) {
+        el.textContent = translation;
       }
+    });
+
+    document.querySelectorAll('[data-href]').forEach(function (link) {
+      var base = link.getAttribute('data-href');
+      link.href = base + '?lang=' + lang;
+    });
+
+    try {
+      localStorage.setItem('guestGuideLang', lang);
+    } catch (e) {}
+  }
+
+  function showSite(lang) {
+    lang = lang || 'it';
+
+    document.getElementById('lang-screen').style.display = 'none';
+    document.getElementById('site').style.display = 'block';
+
+    translatePage(lang);
+
+    if (location.hash !== '#' + lang) {
+      history.pushState(null, '', '#' + lang);
     }
+  }
 
-    function showLangScreen() {
-      document.getElementById('lang-screen').style.display = 'flex';
-      document.getElementById('site').style.display = 'none';
-      document.documentElement.lang = 'it';
+  function showLangScreen() {
+    document.getElementById('lang-screen').style.display = 'flex';
+    document.getElementById('site').style.display = 'none';
 
-      if (location.hash !== '#lang') {
-        history.pushState(null, '', '#lang');
-      }
+    if (location.hash !== '#lang') {
+      history.pushState(null, '', '#lang');
     }
+  }
 
-    (function () {
-      function initFromLocation() {
-        var hash = location.hash || '';
-        var lang = hash.replace('#', '');
-
-        if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
-          showSite(lang);
-        } else if (hash === '#lang') {
-          showLangScreen();
-        } else {
-          showLangScreen();
-        }
-      }
-
-      initFromLocation();
-
-      window.addEventListener('hashchange', function () {
-        var hash = location.hash || '';
-        var lang = hash.replace('#', '');
-
-        if (hash === '#lang') {
-          showLangScreen();
-        } else if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
-          showSite(lang);
-        }
-      });
-    })();
-  </script>
+  (function () {
+    var hash = location.hash.replace('#', '');
+    if (hash === 'it' || hash === 'en' || hash === 'es' || hash === 'fr') {
+      showSite(hash);
+    } else {
+      showLangScreen();
+    }
+  })();
+</script>
 </body>
 </html>
