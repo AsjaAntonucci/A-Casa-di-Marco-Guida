@@ -22,6 +22,88 @@
     .info-list { list-style:none; display:grid; gap:12px; margin-top:14px; }
     .info-list li { background:var(--ottanio-soft); border-radius:18px; padding:14px 16px; }
     .note { background:#fff8e8; border-left:5px solid var(--ottanio); border-radius:16px; padding:14px 16px; margin:16px 0; }
+    .toggle-box {
+      margin-top: 18px;
+      background: transparent;
+      border: none;
+    }
+
+    .toggle-box summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ottanio);
+      color: #fff;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0, 90, 95, .16);
+      list-style: none;
+    }
+
+    .toggle-box summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .toggle-box summary::after {
+      content: "⌄";
+      margin-left: 10px;
+      font-size: 18px;
+    }
+
+    .toggle-box[open] summary::after {
+      content: "⌃";
+    }
+
+    .toggle-content {
+      margin-top: 16px;
+    }
+
+    .info-list li strong {
+      color: var(--ottanio-dark);
+      font-weight: 700;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        font-size: 14px;
+      }
+
+      .page-hero {
+        min-height: 28vh;
+        padding: 28px 16px;
+      }
+
+      .page-hero h1 {
+        font-size: 34px;
+      }
+
+      main {
+        padding: 20px 12px 44px;
+      }
+
+      section {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .toggle-box summary {
+        font-size: 14px;
+        padding: 12px 18px;
+      }
+
+      .info-list li {
+        font-size: 14px;
+        padding: 13px 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -32,25 +114,88 @@
       <h2>Istruzioni</h2>
       <div class="note">Check-in anticipato e check-out tardivo sono disponibili solo su richiesta, salvo disponibilita, e prevedono un costo aggiuntivo.</div>
       <div class="img-card"><img src="assets/cancello-check-in.jpg" alt="Cancello per il check-in"></div>
-      <h3>Check-in</h3>
-      <ul class="info-list">
-        <li>Al vostro arrivo ci incontreremo davanti al cancello della struttura.</li>
-        <li>Vi chiediamo gentilmente di comunicarci in anticipo l'orario di arrivo previsto.</li>
-        <li>È importante inviarci un messaggio circa 30 minuti prima del vostro arrivo, così potremo organizzarci per accogliervi al meglio.</li>
-        <li>Al check-in verranno richiesti i documenti di identità di tutti gli ospiti, inclusi i bambini.</li>
-        <li>Al check-in dovrà essere pagata la tassa di soggiorno: 3 euro a persona al giorno, esclusi i bambini sotto gli 11 anni.</li>
-        <li>Per le prenotazioni effettuate tramite Booking verrà richiesto un deposito cauzionale di 100 euro. Il deposito verrà restituito tramite bonifico bancario entro 48 ore dal check-out, dopo il controllo dell'alloggio.</li>
-        <li>I pagamenti possono essere effettuati tramite bonifico immediato, PayPal o contanti. Non abbiamo il POS.</li>
-      </ul>
-      <h3>Check-out</h3>
-      <ul class="info-list">
-        <li>Il check-out deve essere effettuato entro le ore 10:00 e non oltre, salvo diversi accordi presi in anticipo.</li>
-        <li>Prima di lasciare la casa, vi chiediamo di controllare che siano spenti luci, rubinetti, condizionatore e termosifoni.</li>
-        <li>Se possibile, vi chiediamo di mettere gli asciugamani usati nella lavatrice, senza avviarla.</li>
-        <li>È molto importante buttare la spazzatura prima della partenza.</li>
-        <li>Le chiavi vanno lasciate nella cassetta delle lettere appena fuori dal cancello principale condominiale, sulla sinistra, nella cassetta con scritto “A Casa di Marco”.</li>
-        <li>Dopo aver lasciato le chiavi, vi chiediamo gentilmente di inviarci un messaggio per confermare l'avvenuto check-out.</li>
-      </ul>
+      <details class="toggle-box">
+        <summary>Check-in</summary>
+
+        <div class="toggle-content">
+          <ul class="info-list">
+            <li>
+              Al vostro arrivo ci incontreremo <strong>davanti al cancello della struttura</strong>.
+            </li>
+
+            <li>
+              Vi chiediamo gentilmente di comunicarci in anticipo <strong>l'orario di arrivo previsto</strong>.
+            </li>
+
+            <li>
+              È importante inviarci un messaggio circa <strong>30 minuti prima del vostro arrivo</strong>,
+              così potremo organizzarci per accogliervi al meglio.
+            </li>
+
+            <li>
+              Al check-in verranno richiesti i <strong>documenti di identità di tutti gli ospiti</strong>,
+              inclusi <strong>i bambini</strong>.
+            </li>
+
+            <li>
+              Al check-in dovrà essere pagata la <strong>tassa di soggiorno</strong>:
+              <strong>3 euro a persona al giorno</strong>, esclusi i bambini sotto gli 11 anni.
+            </li>
+
+            <li>
+              Per le prenotazioni effettuate tramite <strong>Booking</strong> verrà richiesto un
+              <strong>deposito cauzionale di 100 euro</strong>.
+              Il deposito verrà restituito tramite <strong>bonifico bancario entro 48 ore dal check-out</strong>,
+              dopo il controllo dell'alloggio.
+            </li>
+
+            <li>
+              I pagamenti possono essere effettuati tramite <strong>bonifico immediato</strong>,
+              <strong>PayPal</strong> o <strong>contanti</strong>.
+              <br>
+              <strong>Non abbiamo il POS.</strong>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="toggle-box">
+        <summary>Check-out</summary>
+
+        <div class="toggle-content">
+          <ul class="info-list">
+            <li>
+              Il check-out deve essere effettuato <strong>entro le ore 10:00 e non oltre</strong>,
+              salvo diversi accordi presi in anticipo.
+            </li>
+
+            <li>
+              Prima di lasciare la casa, vi chiediamo di controllare che siano spenti
+              <strong>luci, rubinetti, condizionatore e termosifoni</strong>.
+            </li>
+
+            <li>
+              Se possibile, vi chiediamo di mettere <strong>gli asciugamani usati nella lavatrice</strong>,
+              senza avviarla.
+            </li>
+
+            <li>
+              È molto importante <strong>buttare la spazzatura prima della partenza</strong>.
+            </li>
+
+            <li>
+              Le chiavi vanno lasciate nella <strong>cassetta delle lettere</strong> appena fuori dal
+              <strong>cancello principale condominiale</strong>, sulla sinistra, nella cassetta con scritto
+              <strong>“A Casa di Marco”</strong>.
+            </li>
+
+            <li>
+              Dopo aver lasciato le chiavi, vi chiediamo gentilmente di inviarci
+              <strong>un messaggio per confermare l'avvenuto check-out</strong>.
+            </li>
+          </ul>
+        </div>
+      </details>
     </section>
   </main>
 </body>
