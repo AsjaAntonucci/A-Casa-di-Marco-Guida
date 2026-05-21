@@ -18,55 +18,522 @@
     main { max-width:1000px; margin:0 auto; padding:28px 16px 60px; }
     section { background:#fff; border-radius:28px; padding:28px; box-shadow:var(--shadow); margin-bottom:22px; }
     .back-home { display:inline-flex; margin-bottom:18px; background:var(--ottanio); color:#fff; text-decoration:none; border-radius:999px; padding:11px 18px; font-weight:600; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin-top:14px; }
-    .card { background:var(--ottanio-soft); border-radius:18px; padding:16px; }
-    .card strong { display:block; color:var(--ottanio-dark); margin-bottom:6px; }
+    .food-choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .food-choice {
+      border: none;
+      background: var(--ottanio-soft);
+      border-radius: 22px;
+      padding: 18px;
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0, 80, 85, .10);
+    }
+
+    .food-choice span {
+      display: block;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .food-choice strong {
+      display: block;
+      color: var(--ottanio-dark);
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .food-choice small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .food-category {
+      display: none;
+    }
+
+    .food-category.active {
+      display: block;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .back-category {
+      border: none;
+      background: var(--ottanio);
+      color: #fff;
+      border-radius: 999px;
+      padding: 10px 15px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .restaurant-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .restaurant-card {
+      background: var(--ottanio-soft);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(0, 80, 85, .12);
+    }
+
+    .restaurant-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .restaurant-content {
+      padding: 18px;
+    }
+
+    .restaurant-content h3 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .restaurant-content p {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .tip-box {
+      background: #fff;
+      border-left: 5px solid var(--ottanio);
+      border-radius: 16px;
+      padding: 12px;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .restaurant-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .restaurant-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ottanio);
+      color: #fff;
+      border-radius: 999px;
+      padding: 10px 15px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .restaurant-btn.light {
+      background: #fff;
+      color: var(--ottanio-dark);
+      border: 1px solid rgba(15, 127, 131, .25);
+    }
+
+    @media (max-width: 720px) {
+      body {
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .page-hero {
+        min-height: 26vh;
+        padding: 26px 16px;
+      }
+
+      .page-hero h1 {
+        font-size: 34px;
+        line-height: 1.15;
+      }
+
+      main {
+        padding: 18px 12px 44px;
+      }
+
+      section {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .food-choice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .restaurant-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .restaurant-card img {
+        height: 175px;
+      }
+
+      .restaurant-content {
+        padding: 15px;
+      }
+
+      .restaurant-content h3 {
+        font-size: 23px;
+      }
+
+      .restaurant-content p,
+      .tip-box {
+        font-size: 14px;
+      }
+
+      .restaurant-actions {
+        flex-direction: column;
+      }
+
+      .restaurant-btn,
+      .back-category {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
   <header class="page-hero"><div><h1 data-it="Dove mangiare" data-en="Where to eat" data-es="Dónde comer" data-fr="Où manger">Dove mangiare</h1></div></header>
   <main>
     <a class="back-home" href="index.html" data-it="← Torna alla home" data-en="← Back to home" data-es="← Volver a la home" data-fr="← Retour à l'accueil">← Torna alla home</a>
-    <section>
-      <h2 data-it="Consigli in zona" data-en="Local recommendations" data-es="Recomendaciones de la zona" data-fr="Recommandations locales">Consigli in zona</h2>
-      <p data-it="I nostri consigli per mangiare bene in zona Salerno e dintorni." data-en="Our recommendations for good food in Salerno and surrounding areas." data-es="Nuestras recomendaciones para comer bien en Salerno y alrededores." data-fr="Nos recommandations pour bien manger à Salerne et dans les environs.">I nostri consigli per mangiare bene in zona Salerno e dintorni.</p>
-      <div class="grid">
-        <div class="card">
-          <strong data-it="Pizzerie" data-en="Pizzerias" data-es="Pizzerías" data-fr="Pizzerias">Pizzerie</strong>
-          <span data-it="Le nostre pizzerie preferite in zona, con indirizzo e distanza dalla casa." data-en="Our favourite pizzerias nearby, with address and distance from the house." data-es="Nuestras pizzerías favoritas en la zona, con dirección y distancia desde la casa." data-fr="Nos pizzerias préférées dans la zone, avec adresse et distance depuis la maison.">Le nostre pizzerie preferite in zona, con indirizzo e distanza dalla casa.</span>
-        </div>
-        <div class="card">
-          <strong data-it="Ristoranti di pesce" data-en="Seafood restaurants" data-es="Restaurantes de pescado" data-fr="Restaurants de poisson">Ristoranti di pesce</strong>
-          <span data-it="Per assaggiare la cucina locale a base di pesce fresco del Tirreno." data-en="To taste local cuisine with fresh Tyrrhenian seafood." data-es="Para probar la cocina local con pescado fresco del Tirreno." data-fr="Pour goûter la cuisine locale à base de poisson frais de la mer Tyrrhénienne.">Per assaggiare la cucina locale a base di pesce fresco del Tirreno.</span>
-        </div>
-        <div class="card">
-          <strong data-it="Bar e aperitivi" data-en="Bars and aperitivo" data-es="Bares y aperitivos" data-fr="Bars et apéritifs">Bar e aperitivi</strong>
-          <span data-it="Oltre a Brignan Cafè, consigliamo bar in centro per colazioni e aperitivi." data-en="Besides Brignan Cafè, we recommend bars in the centre for breakfast and aperitivo." data-es="Además de Brignan Cafè, recomendamos bares en el centro para desayunos y aperitivos." data-fr="En plus du Brignan Cafè, nous recommandons des bars en centre-ville pour le petit-déjeuner et l'apéritif.">Oltre a Brignan Cafè, consigliamo bar in centro per colazioni e aperitivi.</span>
-        </div>
+    <section id="food-start">
+      <h2 data-it="Cosa hai voglia di mangiare?"
+          data-en="What would you like to eat?"
+          data-es="¿Qué te apetece comer?"
+          data-fr="Qu’avez-vous envie de manger ?">
+        Cosa hai voglia di mangiare?
+      </h2>
+
+      <p data-it="Scegli una categoria e scopri i nostri consigli da salernitani."
+         data-en="Choose a category and discover our local recommendations."
+         data-es="Elige una categoría y descubre nuestras recomendaciones locales."
+         data-fr="Choisissez une catégorie et découvrez nos recommandations locales.">
+        Scegli una categoria e scopri i nostri consigli da salernitani.
+      </p>
+
+      <div class="food-choice-grid">
+        <button class="food-choice" onclick="showCategory('pizza')">
+          <span>🍕</span>
+          <strong data-it="Ho voglia di pizza" data-en="I feel like pizza" data-es="Me apetece pizza" data-fr="J’ai envie de pizza">Ho voglia di pizza</strong>
+          <small data-it="Pizzerie consigliate" data-en="Recommended pizzerias" data-es="Pizzerías recomendadas" data-fr="Pizzerias recommandées">Pizzerie consigliate</small>
+        </button>
+
+        <button class="food-choice" onclick="showCategory('pesce')">
+          <span>🐟</span>
+          <strong data-it="Ho voglia di pesce" data-en="I feel like seafood" data-es="Me apetece pescado" data-fr="J’ai envie de poisson">Ho voglia di pesce</strong>
+          <small data-it="Ristoranti di mare" data-en="Seafood restaurants" data-es="Restaurantes de pescado" data-fr="Restaurants de poisson">Ristoranti di mare</small>
+        </button>
+
+        <button class="food-choice" onclick="showCategory('gelato')">
+          <span>🍦</span>
+          <strong data-it="Ho voglia di gelato" data-en="I feel like gelato" data-es="Me apetece helado" data-fr="J’ai envie de glace">Ho voglia di gelato</strong>
+          <small data-it="Gelaterie e dolci" data-en="Gelato and sweets" data-es="Heladerías y dulces" data-fr="Glaciers et douceurs">Gelaterie e dolci</small>
+        </button>
+
+        <button class="food-choice" onclick="showCategory('vino')">
+          <span>🍷</span>
+          <strong data-it="Ho voglia di vino" data-en="I feel like wine" data-es="Me apetece vino" data-fr="J’ai envie de vin">Ho voglia di vino</strong>
+          <small data-it="Wine bar e aperitivo" data-en="Wine bars and aperitivo" data-es="Wine bars y aperitivo" data-fr="Bars à vin et apéritif">Wine bar e aperitivo</small>
+        </button>
+
+        <button class="food-choice" onclick="showCategory('tipico')">
+          <span>🧀</span>
+          <strong data-it="Voglio prodotti tipici" data-en="I want local products" data-es="Quiero productos típicos" data-fr="Je veux des produits locaux">Voglio prodotti tipici</strong>
+          <small data-it="Mozzarella, dolci e specialità" data-en="Mozzarella, desserts and specialities" data-es="Mozzarella, dulces y especialidades" data-fr="Mozzarella, desserts et spécialités">Mozzarella, dolci e specialità</small>
+        </button>
       </div>
+    </section>
+
+    <section id="food-category" class="food-category">
+      <div class="category-header">
+        <h2 id="category-title">Categoria</h2>
+        <button class="back-category" onclick="hideCategory()"
+                data-it="← Torna alle categorie"
+                data-en="← Back to categories"
+                data-es="← Volver a las categorías"
+                data-fr="← Retour aux catégories">
+          ← Torna alle categorie
+        </button>
+      </div>
+
+      <div id="restaurant-grid" class="restaurant-grid"></div>
     </section>
   </main>
 <script>
+  var currentLang = 'it';
+
+  var categories = {
+    pizza: {
+      title: {
+        it: "Pizzerie consigliate",
+        en: "Recommended pizzerias",
+        es: "Pizzerías recomendadas",
+        fr: "Pizzerias recommandées"
+      },
+      restaurants: [
+        {
+          image: "assets/pizza.jpg",
+          mapsQuery: "pizzeria Salerno centro",
+          name: {
+            it: "Pizzerie di Salerno",
+            en: "Pizzerias in Salerno",
+            es: "Pizzerías en Salerno",
+            fr: "Pizzerias à Salerne"
+          },
+          desc: {
+            it: "Salerno è piena di ottime pizzerie: dalle più tradizionali a quelle più moderne. Qui possiamo aggiungere le tue preferite con indirizzo preciso.",
+            en: "Salerno has many great pizzerias, from traditional ones to more modern places. Here we can add your favourites with precise addresses.",
+            es: "Salerno tiene muchas pizzerías excelentes, desde las tradicionales hasta las más modernas. Aquí podemos añadir tus favoritas con dirección exacta.",
+            fr: "Salerne compte de très bonnes pizzerias, des plus traditionnelles aux plus modernes. Nous pouvons ajouter ici tes préférées avec l’adresse exacte."
+          },
+          tip: {
+            it: "Consiglio: provate una pizza margherita o una pizza con prodotti campani.",
+            en: "Tip: try a margherita pizza or one with local Campania ingredients.",
+            es: "Consejo: probad una pizza margarita o una pizza con productos de Campania.",
+            fr: "Conseil : goûtez une pizza margherita ou une pizza avec des produits de Campanie."
+          }
+        }
+      ]
+    },
+
+    pesce: {
+      title: {
+        it: "Specialità di pesce",
+        en: "Seafood specialities",
+        es: "Especialidades de pescado",
+        fr: "Spécialités de poisson"
+      },
+      restaurants: [
+        {
+          image: "assets/tramp.jpg",
+          mapsQuery: "Tramp Ristorante Salerno",
+          name: {
+            it: "Tramp Ristorante",
+            en: "Tramp Restaurant",
+            es: "Tramp Restaurante",
+            fr: "Restaurant Tramp"
+          },
+          desc: {
+            it: "Un locale consigliato per chi vuole mangiare pesce fresco a Salerno, in un ambiente informale e piacevole.",
+            en: "A recommended place for those who want to eat fresh seafood in Salerno, in an informal and pleasant setting.",
+            es: "Un lugar recomendado para quienes quieren comer pescado fresco en Salerno, en un ambiente informal y agradable.",
+            fr: "Une adresse conseillée pour ceux qui veulent manger du poisson frais à Salerne, dans une ambiance simple et agréable."
+          },
+          tip: {
+            it: "Consiglio: chiedete sempre quali sono i piatti del giorno a base di pesce fresco.",
+            en: "Tip: always ask for the daily fresh seafood dishes.",
+            es: "Consejo: preguntad siempre por los platos del día con pescado fresco.",
+            fr: "Conseil : demandez toujours les plats du jour à base de poisson frais."
+          }
+        },
+        {
+          image: "assets/convivium.jpg",
+          mapsQuery: "Convivium Sea Food Restaurant Salerno",
+          name: {
+            it: "Convivium Sea Food Restaurant",
+            en: "Convivium Sea Food Restaurant",
+            es: "Convivium Sea Food Restaurant",
+            fr: "Convivium Sea Food Restaurant"
+          },
+          desc: {
+            it: "Ristorante elegante, ideale per una cena più curata, con piatti di mare e proposte ispirate alla tradizione campana.",
+            en: "An elegant restaurant, ideal for a more refined dinner, with seafood dishes inspired by Campania’s tradition.",
+            es: "Restaurante elegante, ideal para una cena más cuidada, con platos de mar inspirados en la tradición de Campania.",
+            fr: "Restaurant élégant, idéal pour un dîner plus raffiné, avec des plats de la mer inspirés de la tradition campanienne."
+          },
+          tip: {
+            it: "Consiglio: perfetto per una cena romantica o per una serata speciale.",
+            en: "Tip: perfect for a romantic dinner or a special evening.",
+            es: "Consejo: perfecto para una cena romántica o una noche especial.",
+            fr: "Conseil : parfait pour un dîner romantique ou une soirée spéciale."
+          }
+        }
+      ]
+    },
+
+    gelato: {
+      title: {
+        it: "Gelato e dolci",
+        en: "Gelato and desserts",
+        es: "Helado y dulces",
+        fr: "Glaces et desserts"
+      },
+      restaurants: [
+        {
+          image: "assets/nettuno.jpg",
+          mapsQuery: "Bar Gelateria Nettuno Salerno",
+          name: {
+            it: "Bar Gelateria Nettuno",
+            en: "Bar Gelateria Nettuno",
+            es: "Bar Gelateria Nettuno",
+            fr: "Bar Gelateria Nettuno"
+          },
+          desc: {
+            it: "A Salerno è quasi una legge: da Nettuno bisogna prendere la brioche con il gelato. È una delle esperienze più salernitane, soprattutto in estate.",
+            en: "In Salerno, it is almost a rule: at Nettuno you have to try the brioche with gelato. It is one of the most authentic local experiences, especially in summer.",
+            es: "En Salerno es casi una regla: en Nettuno hay que probar la brioche con helado. Es una de las experiencias más auténticas de la ciudad, sobre todo en verano.",
+            fr: "À Salerne, c’est presque une règle : chez Nettuno, il faut goûter la brioche avec glace. C’est l’une des expériences les plus typiques, surtout en été."
+          },
+          tip: {
+            it: "Pro tip da salernitana: ci sono due sedi. Quella sul lungomare è più turistica e spesso affollata; quella a Mercatello è meno turistica, ma molto frequentata dai salernitani. Provate nocciotella o pistacchio.",
+            en: "Local tip: there are two locations. The seafront one is more touristy and often crowded; the Mercatello one is less touristy but very popular with locals. Try nocciotella or pistachio.",
+            es: "Consejo local: hay dos sedes. La del paseo marítimo es más turística y suele estar llena; la de Mercatello es menos turística, pero muy frecuentada por los salernitanos. Probad nocciotella o pistacho.",
+            fr: "Conseil local : il y a deux adresses. Celle du front de mer est plus touristique et souvent bondée ; celle de Mercatello est moins touristique, mais très fréquentée par les habitants. Goûtez la nocciotella ou la pistache."
+          }
+        },
+        {
+          image: "assets/sal-de-riso.jpg",
+          mapsQuery: "Pasticceria Sal De Riso Minori",
+          name: {
+            it: "Pasticceria Sal De Riso",
+            en: "Sal De Riso Pastry Shop",
+            es: "Pastelería Sal De Riso",
+            fr: "Pâtisserie Sal De Riso"
+          },
+          desc: {
+            it: "A Minori, in Costiera Amalfitana, è una tappa famosa per chi ama i dolci. Perfetta se visitate la Costiera.",
+            en: "In Minori, on the Amalfi Coast, this is a famous stop for dessert lovers. Perfect if you are visiting the Coast.",
+            es: "En Minori, en la Costa Amalfitana, es una parada famosa para los amantes de los dulces. Perfecta si visitáis la Costa.",
+            fr: "À Minori, sur la Côte Amalfitaine, c’est une adresse célèbre pour les amateurs de desserts. Parfait si vous visitez la Côte."
+          },
+          tip: {
+            it: "Consiglio: provate la delizia al limone.",
+            en: "Tip: try the lemon delight.",
+            es: "Consejo: probad la delicia de limón.",
+            fr: "Conseil : goûtez la délice au citron."
+          }
+        }
+      ]
+    },
+
+    vino: {
+      title: {
+        it: "Vino e aperitivo",
+        en: "Wine and aperitivo",
+        es: "Vino y aperitivo",
+        fr: "Vin et apéritif"
+      },
+      restaurants: [
+        {
+          image: "assets/compagnia-buon-vino.jpg",
+          mapsQuery: "Compagnia del buon vino Salerno",
+          name: {
+            it: "Compagnia del Buon Vino",
+            en: "Compagnia del Buon Vino",
+            es: "Compagnia del Buon Vino",
+            fr: "Compagnia del Buon Vino"
+          },
+          desc: {
+            it: "Una wine bar accogliente dove assaggiare vini locali e passare una serata tranquilla.",
+            en: "A cosy wine bar where you can taste local wines and enjoy a relaxed evening.",
+            es: "Un wine bar acogedor donde probar vinos locales y pasar una noche tranquila.",
+            fr: "Un bar à vin chaleureux où déguster des vins locaux et passer une soirée tranquille."
+          },
+          tip: {
+            it: "Consiglio: chiedete un calice di vino campano e fatevi consigliare l’abbinamento.",
+            en: "Tip: ask for a glass of Campania wine and let them suggest the pairing.",
+            es: "Consejo: pedid una copa de vino campano y dejad que os recomienden el maridaje.",
+            fr: "Conseil : demandez un verre de vin de Campanie et laissez-vous conseiller pour l’accord."
+          }
+        }
+      ]
+    },
+
+    tipico: {
+      title: {
+        it: "Prodotti tipici",
+        en: "Local products",
+        es: "Productos típicos",
+        fr: "Produits locaux"
+      },
+      restaurants: [
+        {
+          image: "assets/granato.jpg",
+          mapsQuery: "Il Granato Caseificio Yogurteria",
+          name: {
+            it: "Il Granato - Caseificio e Yogurteria",
+            en: "Il Granato - Dairy and Yogurt Shop",
+            es: "Il Granato - Quesería y Yogurtería",
+            fr: "Il Granato - Fromagerie et yaourterie"
+          },
+          desc: {
+            it: "Una tappa consigliata per chi ama la mozzarella di bufala e i prodotti freschi della tradizione campana.",
+            en: "A recommended stop for those who love buffalo mozzarella and fresh traditional Campania products.",
+            es: "Una parada recomendada para quienes aman la mozzarella de búfala y los productos frescos de la tradición campana.",
+            fr: "Une adresse recommandée pour les amateurs de mozzarella de bufflonne et de produits frais de la tradition campanienne."
+          },
+          tip: {
+            it: "Consiglio: evitate orari di punta e festivi, perché può essere molto affollato.",
+            en: "Tip: avoid peak hours and holidays, as it can get very crowded.",
+            es: "Consejo: evitad las horas punta y los festivos, porque puede estar muy lleno.",
+            fr: "Conseil : évitez les heures de pointe et les jours fériés, car il peut y avoir beaucoup de monde."
+          }
+        }
+      ]
+    }
+  };
+
+  var labels = {
+    maps: {
+      it: "📍 Apri su Maps",
+      en: "📍 Open in Maps",
+      es: "📍 Abrir en Maps",
+      fr: "📍 Ouvrir sur Maps"
+    },
+    tip: {
+      it: "Consiglio",
+      en: "Tip",
+      es: "Consejo",
+      fr: "Conseil"
+    }
+  };
+
   function getLang() {
     var params = new URLSearchParams(window.location.search);
     var lang = params.get('lang');
 
-    if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
-      return lang;
-    }
+    if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') return lang;
 
     try {
       lang = localStorage.getItem('guestGuideLang');
     } catch (e) {}
 
-    if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
-      return lang;
-    }
+    if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') return lang;
 
     return 'it';
   }
 
   function translatePage(lang) {
+    currentLang = lang;
     document.documentElement.lang = lang;
 
     document.querySelectorAll('[data-it], [data-it-html]').forEach(function (el) {
@@ -88,6 +555,51 @@
     try {
       localStorage.setItem('guestGuideLang', lang);
     } catch (e) {}
+  }
+
+  function showCategory(categoryKey) {
+    var category = categories[categoryKey];
+    var grid = document.getElementById('restaurant-grid');
+    var title = document.getElementById('category-title');
+
+    if (!category || !grid || !title) return;
+
+    title.textContent = category.title[currentLang];
+
+    grid.innerHTML = category.restaurants.map(function (place) {
+      var mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(place.mapsQuery);
+
+      return `
+        <article class="restaurant-card">
+          <img src="${place.image}" alt="${place.name[currentLang]}">
+          <div class="restaurant-content">
+            <h3>${place.name[currentLang]}</h3>
+            <p>${place.desc[currentLang]}</p>
+
+            <div class="tip-box">
+              <strong>${labels.tip[currentLang]}:</strong>
+              ${place.tip[currentLang]}
+            </div>
+
+            <div class="restaurant-actions">
+              <a class="restaurant-btn light" href="${mapsUrl}" target="_blank">
+                ${labels.maps[currentLang]}
+              </a>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    document.getElementById('food-start').style.display = 'none';
+    document.getElementById('food-category').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function hideCategory() {
+    document.getElementById('food-category').classList.remove('active');
+    document.getElementById('food-start').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   translatePage(getLang());
