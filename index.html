@@ -208,49 +208,128 @@
     /* ── SITO (nascosto fino a scelta lingua) ─────────────── */
     #site { display: none; }
 
-    /* ── HERO ─────────────────────────────────────────────── */
+    /* ── HOME HERO ─────────────────────────────────────────────── */
     .hero {
-      min-height: 72vh;
-      background: linear-gradient(90deg, rgba(26,58,74,.82) 0%, rgba(26,58,74,.4) 100%),
-                  url("assets/gate.jpg") center / cover no-repeat;
+      min-height: 68vh;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(0, 80, 85, .25) 0%, rgba(0, 80, 85, .45) 100%),
+        url("assets/garden-main.jpg") center / cover no-repeat;
       display: flex;
       align-items: flex-end;
       color: #fff;
-      padding: 40px 20px;
+      padding: 42px 20px;
     }
-    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; padding-bottom: 28px; }
-    .hero h1 { font-size: clamp(36px, 7vw, 72px); margin-bottom: 10px; text-shadow: 0 4px 16px rgba(0,0,0,.25); }
-    .hero p  { font-size: clamp(16px, 2.4vw, 22px); max-width: 620px; margin-bottom: 20px; }
 
-    /* ── TOPBAR ───────────────────────────────────────────── */
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 8vw, 82px);
+      margin-bottom: 12px;
+      text-shadow: 0 5px 22px rgba(0,0,0,.35);
+    }
+
+    .hero p {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(16px, 2.4vw, 23px);
+      max-width: 680px;
+      margin-bottom: 22px;
+      text-shadow: 0 3px 16px rgba(0,0,0,.35);
+    }
+
+    /* ── MENU HOME ───────────────────────────────────────────── */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(247,243,236,.94);
+      background: rgba(255, 255, 255, .94);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 4px 16px rgba(0,0,0,.08);
-      padding: 8px 10px;
+      box-shadow: 0 5px 18px rgba(0, 80, 85, .10);
+      padding: 10px 14px;
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       overflow-x: auto;
       white-space: nowrap;
-      text-align: center;
     }
-    .topbar a, .topbar button {
-      display: inline-block;
-      background: transparent;
-      border: 1px solid var(--sand);
+
+    .lang-select-wrap {
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .lang-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: var(--ottanio);
+      color: #fff;
+      border: none;
       border-radius: 999px;
-      padding: 7px 13px;
-      margin: 3px;
+      padding: 10px 38px 10px 16px;
+      font-family: 'Poppins', sans-serif;
       font-size: 13px;
-      font-family: 'Lato', sans-serif;
-      font-weight: 700;
-      color: var(--navy);
+      font-weight: 600;
       cursor: pointer;
-      transition: background .18s;
+      box-shadow: 0 8px 18px rgba(0, 90, 95, .16);
     }
-    .topbar a:hover, .topbar button:hover { background: var(--sand); }
+
+    .lang-select-wrap::after {
+      content: "⌄";
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-56%);
+      color: #fff;
+      pointer-events: none;
+      font-size: 16px;
+    }
+
+    .topbar a {
+      display: inline-block;
+      background: var(--white);
+      border: 1px solid rgba(15, 127, 131, .18);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 13px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--ottanio-dark);
+      cursor: pointer;
+      transition: background .18s, color .18s, transform .18s;
+    }
+
+    .topbar a:hover {
+      background: var(--ottanio);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        min-height: 60vh;
+        padding: 34px 18px;
+      }
+
+      .topbar {
+        padding: 9px 8px;
+      }
+
+      .topbar a {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+    }
 
     /* ── BUTTONS ──────────────────────────────────────────── */
     .btn {
@@ -406,32 +485,72 @@
            data-en="Garden Cottage Escape: your home with a garden in Salerno."
            data-es="Garden Cottage Escape: vuestra casa con jardín en Salerno."
            data-fr="Garden Cottage Escape : votre maison avec jardin à Salerne.">Garden Cottage Escape: la vostra casa con giardino a Salerno.</p>
-        <div class="actions">
-          <a class="btn btn-white" href="https://wa.me/393923064010" target="_blank">WhatsApp Asja</a>
-          <a class="btn btn-teal" href="tel:+393397009276" data-it="Chiama" data-en="Call" data-es="Llamar" data-fr="Appeler">Chiama</a>
-          <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&query=Via+di+Brignano+Inferiore+69+Salerno" target="_blank">Google Maps</a>
-        </div>
       </div>
     </header>
 
     <!-- TOPBAR NAV -->
     <nav class="topbar">
-      <button onclick="showSite('it')">IT</button>
-      <button onclick="showSite('en')">EN</button>
-      <button onclick="showSite('es')">ES</button>
-      <button onclick="showSite('fr')">FR</button>
-      <a href="#welcome"   data-it="Benvenuti"    data-en="Welcome"     data-es="Bienvenidos"  data-fr="Bienvenue">Benvenuti</a>
-      <a href="#checkin">Check-in</a>
-      <a href="#wifi">Wi‑Fi</a>
-      <a href="#rules"     data-it="Regole"       data-en="Rules"       data-es="Reglas"       data-fr="Règles">Regole</a>
-      <a href="#thermostat" data-it="Termostato"  data-en="Heating"     data-es="Calefacción"  data-fr="Chauffage">Termostato</a>
-      <a href="#waste"     data-it="Rifiuti"      data-en="Waste"       data-es="Residuos"     data-fr="Déchets">Rifiuti</a>
-      <a href="#breakfast" data-it="Colazione"    data-en="Breakfast"   data-es="Desayuno"     data-fr="Petit-déj.">Colazione</a>
-      <a href="#parking"   data-it="Parcheggio"   data-en="Parking"     data-es="Aparcamiento" data-fr="Parking">Parcheggio</a>
-      <a href="#transport" data-it="Trasporti"    data-en="Transport"   data-es="Transporte"   data-fr="Transports">Trasporti</a>
-      <a href="#places"    data-it="Cosa vedere"  data-en="To visit"    data-es="Para visitar" data-fr="À visiter">Cosa vedere</a>
-      <a href="#food"      data-it="Dove mangiare" data-en="Where to eat" data-es="Dónde comer" data-fr="Où manger">Dove mangiare</a>
-      <a href="#contacts"  data-it="Contatti"     data-en="Contacts"    data-es="Contactos"    data-fr="Contacts">Contatti</a>
+      <div class="topbar-inner">
+
+        <div class="lang-select-wrap">
+         <select class="lang-select" onchange="showSite(this.value)" aria-label="Seleziona lingua">
+          <option value="" selected disabled data-it="Seleziona lingua" data-en="Select language" data-es="Seleccionar idioma" data-fr="Choisir la langue">Seleziona lingua</option>
+          <option value="it">🇮🇹 Italiano</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="fr">🇫🇷 Français</option>
+         </select>
+        </div>
+
+        <a href="#checkin"
+          data-it="Check-in/Check-out"
+          data-en="Check-in/Check-out"
+          data-es="Check-in/Check-out"
+          data-fr="Check-in/Check-out">Check-in/Check-out</a>
+
+        <a href="#rules"
+          data-it="Regole della casa"
+          data-en="House rules"
+          data-es="Reglas de la casa"
+          data-fr="Règles de la maison">Regole della casa</a>
+
+        <a href="#places"
+          data-it="Luoghi da visitare"
+          data-en="Places to visit"
+          data-es="Lugares para visitar"
+          data-fr="Lieux à visiter">Luoghi da visitare</a>
+
+        <a href="#food"
+          data-it="Dove mangiare"
+          data-en="Where to eat"
+          data-es="Dónde comer"
+          data-fr="Où manger">Dove mangiare</a>
+
+        <a href="#parking"
+          data-it="Dove parcheggiare"
+          data-en="Where to park"
+          data-es="Dónde aparcar"
+          data-fr="Où se garer">Dove parcheggiare</a>
+
+        <a href="#shopping"
+          data-it="Dove fare la spesa"
+          data-en="Grocery shopping"
+          data-es="Dónde hacer la compra"
+          data-fr="Où faire les courses">Dove fare la spesa</a>
+
+        <a href="#breakfast"
+          data-it="Colazione"
+          data-en="Breakfast"
+          data-es="Desayuno"
+          data-fr="Petit-déjeuner">Colazione</a>
+
+        <a href="#transport"
+          data-it="Trasporti"
+          data-en="Transport"
+          data-es="Transporte"
+          data-fr="Transports">Trasporti</a>
+
+      </div>
     </nav>
 
     <main>
@@ -583,6 +702,50 @@
            data-es="Se puede aparcar en el jardín de la casa o fuera, en la carretera antes de la curva de entrada."
            data-fr="Vous pouvez vous garer dans le jardin de la maison ou sur la route, avant le virage d'entrée.">È possibile parcheggiare nel giardino della casa oppure fuori sulla strada, prima della curva per entrare.</p>
         <div class="img-card"><img src="assets/gate.jpg" alt="Ingresso A Casa di Marco"></div>
+      </section>
+
+      <!-- SPESA -->
+      <section id="shopping">
+        <h2 data-it="Dove fare la spesa"
+            data-en="Grocery shopping"
+            data-es="Dónde hacer la compra"
+            data-fr="Où faire les courses">Dove fare la spesa</h2>
+
+        <p class="lead"
+           data-it="Qui troverete supermercati, minimarket e negozi utili vicino alla casa. Aggiorneremo questa sezione con i nostri consigli."
+           data-en="Here you will find supermarkets, minimarkets and useful shops near the house. We will update this section with our recommendations."
+           data-es="Aquí encontraréis supermercados, minimarkets y tiendas útiles cerca de la casa. Actualizaremos esta sección con nuestras recomendaciones."
+           data-fr="Vous trouverez ici des supermarchés, supérettes et magasins utiles près de la maison. Nous mettrons cette section à jour avec nos conseils.">
+           Qui troverete supermercati, minimarket e negozi utili vicino alla casa. Aggiorneremo questa sezione con i nostri consigli.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <strong data-it="Supermercati vicini"
+                    data-en="Nearby supermarkets"
+                    data-es="Supermercados cercanos"
+                    data-fr="Supermarchés proches">Supermercati vicini</strong>
+            <span data-it="Aggiungeremo indirizzi, orari e distanze dalla casa."
+                  data-en="We will add addresses, opening hours and distance from the house."
+                  data-es="Añadiremos direcciones, horarios y distancia desde la casa."
+                  data-fr="Nous ajouterons les adresses, horaires et distances depuis la maison.">
+                  Aggiungeremo indirizzi, orari e distanze dalla casa.
+            </span>
+          </div>
+
+          <div class="card">
+            <strong data-it="Farmacia e servizi utili"
+                    data-en="Pharmacy and useful services"
+                    data-es="Farmacia y servicios útiles"
+                    data-fr="Pharmacie et services utiles">Farmacia e servizi utili</strong>
+            <span data-it="Qui potremo inserire farmacia, tabacchi, bancomat e altri servizi."
+                  data-en="Here we can add pharmacy, tobacconist, ATM and other services."
+                  data-es="Aquí podremos añadir farmacia, estanco, cajero y otros servicios."
+                  data-fr="Nous pourrons ajouter pharmacie, tabac, distributeur et autres services.">
+                  Qui potremo inserire farmacia, tabacchi, bancomat e altri servizi.
+            </span>
+          </div>
+        </div>
       </section>
 
       <!-- TRASPORTI -->
