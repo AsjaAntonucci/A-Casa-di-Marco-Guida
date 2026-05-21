@@ -386,6 +386,72 @@
       box-shadow: 0 12px 35px rgba(0, 80, 85, .14);
     }
 
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-card {
+      background: var(--ottanio-soft);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .contact-card strong {
+      display: block;
+      color: var(--ottanio-dark);
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ottanio);
+      color: #fff;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0, 90, 95, .16);
+    }
+
+    .contact-btn.light {
+      background: #fff;
+      color: var(--ottanio-dark);
+      border: 1px solid rgba(15, 127, 131, .25);
+    }
+
+    .emergency-box {
+      margin-top: 18px;
+      background: #fff8e8;
+      border-left: 5px solid var(--ottanio);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    @media (max-width: 720px) {
+      .contact-card {
+        padding: 15px;
+      }
+
+      .contact-btn {
+        font-size: 13px;
+        padding: 9px 14px;
+      }
+    }
+
     footer {
       background: var(--navy);
       color: #fff;
@@ -462,6 +528,7 @@
         <a href="#home-gallery" data-it="La casa" data-en="The house" data-es="La casa" data-fr="La maison">La casa</a>
         <a href="#home-menu" data-it="Guida ospiti" data-en="Guest guide" data-es="Guía para huéspedes" data-fr="Guide des invités">Guida ospiti</a>
         <a href="#marco-section" data-it="Chi è Marco?" data-en="Who is Marco?" data-es="¿Quién es Marco?" data-fr="Qui est Marco ?">Chi è Marco?</a>
+        <a href="#contacts-section" data-it="Contatti" data-en="Contacts" data-es="Contactos" data-fr="Contacts">Contatti</a>
       </div>
     </nav>
 
@@ -553,6 +620,134 @@
         <p data-it-html="Prima di continuare con la guida, vogliamo raccontarvi perché questa casa si chiama <strong>A Casa di Marco</strong>." data-en-html="Before continuing with the guide, we want to tell you why this house is called <strong>A Casa di Marco</strong>." data-es-html="Antes de continuar con la guía, queremos contaros por qué esta casa se llama <strong>A Casa di Marco</strong>." data-fr-html="Avant de continuer le guide, nous voulons vous raconter pourquoi cette maison s'appelle <strong>A Casa di Marco</strong>.">Prima di continuare con la guida, vogliamo raccontarvi perché questa casa si chiama <strong>A Casa di Marco</strong>.</p>
         <div class="marco-letter">
           <img src="assets/pettirosso.png" alt="Lettera dedicata a Marco e al pettirosso">
+        </div>
+      </section>
+
+      <section id="contacts-section" class="contacts-section">
+        <h2 data-it="Contatti"
+            data-en="Contacts"
+            data-es="Contactos"
+            data-fr="Contacts">Contatti</h2>
+
+        <p data-it="Per comunicazioni urgenti potete chiamarci. Per tutte le altre richieste, scriveteci su WhatsApp: risponderemo il prima possibile."
+           data-en="For urgent matters, you can call us. For all other requests, please message us on WhatsApp: we will reply as soon as possible."
+           data-es="Para comunicaciones urgentes podéis llamarnos. Para todas las demás solicitudes, escribidnos por WhatsApp: responderemos lo antes posible."
+           data-fr="Pour les communications urgentes, vous pouvez nous appeler. Pour toute autre demande, écrivez-nous sur WhatsApp : nous répondrons dès que possible.">
+          Per comunicazioni urgenti potete chiamarci. Per tutte le altre richieste, scriveteci su WhatsApp: risponderemo il prima possibile.
+        </p>
+
+        <p data-it="Vi chiediamo di utilizzare le chiamate solo per comunicazioni urgenti, così riusciamo a gestire al meglio tutte le richieste."
+           data-en="Please use phone calls only for urgent matters, so we can manage all requests in the best possible way."
+           data-es="Os pedimos que utilicéis las llamadas solo para asuntos urgentes, así podremos gestionar mejor todas las solicitudes."
+           data-fr="Merci d'utiliser les appels uniquement pour les situations urgentes, afin que nous puissions gérer au mieux toutes les demandes.">
+          Vi chiediamo di utilizzare le chiamate solo per comunicazioni urgenti, così riusciamo a gestire al meglio tutte le richieste.
+        </p>
+
+        <div class="contact-grid">
+
+          <div class="contact-card">
+            <strong>Asja</strong>
+            <p data-it="Contatto principale per il vostro soggiorno."
+               data-en="Main contact for your stay."
+               data-es="Contacto principal para vuestra estancia."
+               data-fr="Contact principal pour votre séjour.">
+              Contatto principale per il vostro soggiorno.
+            </p>
+
+            <div class="contact-actions">
+              <a class="contact-btn"
+                 href="tel:+393923064010"
+                 data-it="📞 Chiama"
+                 data-en="📞 Call"
+                 data-es="📞 Llamar"
+                 data-fr="📞 Appeler">📞 Chiama</a>
+
+              <a class="contact-btn light"
+                 href="https://wa.me/393923064010"
+                 target="_blank"
+                 data-it="💬 WhatsApp"
+                 data-en="💬 WhatsApp"
+                 data-es="💬 WhatsApp"
+                 data-fr="💬 WhatsApp">💬 WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <strong>Ambra</strong>
+            <p data-it="Secondo contatto utile in caso di necessità."
+               data-en="Second useful contact if needed."
+               data-es="Segundo contacto útil en caso de necesidad."
+               data-fr="Deuxième contact utile en cas de besoin.">
+              Secondo contatto utile in caso di necessità.
+            </p>
+
+            <div class="contact-actions">
+              <a class="contact-btn"
+                 href="tel:+393397009276"
+                 data-it="📞 Chiama"
+                 data-en="📞 Call"
+                 data-es="📞 Llamar"
+                 data-fr="📞 Appeler">📞 Chiama</a>
+
+              <a class="contact-btn light"
+                 href="https://wa.me/393397009276"
+                 target="_blank"
+                 data-it="💬 WhatsApp"
+                 data-en="💬 WhatsApp"
+                 data-es="💬 WhatsApp"
+                 data-fr="💬 WhatsApp">💬 WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <strong>Email</strong>
+            <p data-it="Per comunicazioni non urgenti potete scriverci anche via email."
+               data-en="For non-urgent communications, you can also email us."
+               data-es="Para comunicaciones no urgentes, también podéis escribirnos por email."
+               data-fr="Pour les communications non urgentes, vous pouvez aussi nous écrire par email.">
+              Per comunicazioni non urgenti potete scriverci anche via email.
+            </p>
+
+            <div class="contact-actions">
+              <a class="contact-btn"
+                 href="mailto:acasadimarco17@gmail.com"
+                 data-it="✉️ Scrivi email"
+                 data-en="✉️ Send email"
+                 data-es="✉️ Enviar email"
+                 data-fr="✉️ Envoyer un email">✉️ Scrivi email</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="emergency-box">
+          <strong data-it="Numeri di emergenza"
+                  data-en="Emergency numbers"
+                  data-es="Números de emergencia"
+                  data-fr="Numéros d'urgence">Numeri di emergenza</strong>
+
+          <p data-it="In caso di emergenza sanitaria chiamare il 118. Per emergenze generali chiamare il 112."
+             data-en="In case of medical emergency, call 118. For general emergencies, call 112."
+             data-es="En caso de emergencia sanitaria, llamad al 118. Para emergencias generales, llamad al 112."
+             data-fr="En cas d'urgence médicale, appelez le 118. Pour les urgences générales, appelez le 112.">
+            In caso di emergenza sanitaria chiamare il 118. Per emergenze generali chiamare il 112.
+          </p>
+
+          <div class="contact-actions">
+            <a class="contact-btn"
+               href="tel:118"
+               data-it="🚑 Chiama 118"
+               data-en="🚑 Call 118"
+               data-es="🚑 Llamar 118"
+               data-fr="🚑 Appeler 118">🚑 Chiama 118</a>
+
+            <a class="contact-btn"
+               href="tel:112"
+               data-it="🚨 Chiama 112"
+               data-en="🚨 Call 112"
+               data-es="🚨 Llamar 112"
+               data-fr="🚨 Appeler 112">🚨 Chiama 112</a>
+          </div>
         </div>
       </section>
     </main>
