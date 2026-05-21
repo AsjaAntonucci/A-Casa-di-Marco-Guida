@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trasporti · A Casa di Marco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ottanio:#0f7f83; --ottanio-dark:#075f63; --ottanio-soft:#dff3f2; --white:#fff; --milk:#fbfbf8; --text:#263238; --muted:#6f7d80; --shadow:0 18px 50px rgba(0,70,75,.20); --radius:28px; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:var(--milk); color:var(--text); font-family:'Poppins',sans-serif; line-height:1.65; }
+    h1,h2,h3 { font-family:'Pacifico',cursive; font-weight:400; color:var(--ottanio-dark); }
+    .page-hero { min-height:38vh; background:linear-gradient(180deg, rgba(0,80,85,.25), rgba(0,80,85,.55)), url("assets/garden-main.jpg") center/cover no-repeat; color:#fff; display:flex; align-items:flex-end; padding:38px 20px; }
+    .page-hero div { max-width:1000px; margin:0 auto; width:100%; }
+    .page-hero h1 { color:#fff; font-size:clamp(38px, 7vw, 68px); text-shadow:0 5px 20px rgba(0,0,0,.35); }
+    main { max-width:1000px; margin:0 auto; padding:28px 16px 60px; }
+    section { background:#fff; border-radius:28px; padding:28px; box-shadow:var(--shadow); margin-bottom:22px; }
+    .back-home { display:inline-flex; margin-bottom:18px; background:var(--ottanio); color:#fff; text-decoration:none; border-radius:999px; padding:11px 18px; font-weight:600; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin-top:14px; }
+    .card { background:var(--ottanio-soft); border-radius:18px; padding:16px; }
+    .card strong { display:block; color:var(--ottanio-dark); margin-bottom:6px; }
+    details { background:var(--ottanio-soft); border-radius:18px; padding:14px 16px; margin-top:14px; }
+    summary { font-weight:600; cursor:pointer; }
+    .img-card img { width:100%; border-radius:18px; margin-top:12px; }
+  </style>
+</head>
+<body>
+  <header class="page-hero"><div><h1>Trasporti</h1></div></header>
+  <main>
+    <a class="back-home" href="index.html">← Torna alla home</a>
+    <section>
+      <h2>Come muoversi</h2>
+      <p>Da A Casa di Marco potete raggiungere facilmente il centro di Salerno, la Costiera Amalfitana e le principali stazioni.</p>
+      <div class="grid">
+        <div class="card">
+          <strong>Bus linea 14</strong>
+          <span>Fermata davanti al cancello principale. Biglietto da acquistare prima di salire.</span>
+        </div>
+        <div class="card">
+          <strong>Navette e transfer</strong>
+          <span>Su richiesta possiamo aiutarvi a organizzare transfer privati da/per aeroporto, porto o stazione.</span>
+        </div>
+        <div class="card">
+          <strong>In auto</strong>
+          <span>Indirizzo: Via di Brignano Inferiore 69, Salerno. Seguire le indicazioni per Brignano.</span>
+        </div>
+      </div>
+      <details open>
+        <summary>Orario feriale - Linea 14</summary>
+        <div class="img-card"><img src="assets/bus-feriale-14.jpg" alt="Orario bus feriale linea 14"></div>
+      </details>
+      <details>
+        <summary>Orario festivo - Linea B</summary>
+        <div class="img-card"><img src="assets/bus-festivo-b.jpg" alt="Orario bus festivo linea B"></div>
+      </details>
+    </section>
+  </main>
+</body>
+</html>
