@@ -418,54 +418,6 @@
         height: 240px;
       }
     }
-
-    /* ── TESTI PIÙ PICCOLI SU TELEFONO ───────────────────── */
-    @media (max-width: 720px) {
-      body {
-        font-size: 14px;
-      }
-
-      .lang-box h1 {
-        font-size: 36px;
-      }
-
-      .lang-welcome strong {
-        font-size: 26px;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      h2 {
-        font-size: 28px;
-      }
-
-      h3 {
-        font-size: 20px;
-      }
-
-      .lead {
-        font-size: 14px;
-      }
-
-      .card {
-        font-size: 14px;
-      }
-
-      .page-buttons a {
-        font-size: 14px;
-        padding: 12px 14px;
-      }
-
-      section {
-        padding: 20px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -476,21 +428,6 @@
       <p class="lang-subtitle">Garden Cottage Escape · Salerno</p>
       <div class="lang-welcome">
         <strong>Benvenuti</strong>
-
-      <section id="home-menu" class="home-menu">
-        <h2>Guida per gli ospiti</h2>
-
-        <div class="page-buttons">
-          <a href="checkin.html">Check-in / Check-out</a>
-          <a href="regole.html">Regole della casa</a>
-          <a href="luoghi.html">Luoghi da visitare</a>
-          <a href="mangiare.html">Dove mangiare</a>
-          <a href="parcheggio.html">Dove parcheggiare</a>
-          <a href="spesa.html">Dove fare la spesa</a>
-          <a href="colazione.html">Colazione</a>
-          <a href="trasporti.html">Trasporti</a>
-        </div>
-      </section>
         <span>Welcome · Bienvenidos · Bienvenue</span>
       </div>
       <div class="lang-btns">
@@ -500,6 +437,21 @@
         <button class="lang-btn" onclick="showSite('fr')"><span class="flag">🇫🇷</span> Français</button>
       </div>
     </div>
+  </div>
+
+  <div id="site">
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>A Casa di Marco</h1>
+        <p>Garden Cottage Escape · Salerno</p>
+      </div>
+    </header>
+
+    <nav class="topbar">
+      <div class="topbar-inner">
+        <div class="lang-select-wrap">
+          <select class="lang-select" onchange="showSite(this.value)" aria-label="Seleziona lingua">
+            <option value="" selected disabled>Seleziona lingua</option>
             <option value="it">🇮🇹 Italiano</option>
             <option value="en">🇬🇧 English</option>
             <option value="es">🇪🇸 Español</option>
@@ -522,18 +474,8 @@
         </p>
       </section>
 
-      <section id="home-gallery" class="home-gallery">
-        <h2>La casa</h2>
-        <div class="carousel">
-          <img src="assets/casa-1.jpg" alt="A Casa di Marco">
-          <img src="assets/casa-2.jpg" alt="Giardino">
-          <img src="assets/casa-3.jpg" alt="Soggiorno">
-          <img src="assets/casa-4.jpg" alt="Camera da letto">
-        </div>
-      </section>
-
       <section id="home-menu" class="home-menu">
-        <h2>Guida ospiti</h2>
+        <h2>Guida per gli ospiti</h2>
         <div class="page-buttons">
           <a href="checkin.html">Check-in / Check-out</a>
           <a href="regole.html">Regole della casa</a>
@@ -543,6 +485,16 @@
           <a href="spesa.html">Dove fare la spesa</a>
           <a href="colazione.html">Colazione</a>
           <a href="trasporti.html">Trasporti</a>
+        </div>
+      </section>
+
+      <section id="home-gallery" class="home-gallery">
+        <h2>La casa</h2>
+        <div class="carousel">
+          <img src="assets/casa-1.jpg" alt="A Casa di Marco">
+          <img src="assets/casa-2.jpg" alt="Giardino">
+          <img src="assets/casa-3.jpg" alt="Soggiorno">
+          <img src="assets/casa-4.jpg" alt="Camera da letto">
         </div>
       </section>
 
