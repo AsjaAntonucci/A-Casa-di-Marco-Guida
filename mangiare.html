@@ -24,24 +24,24 @@
   </style>
 </head>
 <body>
-  <header class="page-hero"><div><h1>Dove mangiare</h1></div></header>
+  <header class="page-hero"><div><h1 data-it="Dove mangiare" data-en="Where to eat" data-es="Dónde comer" data-fr="Où manger">Dove mangiare</h1></div></header>
   <main>
-    <a class="back-home" href="index.html">← Torna alla home</a>
+    <a class="back-home" href="index.html" data-it="← Torna alla home" data-en="← Back to home" data-es="← Volver a la home" data-fr="← Retour à l'accueil">← Torna alla home</a>
     <section>
-      <h2>Consigli in zona</h2>
-      <p>I nostri consigli per mangiare bene in zona Salerno e dintorni.</p>
+      <h2 data-it="Consigli in zona" data-en="Local recommendations" data-es="Recomendaciones de la zona" data-fr="Recommandations locales">Consigli in zona</h2>
+      <p data-it="I nostri consigli per mangiare bene in zona Salerno e dintorni." data-en="Our recommendations for good food in Salerno and surrounding areas." data-es="Nuestras recomendaciones para comer bien en Salerno y alrededores." data-fr="Nos recommandations pour bien manger à Salerne et dans les environs.">I nostri consigli per mangiare bene in zona Salerno e dintorni.</p>
       <div class="grid">
         <div class="card">
-          <strong>Pizzerie</strong>
-          <span>Le nostre pizzerie preferite in zona, con indirizzo e distanza dalla casa.</span>
+          <strong data-it="Pizzerie" data-en="Pizzerias" data-es="Pizzerías" data-fr="Pizzerias">Pizzerie</strong>
+          <span data-it="Le nostre pizzerie preferite in zona, con indirizzo e distanza dalla casa." data-en="Our favourite pizzerias nearby, with address and distance from the house." data-es="Nuestras pizzerías favoritas en la zona, con dirección y distancia desde la casa." data-fr="Nos pizzerias préférées dans la zone, avec adresse et distance depuis la maison.">Le nostre pizzerie preferite in zona, con indirizzo e distanza dalla casa.</span>
         </div>
         <div class="card">
-          <strong>Ristoranti di pesce</strong>
-          <span>Per assaggiare la cucina locale a base di pesce fresco del Tirreno.</span>
+          <strong data-it="Ristoranti di pesce" data-en="Seafood restaurants" data-es="Restaurantes de pescado" data-fr="Restaurants de poisson">Ristoranti di pesce</strong>
+          <span data-it="Per assaggiare la cucina locale a base di pesce fresco del Tirreno." data-en="To taste local cuisine with fresh Tyrrhenian seafood." data-es="Para probar la cocina local con pescado fresco del Tirreno." data-fr="Pour goûter la cuisine locale à base de poisson frais de la mer Tyrrhénienne.">Per assaggiare la cucina locale a base di pesce fresco del Tirreno.</span>
         </div>
         <div class="card">
-          <strong>Bar e aperitivi</strong>
-          <span>Oltre a Brignan Cafè, consigliamo bar in centro per colazioni e aperitivi.</span>
+          <strong data-it="Bar e aperitivi" data-en="Bars and aperitivo" data-es="Bares y aperitivos" data-fr="Bars et apéritifs">Bar e aperitivi</strong>
+          <span data-it="Oltre a Brignan Cafè, consigliamo bar in centro per colazioni e aperitivi." data-en="Besides Brignan Cafè, we recommend bars in the centre for breakfast and aperitivo." data-es="Además de Brignan Cafè, recomendamos bares en el centro para desayunos y aperitivos." data-fr="En plus du Brignan Cafè, nous recommandons des bars en centre-ville pour le petit-déjeuner et l'apéritif.">Oltre a Brignan Cafè, consigliamo bar in centro per colazioni e aperitivi.</span>
         </div>
       </div>
     </section>
@@ -69,10 +69,14 @@
   function translatePage(lang) {
     document.documentElement.lang = lang;
 
-    document.querySelectorAll('[data-it]').forEach(function (el) {
-      var translation = el.getAttribute('data-' + lang);
-      if (translation) {
-        el.textContent = translation;
+    document.querySelectorAll('[data-it], [data-it-html]').forEach(function (el) {
+      var htmlTranslation = el.getAttribute('data-' + lang + '-html');
+      var textTranslation = el.getAttribute('data-' + lang);
+
+      if (htmlTranslation) {
+        el.innerHTML = htmlTranslation;
+      } else if (textTranslation) {
+        el.textContent = textTranslation;
       }
     });
 

@@ -24,24 +24,24 @@
   </style>
 </head>
 <body>
-  <header class="page-hero"><div><h1>Luoghi da visitare</h1></div></header>
+  <header class="page-hero"><div><h1 data-it="Luoghi da visitare" data-en="Places to visit" data-es="Lugares para visitar" data-fr="Lieux à visiter">Luoghi da visitare</h1></div></header>
   <main>
-    <a class="back-home" href="index.html">← Torna alla home</a>
+    <a class="back-home" href="index.html" data-it="← Torna alla home" data-en="← Back to home" data-es="← Volver a la home" data-fr="← Retour à l'accueil">← Torna alla home</a>
     <section>
-      <h2>Da non perdere</h2>
-      <p>Una selezione di luoghi che consigliamo di visitare partendo da A Casa di Marco.</p>
+      <h2 data-it="Da non perdere" data-en="Must-see" data-es="Imprescindibles" data-fr="À ne pas manquer">Da non perdere</h2>
+      <p data-it="Una selezione di luoghi che consigliamo di visitare partendo da A Casa di Marco." data-en="A selection of places we recommend visiting from A Casa di Marco." data-es="Una selección de lugares que recomendamos visitar desde A Casa di Marco." data-fr="Une sélection de lieux à visiter depuis A Casa di Marco.">Una selezione di luoghi che consigliamo di visitare partendo da A Casa di Marco.</p>
       <div class="grid">
         <div class="card">
-          <strong>Centro storico di Salerno</strong>
-          <span>Vicoli, locali, Duomo e lungomare. Perfetto per una passeggiata serale.</span>
+          <strong data-it="Centro storico di Salerno" data-en="Salerno historic centre" data-es="Centro histórico de Salerno" data-fr="Centre historique de Salerne">Centro storico di Salerno</strong>
+          <span data-it="Vicoli, locali, Duomo e lungomare. Perfetto per una passeggiata serale." data-en="Alleys, bars, the Cathedral and the seafront. Perfect for an evening walk." data-es="Callejuelas, bares, Duomo y paseo marítimo. Perfecto para un paseo nocturno." data-fr="Ruelles, bars, Cathédrale et front de mer. Idéal pour une promenade en soirée.">Vicoli, locali, Duomo e lungomare. Perfetto per una passeggiata serale.</span>
         </div>
         <div class="card">
-          <strong>Costiera Amalfitana</strong>
-          <span>Amalfi, Positano e i borghi sono raggiungibili in auto, bus o traghetto dal porto di Salerno.</span>
+          <strong data-it="Costiera Amalfitana" data-en="Amalfi Coast" data-es="Costa Amalfitana" data-fr="Côte Amalfitaine">Costiera Amalfitana</strong>
+          <span data-it="Amalfi, Positano e i borghi sono raggiungibili in auto, bus o traghetto dal porto di Salerno." data-en="Amalfi, Positano and the villages are reachable by car, bus or ferry from Salerno port." data-es="Amalfi, Positano y los pueblos son accesibles en coche, bus o ferry desde el puerto de Salerno." data-fr="Amalfi, Positano et les villages sont accessibles en voiture, bus ou ferry depuis le port de Salerne.">Amalfi, Positano e i borghi sono raggiungibili in auto, bus o traghetto dal porto di Salerno.</span>
         </div>
         <div class="card">
-          <strong>Vietri sul Mare</strong>
-          <span>Primo borgo della Costiera, famoso per le ceramiche colorate.</span>
+          <strong data-it="Vietri sul Mare" data-en="Vietri sul Mare" data-es="Vietri sul Mare" data-fr="Vietri sul Mare">Vietri sul Mare</strong>
+          <span data-it="Primo borgo della Costiera, famoso per le ceramiche colorate." data-en="First village of the Amalfi Coast, famous for its colorful ceramics." data-es="Primer pueblo de la Costa, famoso por sus cerámicas coloridas." data-fr="Premier village de la Côte Amalfitaine, célèbre pour ses céramiques colorées.">Primo borgo della Costiera, famoso per le ceramiche colorate.</span>
         </div>
       </div>
     </section>
@@ -69,10 +69,14 @@
   function translatePage(lang) {
     document.documentElement.lang = lang;
 
-    document.querySelectorAll('[data-it]').forEach(function (el) {
-      var translation = el.getAttribute('data-' + lang);
-      if (translation) {
-        el.textContent = translation;
+    document.querySelectorAll('[data-it], [data-it-html]').forEach(function (el) {
+      var htmlTranslation = el.getAttribute('data-' + lang + '-html');
+      var textTranslation = el.getAttribute('data-' + lang);
+
+      if (htmlTranslation) {
+        el.innerHTML = htmlTranslation;
+      } else if (textTranslation) {
+        el.textContent = textTranslation;
       }
     });
 

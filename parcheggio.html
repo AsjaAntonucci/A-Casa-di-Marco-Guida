@@ -22,12 +22,12 @@
   </style>
 </head>
 <body>
-  <header class="page-hero"><div><h1>Dove parcheggiare</h1></div></header>
+  <header class="page-hero"><div><h1 data-it="Dove parcheggiare" data-en="Where to park" data-es="Dónde aparcar" data-fr="Où se garer">Dove parcheggiare</h1></div></header>
   <main>
-    <a class="back-home" href="index.html">← Torna alla home</a>
+    <a class="back-home" href="index.html" data-it="← Torna alla home" data-en="← Back to home" data-es="← Volver a la home" data-fr="← Retour à l'accueil">← Torna alla home</a>
     <section>
-      <h2>Parcheggio</h2>
-      <p>È possibile parcheggiare nel giardino della casa oppure fuori sulla strada, prima della curva per entrare.</p>
+      <h2 data-it="Parcheggio" data-en="Parking" data-es="Aparcamiento" data-fr="Parking">Parcheggio</h2>
+      <p data-it="È possibile parcheggiare nel giardino della casa oppure fuori sulla strada, prima della curva per entrare." data-en="You can park in the garden of the house or outside on the road, before the curve leading to the entrance." data-es="Se puede aparcar en el jardín de la casa o fuera, en la carretera antes de la curva de entrada." data-fr="Vous pouvez vous garer dans le jardin de la maison ou sur la route, avant le virage d'entrée.">È possibile parcheggiare nel giardino della casa oppure fuori sulla strada, prima della curva per entrare.</p>
       <div class="img-card"><img src="assets/gate.jpg" alt="Ingresso A Casa di Marco"></div>
     </section>
   </main>
@@ -54,10 +54,14 @@
   function translatePage(lang) {
     document.documentElement.lang = lang;
 
-    document.querySelectorAll('[data-it]').forEach(function (el) {
-      var translation = el.getAttribute('data-' + lang);
-      if (translation) {
-        el.textContent = translation;
+    document.querySelectorAll('[data-it], [data-it-html]').forEach(function (el) {
+      var htmlTranslation = el.getAttribute('data-' + lang + '-html');
+      var textTranslation = el.getAttribute('data-' + lang);
+
+      if (htmlTranslation) {
+        el.innerHTML = htmlTranslation;
+      } else if (textTranslation) {
+        el.textContent = textTranslation;
       }
     });
 

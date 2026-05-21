@@ -423,18 +423,18 @@
 <body>
   <div id="lang-screen">
     <div class="lang-box">
-      <div class="lang-badge">Guest Guide</div>
-      <h1>A Casa di Marco</h1>
-      <p class="lang-subtitle">Garden Cottage Escape · Salerno</p>
+      <div class="lang-badge" data-it="Guida ospiti" data-en="Guest guide" data-es="Guía para huéspedes" data-fr="Guide des invités">Guest Guide</div>
+      <h1 data-it="A Casa di Marco" data-en="A Casa di Marco" data-es="A Casa di Marco" data-fr="A Casa di Marco">A Casa di Marco</h1>
+      <p class="lang-subtitle" data-it="Garden Cottage Escape · Salerno" data-en="Garden Cottage Escape · Salerno" data-es="Garden Cottage Escape · Salerno" data-fr="Garden Cottage Escape · Salerno">Garden Cottage Escape · Salerno</p>
       <div class="lang-welcome">
-        <strong>Benvenuti</strong>
-        <span>Welcome · Bienvenidos · Bienvenue</span>
+        <strong data-it="Benvenuti" data-en="Welcome" data-es="Bienvenidos" data-fr="Bienvenue">Benvenuti</strong>
+        <span data-it="Welcome · Bienvenidos · Bienvenue" data-en="Welcome · Bienvenidos · Bienvenue" data-es="Welcome · Bienvenidos · Bienvenue" data-fr="Welcome · Bienvenidos · Bienvenue">Welcome · Bienvenidos · Bienvenue</span>
       </div>
       <div class="lang-btns">
-        <button class="lang-btn" onclick="showSite('it')"><span class="flag">🇮🇹</span> Italiano</button>
-        <button class="lang-btn" onclick="showSite('en')"><span class="flag">🇬🇧</span> English</button>
-        <button class="lang-btn" onclick="showSite('es')"><span class="flag">🇪🇸</span> Español</button>
-        <button class="lang-btn" onclick="showSite('fr')"><span class="flag">🇫🇷</span> Français</button>
+        <button class="lang-btn" onclick="showSite('it')" data-it="Italiano" data-en="Italian" data-es="Italiano" data-fr="Italien"><span class="flag">🇮🇹</span> Italiano</button>
+        <button class="lang-btn" onclick="showSite('en')" data-it="English" data-en="English" data-es="Inglés" data-fr="Anglais"><span class="flag">🇬🇧</span> English</button>
+        <button class="lang-btn" onclick="showSite('es')" data-it="Español" data-en="Spanish" data-es="Español" data-fr="Espagnol"><span class="flag">🇪🇸</span> Español</button>
+        <button class="lang-btn" onclick="showSite('fr')" data-it="Français" data-en="French" data-es="Francés" data-fr="Français"><span class="flag">🇫🇷</span> Français</button>
       </div>
     </div>
   </div>
@@ -442,8 +442,8 @@
   <div id="site">
     <header class="hero">
       <div class="hero-inner">
-        <h1>A Casa di Marco</h1>
-        <p>Garden Cottage Escape · Salerno</p>
+        <h1 data-it="A Casa di Marco" data-en="A Casa di Marco" data-es="A Casa di Marco" data-fr="A Casa di Marco">A Casa di Marco</h1>
+        <p data-it="Garden Cottage Escape · Salerno" data-en="Garden Cottage Escape · Salerno" data-es="Garden Cottage Escape · Salerno" data-fr="Garden Cottage Escape · Salerno">Garden Cottage Escape · Salerno</p>
       </div>
     </header>
 
@@ -451,17 +451,17 @@
       <div class="topbar-inner">
         <div class="lang-select-wrap">
           <select class="lang-select" onchange="showSite(this.value)" aria-label="Seleziona lingua">
-            <option value="" selected disabled>Seleziona lingua</option>
-            <option value="it">🇮🇹 Italiano</option>
-            <option value="en">🇬🇧 English</option>
-            <option value="es">🇪🇸 Español</option>
-            <option value="fr">🇫🇷 Français</option>
+            <option value="" selected disabled data-it="Seleziona lingua" data-en="Select language" data-es="Selecciona idioma" data-fr="Sélectionner la langue">Seleziona lingua</option>
+            <option value="it" data-it="🇮🇹 Italiano" data-en="🇮🇹 Italian" data-es="🇮🇹 Italiano" data-fr="🇮🇹 Italien">🇮🇹 Italiano</option>
+            <option value="en" data-it="🇬🇧 English" data-en="🇬🇧 English" data-es="🇬🇧 Inglés" data-fr="🇬🇧 Anglais">🇬🇧 English</option>
+            <option value="es" data-it="🇪🇸 Español" data-en="🇪🇸 Spanish" data-es="🇪🇸 Español" data-fr="🇪🇸 Espagnol">🇪🇸 Español</option>
+            <option value="fr" data-it="🇫🇷 Français" data-en="🇫🇷 French" data-es="🇫🇷 Francés" data-fr="🇫🇷 Français">🇫🇷 Français</option>
           </select>
         </div>
-        <a href="#welcome-home">Benvenuti</a>
-        <a href="#home-gallery">La casa</a>
-        <a href="#home-menu">Guida ospiti</a>
-        <a href="#marco-section">Chi è Marco?</a>
+        <a href="#welcome-home" data-it="Benvenuti" data-en="Welcome" data-es="Bienvenidos" data-fr="Bienvenue">Benvenuti</a>
+        <a href="#home-gallery" data-it="La casa" data-en="The house" data-es="La casa" data-fr="La maison">La casa</a>
+        <a href="#home-menu" data-it="Guida ospiti" data-en="Guest guide" data-es="Guía para huéspedes" data-fr="Guide des invités">Guida ospiti</a>
+        <a href="#marco-section" data-it="Chi è Marco?" data-en="Who is Marco?" data-es="¿Quién es Marco?" data-fr="Qui est Marco ?">Chi è Marco?</a>
       </div>
     </nav>
 
@@ -471,10 +471,7 @@
             data-en="Welcome"
             data-es="Bienvenidos"
             data-fr="Bienvenue">Benvenuti</h2>
-        <p>
-          Benvenuti ad A Casa di Marco. Siamo felici di ospitarvi e speriamo che possiate sentirvi davvero a casa.
-          In questa guida troverete tutte le informazioni utili per vivere al meglio il vostro soggiorno.
-        </p>
+        <p data-it="Benvenuti ad A Casa di Marco. Siamo felici di ospitarvi e speriamo che possiate sentirvi davvero a casa. In questa guida troverete tutte le informazioni utili per vivere al meglio il vostro soggiorno." data-en="Welcome to A Casa di Marco. We are happy to host you and hope you will truly feel at home. In this guide you will find all the useful information to enjoy your stay." data-es="Bienvenidos a A Casa di Marco. Nos alegra alojaros y esperamos que os sintáis como en casa. En esta guía encontraréis toda la información útil para disfrutar de vuestra estancia." data-fr="Bienvenue à A Casa di Marco. Nous sommes heureux de vous accueillir et espérons que vous vous sentirez vraiment chez vous. Dans ce guide, vous trouverez toutes les informations utiles pour profiter de votre séjour.">Benvenuti ad A Casa di Marco. Siamo felici di ospitarvi e speriamo che possiate sentirvi davvero a casa. In questa guida troverete tutte le informazioni utili per vivere al meglio il vostro soggiorno.</p>
       </section>
 
       <section id="home-gallery" class="home-gallery">
@@ -547,11 +544,8 @@
       </section>
 
       <section id="marco-section" class="marco-section">
-        <h2>Chi è Marco?</h2>
-        <p>
-          Prima di continuare con la guida, vogliamo raccontarvi perché questa casa si chiama
-          <strong>A Casa di Marco</strong>.
-        </p>
+        <h2 data-it="Chi è Marco?" data-en="Who is Marco?" data-es="¿Quién es Marco?" data-fr="Qui est Marco ?">Chi è Marco?</h2>
+        <p data-it-html="Prima di continuare con la guida, vogliamo raccontarvi perché questa casa si chiama <strong>A Casa di Marco</strong>." data-en-html="Before continuing with the guide, we want to tell you why this house is called <strong>A Casa di Marco</strong>." data-es-html="Antes de continuar con la guía, queremos contaros por qué esta casa se llama <strong>A Casa di Marco</strong>." data-fr-html="Avant de continuer le guide, nous voulons vous raconter pourquoi cette maison s'appelle <strong>A Casa di Marco</strong>.">Prima di continuare con la guida, vogliamo raccontarvi perché questa casa si chiama <strong>A Casa di Marco</strong>.</p>
         <div class="marco-letter">
           <img src="assets/pettirosso.png" alt="Lettera dedicata a Marco e al pettirosso">
         </div>
@@ -559,8 +553,8 @@
     </main>
 
     <footer>
-      <p><strong>A Casa di Marco – Guest Guide</strong> · Garden Cottage Escape · Salerno</p>
-      <p>Grazie per aver scelto la nostra casa.</p>
+      <p data-it-html="<strong>A Casa di Marco – Guida ospiti</strong> · Garden Cottage Escape · Salerno" data-en-html="<strong>A Casa di Marco – Guest Guide</strong> · Garden Cottage Escape · Salerno" data-es-html="<strong>A Casa di Marco – Guía para huéspedes</strong> · Garden Cottage Escape · Salerno" data-fr-html="<strong>A Casa di Marco – Guide des invités</strong> · Garden Cottage Escape · Salerno"><strong>A Casa di Marco – Guest Guide</strong> · Garden Cottage Escape · Salerno</p>
+      <p data-it="Grazie per aver scelto la nostra casa." data-en="Thank you for choosing our home." data-es="Gracias por elegir nuestra casa." data-fr="Merci d'avoir choisi notre maison.">Grazie per aver scelto la nostra casa.</p>
     </footer>
   </div>
 
@@ -568,10 +562,14 @@
   function translatePage(lang) {
     document.documentElement.lang = lang;
 
-    document.querySelectorAll('[data-it]').forEach(function (el) {
-      var translation = el.getAttribute('data-' + lang);
-      if (translation) {
-        el.textContent = translation;
+    document.querySelectorAll('[data-it], [data-it-html]').forEach(function (el) {
+      var htmlTranslation = el.getAttribute('data-' + lang + '-html');
+      var textTranslation = el.getAttribute('data-' + lang);
+
+      if (htmlTranslation) {
+        el.innerHTML = htmlTranslation;
+      } else if (textTranslation) {
+        el.textContent = textTranslation;
       }
     });
 

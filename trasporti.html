@@ -27,32 +27,32 @@
   </style>
 </head>
 <body>
-  <header class="page-hero"><div><h1>Trasporti</h1></div></header>
+  <header class="page-hero"><div><h1 data-it="Trasporti" data-en="Transport" data-es="Transporte" data-fr="Transports">Trasporti</h1></div></header>
   <main>
-    <a class="back-home" href="index.html">← Torna alla home</a>
+    <a class="back-home" href="index.html" data-it="← Torna alla home" data-en="← Back to home" data-es="← Volver a la home" data-fr="← Retour à l'accueil">← Torna alla home</a>
     <section>
-      <h2>Come muoversi</h2>
-      <p>Da A Casa di Marco potete raggiungere facilmente il centro di Salerno, la Costiera Amalfitana e le principali stazioni.</p>
+      <h2 data-it="Come muoversi" data-en="How to get around" data-es="Cómo moverse" data-fr="Comment se déplacer">Come muoversi</h2>
+      <p data-it="Da A Casa di Marco potete raggiungere facilmente il centro di Salerno, la Costiera Amalfitana e le principali stazioni." data-en="From A Casa di Marco you can easily reach Salerno city centre, the Amalfi Coast and the main stations." data-es="Desde A Casa di Marco podéis llegar fácilmente al centro de Salerno, la Costa Amalfitana y las principales estaciones." data-fr="Depuis A Casa di Marco, vous pouvez facilement rejoindre le centre de Salerne, la Côte Amalfitaine et les principales gares.">Da A Casa di Marco potete raggiungere facilmente il centro di Salerno, la Costiera Amalfitana e le principali stazioni.</p>
       <div class="grid">
         <div class="card">
-          <strong>Bus linea 14</strong>
-          <span>Fermata davanti al cancello principale. Biglietto da acquistare prima di salire.</span>
+          <strong data-it="Bus linea 14" data-en="Bus line 14" data-es="Línea de bus 14" data-fr="Bus ligne 14">Bus linea 14</strong>
+          <span data-it="Fermata davanti al cancello principale. Biglietto da acquistare prima di salire." data-en="Bus stop in front of the main gate. Buy your ticket before boarding." data-es="Parada delante de la puerta principal. El billete debe comprarse antes de subir." data-fr="Arrêt devant le portail principal. Le billet doit être acheté avant de monter.">Fermata davanti al cancello principale. Biglietto da acquistare prima di salire.</span>
         </div>
         <div class="card">
-          <strong>Navette e transfer</strong>
-          <span>Su richiesta possiamo aiutarvi a organizzare transfer privati da/per aeroporto, porto o stazione.</span>
+          <strong data-it="Navette e transfer" data-en="Shuttles & transfers" data-es="Traslados y transfer" data-fr="Navettes et transferts">Navette e transfer</strong>
+          <span data-it="Su richiesta possiamo aiutarvi a organizzare transfer privati da/per aeroporto, porto o stazione." data-en="On request we can help arrange private transfers from/to the airport, port or station." data-es="Bajo petición podemos ayudaros a organizar traslados privados desde/hacia aeropuerto, puerto o estación." data-fr="Sur demande, nous pouvons organiser des transferts privés depuis/vers l'aéroport, le port ou la gare.">Su richiesta possiamo aiutarvi a organizzare transfer privati da/per aeroporto, porto o stazione.</span>
         </div>
         <div class="card">
-          <strong>In auto</strong>
-          <span>Indirizzo: Via di Brignano Inferiore 69, Salerno. Seguire le indicazioni per Brignano.</span>
+          <strong data-it="In auto" data-en="By car" data-es="En coche" data-fr="En voiture">In auto</strong>
+          <span data-it="Indirizzo: Via di Brignano Inferiore 69, Salerno. Seguire le indicazioni per Brignano." data-en="Address: Via di Brignano Inferiore 69, Salerno. Follow signs for Brignano." data-es="Dirección: Via di Brignano Inferiore 69, Salerno. Seguid las indicaciones hacia Brignano." data-fr="Adresse : Via di Brignano Inferiore 69, Salerne. Suivre les panneaux vers Brignano.">Indirizzo: Via di Brignano Inferiore 69, Salerno. Seguire le indicazioni per Brignano.</span>
         </div>
       </div>
       <details open>
-        <summary>Orario feriale - Linea 14</summary>
+        <summary data-it="Orario feriale - Linea 14" data-en="Weekday timetable - Line 14" data-es="Horario laborable - Línea 14" data-fr="Horaire en semaine - Ligne 14">Orario feriale - Linea 14</summary>
         <div class="img-card"><img src="assets/bus-feriale-14.jpg" alt="Orario bus feriale linea 14"></div>
       </details>
       <details>
-        <summary>Orario festivo - Linea B</summary>
+        <summary data-it="Orario festivo - Linea B" data-en="Holiday timetable - Line B" data-es="Horario festivo - Línea B" data-fr="Horaire jours fériés - Ligne B">Orario festivo - Linea B</summary>
         <div class="img-card"><img src="assets/bus-festivo-b.jpg" alt="Orario bus festivo linea B"></div>
       </details>
     </section>
@@ -80,10 +80,14 @@
   function translatePage(lang) {
     document.documentElement.lang = lang;
 
-    document.querySelectorAll('[data-it]').forEach(function (el) {
-      var translation = el.getAttribute('data-' + lang);
-      if (translation) {
-        el.textContent = translation;
+    document.querySelectorAll('[data-it], [data-it-html]').forEach(function (el) {
+      var htmlTranslation = el.getAttribute('data-' + lang + '-html');
+      var textTranslation = el.getAttribute('data-' + lang);
+
+      if (htmlTranslation) {
+        el.innerHTML = htmlTranslation;
+      } else if (textTranslation) {
+        el.textContent = textTranslation;
       }
     });
 

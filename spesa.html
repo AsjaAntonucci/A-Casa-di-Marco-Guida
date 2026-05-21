@@ -24,20 +24,20 @@
   </style>
 </head>
 <body>
-  <header class="page-hero"><div><h1>Dove fare la spesa</h1></div></header>
+  <header class="page-hero"><div><h1 data-it="Dove fare la spesa" data-en="Grocery shopping" data-es="Dónde hacer la compra" data-fr="Où faire les courses">Dove fare la spesa</h1></div></header>
   <main>
-    <a class="back-home" href="index.html">← Torna alla home</a>
+    <a class="back-home" href="index.html" data-it="← Torna alla home" data-en="← Back to home" data-es="← Volver a la home" data-fr="← Retour à l'accueil">← Torna alla home</a>
     <section>
-      <h2>Servizi utili</h2>
-      <p>Qui troverete supermercati, minimarket e negozi utili vicino alla casa. Aggiorneremo questa sezione con i nostri consigli.</p>
+      <h2 data-it="Servizi utili" data-en="Useful services" data-es="Servicios útiles" data-fr="Services utiles">Servizi utili</h2>
+      <p data-it="Qui troverete supermercati, minimarket e negozi utili vicino alla casa. Aggiorneremo questa sezione con i nostri consigli." data-en="Here you will find supermarkets, minimarkets and useful shops near the house. We will update this section with our recommendations." data-es="Aquí encontraréis supermercados, minimarkets y tiendas útiles cerca de la casa. Actualizaremos esta sección con nuestras recomendaciones." data-fr="Vous trouverez ici des supermarchés, supérettes et magasins utiles près de la maison. Nous mettrons cette section à jour avec nos conseils.">Qui troverete supermercati, minimarket e negozi utili vicino alla casa. Aggiorneremo questa sezione con i nostri consigli.</p>
       <div class="grid">
         <div class="card">
-          <strong>Supermercati vicini</strong>
-          <span>Aggiungeremo indirizzi, orari e distanze dalla casa.</span>
+          <strong data-it="Supermercati vicini" data-en="Nearby supermarkets" data-es="Supermercados cercanos" data-fr="Supermarchés proches">Supermercati vicini</strong>
+          <span data-it="Aggiungeremo indirizzi, orari e distanze dalla casa." data-en="We will add addresses, opening hours and distance from the house." data-es="Añadiremos direcciones, horarios y distancia desde la casa." data-fr="Nous ajouterons les adresses, horaires et distances depuis la maison.">Aggiungeremo indirizzi, orari e distanze dalla casa.</span>
         </div>
         <div class="card">
-          <strong>Farmacia e servizi utili</strong>
-          <span>Qui potremo inserire farmacia, tabacchi, bancomat e altri servizi.</span>
+          <strong data-it="Farmacia e servizi utili" data-en="Pharmacy and useful services" data-es="Farmacia y servicios útiles" data-fr="Pharmacie et services utiles">Farmacia e servizi utili</strong>
+          <span data-it="Qui potremo inserire farmacia, tabacchi, bancomat e altri servizi." data-en="Here we can add pharmacy, tobacconist, ATM and other services." data-es="Aquí podremos añadir farmacia, estanco, cajero y otros servicios." data-fr="Nous pourrons ajouter pharmacie, tabac, distributeur et autres services.">Qui potremo inserire farmacia, tabacchi, bancomat e altri servizi.</span>
         </div>
       </div>
     </section>
@@ -65,10 +65,14 @@
   function translatePage(lang) {
     document.documentElement.lang = lang;
 
-    document.querySelectorAll('[data-it]').forEach(function (el) {
-      var translation = el.getAttribute('data-' + lang);
-      if (translation) {
-        el.textContent = translation;
+    document.querySelectorAll('[data-it], [data-it-html]').forEach(function (el) {
+      var htmlTranslation = el.getAttribute('data-' + lang + '-html');
+      var textTranslation = el.getAttribute('data-' + lang);
+
+      if (htmlTranslation) {
+        el.innerHTML = htmlTranslation;
+      } else if (textTranslation) {
+        el.textContent = textTranslation;
       }
     });
 

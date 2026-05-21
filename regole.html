@@ -23,19 +23,19 @@
   </style>
 </head>
 <body>
-  <header class="page-hero"><div><h1>Regole della casa</h1></div></header>
+  <header class="page-hero"><div><h1 data-it="Regole della casa" data-en="House rules" data-es="Reglas de la casa" data-fr="Règles de la maison">Regole della casa</h1></div></header>
   <main>
-    <a class="back-home" href="index.html">← Torna alla home</a>
+    <a class="back-home" href="index.html" data-it="← Torna alla home" data-en="← Back to home" data-es="← Volver a la home" data-fr="← Retour à l'accueil">← Torna alla home</a>
     <section>
-      <h2>Regole</h2>
+      <h2 data-it="Regole" data-en="Rules" data-es="Reglas" data-fr="Règles">Regole</h2>
       <ul class="info-list">
-        <li>Non sono consentite feste o eventi non autorizzati.</li>
-        <li>Rispettare gli orari di silenzio nelle ore serali e notturne.</li>
-        <li>È vietato fumare all'interno. All'esterno usare sempre un posacenere.</li>
-        <li>Prima di uscire, spegnere luci, climatizzatore e dispositivi elettrici.</li>
-        <li>Non lasciare finestre o porte aperte quando non siete in casa.</li>
-        <li>A fine soggiorno lasciare la cucina in ordine e non lasciare cibo deperibile.</li>
-        <li>Segnalate subito eventuali danni o problemi: li risolveremo il prima possibile.</li>
+        <li data-it="Non sono consentite feste o eventi non autorizzati." data-en="Parties or unauthorized events are not allowed." data-es="No se permiten fiestas ni eventos no autorizados." data-fr="Les fêtes et événements non autorisés sont interdits.">Non sono consentite feste o eventi non autorizzati.</li>
+        <li data-it="Rispettare gli orari di silenzio nelle ore serali e notturne." data-en="Please respect quiet hours in the evening and at night." data-es="Respetad las horas de silencio por la noche." data-fr="Veuillez respecter les heures de silence le soir et la nuit.">Rispettare gli orari di silenzio nelle ore serali e notturne.</li>
+        <li data-it="È vietato fumare all'interno. All'esterno usare sempre un posacenere." data-en="Smoking is not allowed inside. Outside, always use an ashtray." data-es="No está permitido fumar dentro. Fuera, usad siempre un cenicero." data-fr="Il est interdit de fumer à l'intérieur. Dehors, utilisez toujours un cendrier.">È vietato fumare all'interno. All'esterno usare sempre un posacenere.</li>
+        <li data-it="Prima di uscire, spegnere luci, climatizzatore e dispositivi elettrici." data-en="Before leaving, turn off lights, air conditioning and electrical devices." data-es="Antes de salir, apagad luces, aire acondicionado y dispositivos eléctricos." data-fr="Avant de sortir, éteignez les lumières, la climatisation et les appareils électriques.">Prima di uscire, spegnere luci, climatizzatore e dispositivi elettrici.</li>
+        <li data-it="Non lasciare finestre o porte aperte quando non siete in casa." data-en="Do not leave windows or doors open when you are away." data-es="No dejéis ventanas o puertas abiertas cuando no estéis en casa." data-fr="Ne laissez pas les fenêtres ou portes ouvertes en votre absence.">Non lasciare finestre o porte aperte quando non siete in casa.</li>
+        <li data-it="A fine soggiorno lasciare la cucina in ordine e non lasciare cibo deperibile." data-en="At the end of your stay, leave the kitchen tidy and no perishable food behind." data-es="Al final de la estancia, dejad la cocina ordenada y no dejéis comida perecedera." data-fr="En fin de séjour, laissez la cuisine propre et ne laissez pas d'aliments périssables.">A fine soggiorno lasciare la cucina in ordine e non lasciare cibo deperibile.</li>
+        <li data-it="Segnalate subito eventuali danni o problemi: li risolveremo il prima possibile." data-en="Please report any damage or issues immediately: we will solve them as soon as possible." data-es="Comunicad inmediatamente cualquier daño o problema: lo solucionaremos cuanto antes." data-fr="Signalez immédiatement tout dommage ou problème : nous le réglerons au plus vite.">Segnalate subito eventuali danni o problemi: li risolveremo il prima possibile.</li>
       </ul>
     </section>
   </main>
@@ -62,10 +62,14 @@
   function translatePage(lang) {
     document.documentElement.lang = lang;
 
-    document.querySelectorAll('[data-it]').forEach(function (el) {
-      var translation = el.getAttribute('data-' + lang);
-      if (translation) {
-        el.textContent = translation;
+    document.querySelectorAll('[data-it], [data-it-html]').forEach(function (el) {
+      var htmlTranslation = el.getAttribute('data-' + lang + '-html');
+      var textTranslation = el.getAttribute('data-' + lang);
+
+      if (htmlTranslation) {
+        el.innerHTML = htmlTranslation;
+      } else if (textTranslation) {
+        el.textContent = textTranslation;
       }
     });
 
