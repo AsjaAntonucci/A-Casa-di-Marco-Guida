@@ -913,7 +913,7 @@
     } catch (e) {}
   }
 
-  function showCategory(categoryKey) {
+  function renderCategory(categoryKey) {
     var category = categories[categoryKey];
     var grid = document.getElementById('restaurant-grid');
     var title = document.getElementById('category-title');
@@ -952,13 +952,67 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function hideCategory() {
+  function showCategory(categoryKey) {
+    renderCategory(categoryKey);
+
+    var newUrl = new URL(window.location.href);
+    newUrl.searchParams.set('cat', categoryKey);
+
+    history.pushState(
+      { category: categoryKey },
+      '',
+      newUrl.pathname + '?' + newUrl.searchParams.toString()
+    );
+  }
+
+  function renderCategoriesStart() {
     document.getElementById('food-category').classList.remove('active');
     document.getElementById('food-start').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  function hideCategory() {
+    renderCategoriesStart();
+
+    var newUrl = new URL(window.location.href);
+    newUrl.searchParams.delete('cat');
+
+    history.pushState(
+      { category: null },
+      '',
+      newUrl.pathname + '?' + newUrl.searchParams.toString()
+    );
+  }
+
   translatePage(getLang());
+
+  (function initCategoryFromUrl() {
+    var params = new URLSearchParams(window.location.search);
+    var category = params.get('cat');
+
+    history.replaceState(
+      { category: category || null },
+      '',
+      window.location.href
+    );
+
+    if (category && categories[category]) {
+      renderCategory(category);
+    } else {
+      renderCategoriesStart();
+    }
+  })();
+
+  window.addEventListener('popstate', function () {
+    var params = new URLSearchParams(window.location.search);
+    var category = params.get('cat');
+
+    if (category && categories[category]) {
+      renderCategory(category);
+    } else {
+      renderCategoriesStart();
+    }
+  });
 </script>
 </body>
 </html>
