@@ -4,104 +4,521 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trasporti · A Casa di Marco</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root { --ottanio:#0f7f83; --ottanio-dark:#075f63; --ottanio-soft:#dff3f2; --white:#fff; --milk:#fbfbf8; --text:#263238; --muted:#6f7d80; --shadow:0 18px 50px rgba(0,70,75,.20); --radius:28px; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { background:var(--milk); color:var(--text); font-family:'Poppins',sans-serif; line-height:1.65; }
-    h1,h2,h3 { font-family:'Pacifico',cursive; font-weight:400; color:var(--ottanio-dark); }
-    .page-hero { min-height:38vh; background:linear-gradient(180deg, rgba(0,80,85,.25), rgba(0,80,85,.55)), url("assets/garden-main.jpg") center/cover no-repeat; color:#fff; display:flex; align-items:flex-end; padding:38px 20px; }
-    .page-hero div { max-width:1000px; margin:0 auto; width:100%; }
-    .page-hero h1 { color:#fff; font-size:clamp(38px, 7vw, 68px); text-shadow:0 5px 20px rgba(0,0,0,.35); }
-    main { max-width:1000px; margin:0 auto; padding:28px 16px 60px; }
-    section { background:#fff; border-radius:28px; padding:28px; box-shadow:var(--shadow); margin-bottom:22px; }
-    .back-home { display:inline-flex; margin-bottom:18px; background:var(--ottanio); color:#fff; text-decoration:none; border-radius:999px; padding:11px 18px; font-weight:600; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin-top:14px; }
-    .card { background:var(--ottanio-soft); border-radius:18px; padding:16px; }
-    .card strong { display:block; color:var(--ottanio-dark); margin-bottom:6px; }
-    details { background:var(--ottanio-soft); border-radius:18px; padding:14px 16px; margin-top:14px; }
-    summary { font-weight:600; cursor:pointer; }
-    .img-card img { width:100%; border-radius:18px; margin-top:12px; }
+    :root {
+      --ottanio:#0f7f83;
+      --ottanio-dark:#075f63;
+      --ottanio-soft:#dff3f2;
+      --white:#fff;
+      --milk:#fbfbf8;
+      --text:#263238;
+      --muted:#6f7d80;
+      --shadow:0 18px 50px rgba(0,70,75,.20);
+      --radius:28px;
+    }
+
+    * {
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body {
+      background:var(--milk);
+      color:var(--text);
+      font-family:'Poppins',sans-serif;
+      line-height:1.65;
+    }
+
+    h1,h2,h3 {
+      font-family:'Pacifico',cursive;
+      font-weight:400;
+      color:var(--ottanio-dark);
+    }
+
+    .page-hero {
+      min-height:38vh;
+      background:
+        linear-gradient(180deg, rgba(0,80,85,.25), rgba(0,80,85,.55)),
+        url("assets/garden-main.jpg") center/cover no-repeat;
+      color:#fff;
+      display:flex;
+      align-items:flex-end;
+      padding:38px 20px;
+    }
+
+    .page-hero div {
+      max-width:1000px;
+      margin:0 auto;
+      width:100%;
+    }
+
+    .page-hero h1 {
+      color:#fff;
+      font-size:clamp(38px, 7vw, 68px);
+      text-shadow:0 5px 20px rgba(0,0,0,.35);
+    }
+
+    main {
+      max-width:1000px;
+      margin:0 auto;
+      padding:28px 16px 60px;
+    }
+
+    section {
+      background:#fff;
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+    }
+
+    .back-home {
+      display:inline-flex;
+      margin-bottom:18px;
+      background:var(--ottanio);
+      color:#fff;
+      text-decoration:none;
+      border-radius:999px;
+      padding:11px 18px;
+      font-weight:600;
+    }
+
+    .intro {
+      color:var(--muted);
+      margin-top:8px;
+      max-width:850px;
+    }
+
+    .transport-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .transport-card {
+      background:var(--ottanio-soft);
+      border-radius:22px;
+      padding:18px;
+      box-shadow:0 10px 28px rgba(0,80,85,.10);
+    }
+
+    .transport-card.featured {
+      background:#fff8e8;
+      border-left:5px solid var(--ottanio);
+    }
+
+    .transport-card h3 {
+      font-size:25px;
+      margin-bottom:8px;
+    }
+
+    .transport-card p {
+      font-size:15px;
+      margin-bottom:10px;
+    }
+
+    .transport-note {
+      background:#fff;
+      border-radius:15px;
+      padding:12px;
+      margin-top:10px;
+      font-size:14px;
+    }
+
+    .transport-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .transport-btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--ottanio);
+      color:#fff;
+      border-radius:999px;
+      padding:10px 15px;
+      font-size:13px;
+      font-weight:600;
+      text-decoration:none;
+    }
+
+    .transport-btn.light {
+      background:#fff;
+      color:var(--ottanio-dark);
+      border:1px solid rgba(15,127,131,.25);
+    }
+
+    details {
+      background:var(--ottanio-soft);
+      border-radius:18px;
+      padding:14px 16px;
+      margin-top:14px;
+    }
+
+    summary {
+      font-weight:700;
+      cursor:pointer;
+      color:var(--ottanio-dark);
+    }
+
+    .img-card img {
+      width:100%;
+      border-radius:18px;
+      margin-top:12px;
+    }
+
+    @media (max-width:720px) {
+      body {
+        font-size:14px;
+        line-height:1.55;
+      }
+
+      .page-hero {
+        min-height:26vh;
+        padding:26px 16px;
+      }
+
+      .page-hero h1 {
+        font-size:34px;
+        line-height:1.15;
+      }
+
+      main {
+        padding:18px 12px 44px;
+      }
+
+      section {
+        padding:18px;
+        border-radius:22px;
+      }
+
+      h2 {
+        font-size:26px;
+      }
+
+      .transport-grid {
+        grid-template-columns:1fr;
+      }
+
+      .transport-card {
+        padding:15px;
+      }
+
+      .transport-card h3 {
+        font-size:23px;
+      }
+
+      .transport-card p,
+      .transport-note {
+        font-size:14px;
+      }
+
+      .transport-actions {
+        flex-direction:column;
+      }
+
+      .transport-btn {
+        width:100%;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header class="page-hero"><div><h1 data-it="Trasporti" data-en="Transport" data-es="Transporte" data-fr="Transports">Trasporti</h1></div></header>
+  <header class="page-hero">
+    <div>
+      <h1 data-it="Trasporti"
+          data-en="Transport"
+          data-es="Transporte"
+          data-fr="Transports">Trasporti</h1>
+    </div>
+  </header>
+
   <main>
-    <a class="back-home" href="index.html" data-it="← Torna alla home" data-en="← Back to home" data-es="← Volver a la home" data-fr="← Retour à l'accueil">← Torna alla home</a>
+    <a class="back-home" href="index.html"
+       data-it="← Torna alla home"
+       data-en="← Back to home"
+       data-es="← Volver a la home"
+       data-fr="← Retour à l'accueil">← Torna alla home</a>
+
     <section>
-      <h2 data-it="Come muoversi" data-en="How to get around" data-es="Cómo moverse" data-fr="Comment se déplacer">Come muoversi</h2>
-      <p data-it="Da A Casa di Marco potete raggiungere facilmente il centro di Salerno, la Costiera Amalfitana e le principali stazioni." data-en="From A Casa di Marco you can easily reach Salerno city centre, the Amalfi Coast and the main stations." data-es="Desde A Casa di Marco podéis llegar fácilmente al centro de Salerno, la Costa Amalfitana y las principales estaciones." data-fr="Depuis A Casa di Marco, vous pouvez facilement rejoindre le centre de Salerne, la Côte Amalfitaine et les principales gares.">Da A Casa di Marco potete raggiungere facilmente il centro di Salerno, la Costiera Amalfitana e le principali stazioni.</p>
-      <div class="grid">
-        <div class="card">
-          <strong data-it="Bus linea 14" data-en="Bus line 14" data-es="Línea de bus 14" data-fr="Bus ligne 14">Bus linea 14</strong>
-          <span data-it="Fermata davanti al cancello principale. Biglietto da acquistare prima di salire." data-en="Bus stop in front of the main gate. Buy your ticket before boarding." data-es="Parada delante de la puerta principal. El billete debe comprarse antes de subir." data-fr="Arrêt devant le portail principal. Le billet doit être acheté avant de monter.">Fermata davanti al cancello principale. Biglietto da acquistare prima di salire.</span>
+      <h2 data-it="Come muoversi"
+          data-en="How to get around"
+          data-es="Cómo moverse"
+          data-fr="Comment se déplacer">Come muoversi</h2>
+
+      <p class="intro"
+         data-it="Da A Casa di Marco potete raggiungere il centro di Salerno, il lungomare, il porto e la Costiera Amalfitana usando bus, traghetti, taxi o auto."
+         data-en="From A Casa di Marco you can reach Salerno city centre, the seafront, the port and the Amalfi Coast by bus, ferry, taxi or car."
+         data-es="Desde A Casa di Marco podéis llegar al centro de Salerno, al paseo marítimo, al puerto y a la Costa Amalfitana en bus, ferry, taxi o coche."
+         data-fr="Depuis A Casa di Marco, vous pouvez rejoindre le centre de Salerne, le front de mer, le port et la Côte Amalfitaine en bus, ferry, taxi ou voiture.">
+        Da A Casa di Marco potete raggiungere il centro di Salerno, il lungomare, il porto e la Costiera Amalfitana usando bus, traghetti, taxi o auto.
+      </p>
+
+      <div class="transport-grid">
+
+        <div class="transport-card featured">
+          <h3 data-it="Bus Linea 14 e Linea B"
+              data-en="Bus Line 14 and Line B"
+              data-es="Bus línea 14 y línea B"
+              data-fr="Bus ligne 14 et ligne B">Bus Linea 14 e Linea B</h3>
+
+          <p data-it="Per raggiungere il centro senza prendere l'auto, potete usare il bus. Le linee utili sono la Linea 14 e la Linea B."
+             data-en="To reach the centre without taking the car, you can use the bus. The useful lines are Line 14 and Line B."
+             data-es="Para llegar al centro sin usar el coche, podéis tomar el bus. Las líneas útiles son la línea 14 y la línea B."
+             data-fr="Pour rejoindre le centre sans prendre la voiture, vous pouvez utiliser le bus. Les lignes utiles sont la ligne 14 et la ligne B.">
+            Per raggiungere il centro senza prendere l'auto, potete usare il bus. Le linee utili sono la Linea 14 e la Linea B.
+          </p>
+
+          <div class="transport-note"
+               data-it="Consiglio: per andare verso il porto o il centro, potete scendere in zona Lungomare Trieste e poi proseguire a piedi."
+               data-en="Tip: to go towards the port or the centre, you can get off near Lungomare Trieste and continue on foot."
+               data-es="Consejo: para ir hacia el puerto o el centro, podéis bajar en la zona de Lungomare Trieste y continuar a pie."
+               data-fr="Conseil : pour aller vers le port ou le centre, vous pouvez descendre près du Lungomare Trieste puis continuer à pied.">
+            Consiglio: per andare verso il porto o il centro, potete scendere in zona Lungomare Trieste e poi proseguire a piedi.
+          </div>
+
+          <div class="transport-note"
+               data-it="I biglietti del bus si possono acquistare al Brignan Cafè. Ricordate di convalidare sempre il biglietto appena salite, altrimenti si rischia una multa."
+               data-en="Bus tickets can be bought at Brignan Cafè. Remember to validate your ticket as soon as you board, otherwise you may risk a fine."
+               data-es="Los billetes del bus se pueden comprar en Brignan Cafè. Recordad validarlos al subir, de lo contrario podéis recibir una multa."
+               data-fr="Les tickets de bus peuvent être achetés au Brignan Cafè. Pensez à valider votre ticket dès que vous montez, sinon vous risquez une amende.">
+            I biglietti del bus si possono acquistare al Brignan Cafè. Ricordate di convalidare sempre il biglietto appena salite, altrimenti si rischia una multa.
+          </div>
+
+          <div class="transport-note"
+               data-it="Nota provvisoria: gli ultimi bus per salire verso casa sono indicativamente intorno alle 21:00. Gli orari precisi verranno aggiornati appena disponibili."
+               data-en="Temporary note: the last buses going back up towards the house are usually around 9:00 PM. Exact times will be updated as soon as available."
+               data-es="Nota provisional: los últimos buses para subir hacia la casa suelen ser alrededor de las 21:00. Los horarios exactos se actualizarán cuando estén disponibles."
+               data-fr="Note provisoire : les derniers bus pour remonter vers la maison sont généralement vers 21h00. Les horaires exacts seront mis à jour dès qu'ils seront disponibles.">
+            Nota provvisoria: gli ultimi bus per salire verso casa sono indicativamente intorno alle 21:00. Gli orari precisi verranno aggiornati appena disponibili.
+          </div>
         </div>
-        <div class="card">
-          <strong data-it="Navette e transfer" data-en="Shuttles & transfers" data-es="Traslados y transfer" data-fr="Navettes et transferts">Navette e transfer</strong>
-          <span data-it="Su richiesta possiamo aiutarvi a organizzare transfer privati da/per aeroporto, porto o stazione." data-en="On request we can help arrange private transfers from/to the airport, port or station." data-es="Bajo petición podemos ayudaros a organizar traslados privados desde/hacia aeropuerto, puerto o estación." data-fr="Sur demande, nous pouvons organiser des transferts privés depuis/vers l'aéroport, le port ou la gare.">Su richiesta possiamo aiutarvi a organizzare transfer privati da/per aeroporto, porto o stazione.</span>
+
+        <div class="transport-card">
+          <h3 data-it="Traghetti dal porto di Salerno"
+              data-en="Ferries from Salerno port"
+              data-es="Ferries desde el puerto de Salerno"
+              data-fr="Ferries depuis le port de Salerne">Traghetti dal porto di Salerno</h3>
+
+          <p data-it="Dal porto di Salerno partono traghetti e aliscafi per varie località della Costiera Amalfitana, come Amalfi, Positano, Maiori, Minori, Cetara e Vietri sul Mare."
+             data-en="Ferries and fast boats depart from Salerno port to several Amalfi Coast towns, such as Amalfi, Positano, Maiori, Minori, Cetara and Vietri sul Mare."
+             data-es="Desde el puerto de Salerno salen ferries y barcos rápidos hacia varias localidades de la Costa Amalfitana, como Amalfi, Positano, Maiori, Minori, Cetara y Vietri sul Mare."
+             data-fr="Depuis le port de Salerne partent des ferries et bateaux rapides vers plusieurs localités de la Côte Amalfitaine, comme Amalfi, Positano, Maiori, Minori, Cetara et Vietri sul Mare.">
+            Dal porto di Salerno partono traghetti e aliscafi per varie località della Costiera Amalfitana, come Amalfi, Positano, Maiori, Minori, Cetara e Vietri sul Mare.
+          </p>
+
+          <div class="transport-note"
+               data-it="Consiglio: i traghetti sono molto comodi per evitare il traffico della Costiera, soprattutto in estate e nei weekend."
+               data-en="Tip: ferries are very convenient to avoid Amalfi Coast traffic, especially in summer and on weekends."
+               data-es="Consejo: los ferries son muy cómodos para evitar el tráfico de la Costa Amalfitana, especialmente en verano y los fines de semana."
+               data-fr="Conseil : les ferries sont très pratiques pour éviter le trafic de la Côte Amalfitaine, surtout en été et le week-end.">
+            Consiglio: i traghetti sono molto comodi per evitare il traffico della Costiera, soprattutto in estate e nei weekend.
+          </div>
+
+          <div class="transport-note"
+               data-it="Gli orari cambiano in base alla stagione e al meteo: controllate sempre gli orari aggiornati prima di partire."
+               data-en="Timetables change depending on the season and weather: always check updated times before leaving."
+               data-es="Los horarios cambian según la temporada y el clima: comprobad siempre los horarios actualizados antes de salir."
+               data-fr="Les horaires changent selon la saison et la météo : vérifiez toujours les horaires mis à jour avant de partir.">
+            Gli orari cambiano in base alla stagione e al meteo: controllate sempre gli orari aggiornati prima di partire.
+          </div>
+
+          <div class="transport-actions">
+            <a class="transport-btn"
+               href="https://www.travelmar.it/it/orari"
+               target="_blank"
+               data-it="⛴️ Orari Travelmar"
+               data-en="⛴️ Travelmar timetable"
+               data-es="⛴️ Horarios Travelmar"
+               data-fr="⛴️ Horaires Travelmar">⛴️ Orari Travelmar</a>
+
+            <a class="transport-btn light"
+               href="https://www.google.com/maps/search/?api=1&query=Molo+Concordia+Salerno"
+               target="_blank"
+               data-it="📍 Portami al porto"
+               data-en="📍 Take me to the port"
+               data-es="📍 Llévame al puerto"
+               data-fr="📍 M’emmener au port">📍 Portami al porto</a>
+          </div>
         </div>
-        <div class="card">
-          <strong data-it="In auto" data-en="By car" data-es="En coche" data-fr="En voiture">In auto</strong>
-          <span data-it="Indirizzo: Via di Brignano Inferiore 69, Salerno. Seguire le indicazioni per Brignano." data-en="Address: Via di Brignano Inferiore 69, Salerno. Follow signs for Brignano." data-es="Dirección: Via di Brignano Inferiore 69, Salerno. Seguid las indicaciones hacia Brignano." data-fr="Adresse : Via di Brignano Inferiore 69, Salerne. Suivre les panneaux vers Brignano.">Indirizzo: Via di Brignano Inferiore 69, Salerno. Seguire le indicazioni per Brignano.</span>
+
+        <div class="transport-card">
+          <h3 data-it="Parcheggio per il porto"
+              data-en="Parking for the port"
+              data-es="Aparcamiento para el puerto"
+              data-fr="Parking pour le port">Parcheggio per il porto</h3>
+
+          <p data-it="Se preferite andare al porto in auto, una soluzione comoda è parcheggiare vicino Piazza della Libertà e poi proseguire a piedi."
+             data-en="If you prefer going to the port by car, a convenient option is to park near Piazza della Libertà and then continue on foot."
+             data-es="Si preferís ir al puerto en coche, una opción cómoda es aparcar cerca de Piazza della Libertà y continuar a pie."
+             data-fr="Si vous préférez aller au port en voiture, une option pratique est de vous garer près de Piazza della Libertà puis de continuer à pied.">
+            Se preferite andare al porto in auto, una soluzione comoda è parcheggiare vicino Piazza della Libertà e poi proseguire a piedi.
+          </p>
+
+          <div class="transport-note"
+               data-it="Nei periodi di alta stagione può essere difficile trovare parcheggio gratuito: valutate bus o taxi se volete evitare stress."
+               data-en="During high season it may be difficult to find free parking: consider bus or taxi if you want to avoid stress."
+               data-es="En temporada alta puede ser difícil encontrar aparcamiento gratuito: considerad bus o taxi si queréis evitar estrés."
+               data-fr="En haute saison, il peut être difficile de trouver un parking gratuit : pensez au bus ou au taxi pour éviter le stress.">
+            Nei periodi di alta stagione può essere difficile trovare parcheggio gratuito: valutate bus o taxi se volete evitare stress.
+          </div>
+
+          <div class="transport-actions">
+            <a class="transport-btn"
+               href="https://www.google.com/maps/search/?api=1&query=Parcheggio+Libert%C3%A0+Salerno"
+               target="_blank"
+               data-it="📍 Parcheggio Libertà"
+               data-en="📍 Parcheggio Libertà"
+               data-es="📍 Parcheggio Libertà"
+               data-fr="📍 Parcheggio Libertà">📍 Parcheggio Libertà</a>
+          </div>
         </div>
+
+        <div class="transport-card">
+          <h3 data-it="Taxi"
+              data-en="Taxi"
+              data-es="Taxi"
+              data-fr="Taxi">Taxi</h3>
+
+          <p data-it="Per spostamenti serali, arrivi tardi, bagagli o tratte non comode con il bus, potete chiamare un taxi."
+             data-en="For evening trips, late arrivals, luggage or routes that are not convenient by bus, you can call a taxi."
+             data-es="Para desplazamientos por la noche, llegadas tarde, equipaje o trayectos poco cómodos en bus, podéis llamar a un taxi."
+             data-fr="Pour les déplacements en soirée, les arrivées tardives, les bagages ou les trajets peu pratiques en bus, vous pouvez appeler un taxi.">
+            Per spostamenti serali, arrivi tardi, bagagli o tratte non comode con il bus, potete chiamare un taxi.
+          </p>
+
+          <div class="transport-note"
+               data-it="Radio Taxi Salerno: centrale operativa 24h. È disponibile anche il contatto WhatsApp."
+               data-en="Radio Taxi Salerno: 24-hour dispatch service. WhatsApp contact is also available."
+               data-es="Radio Taxi Salerno: central operativa 24h. También está disponible el contacto por WhatsApp."
+               data-fr="Radio Taxi Salerno : centrale opérationnelle 24h/24. Le contact WhatsApp est également disponible.">
+            Radio Taxi Salerno: centrale operativa 24h. È disponibile anche il contatto WhatsApp.
+          </div>
+
+          <div class="transport-actions">
+            <a class="transport-btn"
+               href="tel:+39089757575"
+               data-it="📞 Chiama taxi"
+               data-en="📞 Call taxi"
+               data-es="📞 Llamar taxi"
+               data-fr="📞 Appeler taxi">📞 Chiama taxi</a>
+
+            <a class="transport-btn light"
+               href="https://wa.me/393770897575"
+               target="_blank"
+               data-it="💬 WhatsApp taxi"
+               data-en="💬 Taxi WhatsApp"
+               data-es="💬 WhatsApp taxi"
+               data-fr="💬 WhatsApp taxi">💬 WhatsApp taxi</a>
+          </div>
+        </div>
+
+        <div class="transport-card">
+          <h3 data-it="Uber"
+              data-en="Uber"
+              data-es="Uber"
+              data-fr="Uber">Uber</h3>
+
+          <p data-it="A Salerno gli Uber possono essere pochi, ma a volte sono comodi per controllare disponibilità e prezzi direttamente dall'app."
+             data-en="In Salerno there may be few Uber cars, but the app can sometimes be useful to check availability and prices."
+             data-es="En Salerno puede haber pocos Uber, pero a veces la app es útil para comprobar disponibilidad y precios."
+             data-fr="À Salerne, il peut y avoir peu d'Uber, mais l'application peut parfois être utile pour vérifier disponibilité et prix.">
+            A Salerno gli Uber possono essere pochi, ma a volte sono comodi per controllare disponibilità e prezzi direttamente dall'app.
+          </p>
+
+          <div class="transport-actions">
+            <a class="transport-btn"
+               href="https://www.uber.com/it/it/download/"
+               target="_blank"
+               data-it="📲 Scarica Uber"
+               data-en="📲 Download Uber"
+               data-es="📲 Descargar Uber"
+               data-fr="📲 Télécharger Uber">📲 Scarica Uber</a>
+          </div>
+        </div>
+
       </div>
+
       <details open>
-        <summary data-it="Orario feriale - Linea 14" data-en="Weekday timetable - Line 14" data-es="Horario laborable - Línea 14" data-fr="Horaire en semaine - Ligne 14">Orario feriale - Linea 14</summary>
-        <div class="img-card"><img src="assets/bus-feriale-14.jpg" alt="Orario bus feriale linea 14"></div>
+        <summary data-it="Orario feriale - Linea 14"
+                 data-en="Weekday timetable - Line 14"
+                 data-es="Horario laborable - Línea 14"
+                 data-fr="Horaire en semaine - Ligne 14">Orario feriale - Linea 14</summary>
+
+        <div class="img-card">
+          <img src="assets/bus-feriale-14.jpg" alt="Orario bus feriale linea 14">
+        </div>
       </details>
+
       <details>
-        <summary data-it="Orario festivo - Linea B" data-en="Holiday timetable - Line B" data-es="Horario festivo - Línea B" data-fr="Horaire jours fériés - Ligne B">Orario festivo - Linea B</summary>
-        <div class="img-card"><img src="assets/bus-festivo-b.jpg" alt="Orario bus festivo linea B"></div>
+        <summary data-it="Orario festivo - Linea B"
+                 data-en="Holiday timetable - Line B"
+                 data-es="Horario festivo - Línea B"
+                 data-fr="Horaire jours fériés - Ligne B">Orario festivo - Linea B</summary>
+
+        <div class="img-card">
+          <img src="assets/bus-festivo-b.jpg" alt="Orario bus festivo linea B">
+        </div>
       </details>
     </section>
   </main>
-<script>
-  function getLang() {
-    var params = new URLSearchParams(window.location.search);
-    var lang = params.get('lang');
 
-    if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
-      return lang;
-    }
+  <script>
+    function getLang() {
+      var params = new URLSearchParams(window.location.search);
+      var lang = params.get('lang');
 
-    try {
-      lang = localStorage.getItem('guestGuideLang');
-    } catch (e) {}
-
-    if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
-      return lang;
-    }
-
-    return 'it';
-  }
-
-  function translatePage(lang) {
-    document.documentElement.lang = lang;
-
-    document.querySelectorAll('[data-it], [data-it-html]').forEach(function (el) {
-      var htmlTranslation = el.getAttribute('data-' + lang + '-html');
-      var textTranslation = el.getAttribute('data-' + lang);
-
-      if (htmlTranslation) {
-        el.innerHTML = htmlTranslation;
-      } else if (textTranslation) {
-        el.textContent = textTranslation;
+      if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
+        return lang;
       }
-    });
 
-    var home = document.querySelector('.back-home');
-    if (home) {
-      home.href = 'index.html#' + lang;
+      try {
+        lang = localStorage.getItem('guestGuideLang');
+      } catch (e) {}
+
+      if (lang === 'it' || lang === 'en' || lang === 'es' || lang === 'fr') {
+        return lang;
+      }
+
+      return 'it';
     }
 
-    try {
-      localStorage.setItem('guestGuideLang', lang);
-    } catch (e) {}
-  }
+    function translatePage(lang) {
+      document.documentElement.lang = lang;
 
-  translatePage(getLang());
-</script>
+      document.querySelectorAll('[data-it], [data-it-html]').forEach(function (el) {
+        var htmlTranslation = el.getAttribute('data-' + lang + '-html');
+        var textTranslation = el.getAttribute('data-' + lang);
+
+        if (htmlTranslation) {
+          el.innerHTML = htmlTranslation;
+        } else if (textTranslation) {
+          el.textContent = textTranslation;
+        }
+      });
+
+      var home = document.querySelector('.back-home');
+      if (home) {
+        home.href = 'index.html#' + lang;
+      }
+
+      try {
+        localStorage.setItem('guestGuideLang', lang);
+      } catch (e) {}
+    }
+
+    translatePage(getLang());
+  </script>
 </body>
 </html>
