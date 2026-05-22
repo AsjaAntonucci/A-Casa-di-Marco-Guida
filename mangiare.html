@@ -31,193 +31,21 @@
       border-radius: 22px;
       padding: 18px;
       text-align: left;
-      font-family: 'Poppins', sans-serif;
-      cursor: pointer;
-      box-shadow: 0 8px 22px rgba(0, 80, 85, .10);
     }
 
-    .food-choice span {
-      display: block;
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .food-choice strong {
-      display: block;
-      color: var(--ottanio-dark);
-      font-size: 16px;
-      margin-bottom: 4px;
-    }
-
-    .food-choice small {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .food-category {
-      display: none;
-    }
-
-    .food-category.active {
-      display: block;
-    }
-
-    .category-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .back-category {
-      border: none;
-      background: var(--ottanio);
-      color: #fff;
-      border-radius: 999px;
-      padding: 10px 15px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .restaurant-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-
-    .restaurant-card {
-      background: var(--ottanio-soft);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 10px 28px rgba(0, 80, 85, .12);
-    }
-
-    .restaurant-card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .restaurant-content {
-      padding: 18px;
-    }
-
-    .restaurant-content h3 {
-      font-size: 25px;
-      margin-bottom: 8px;
-    }
-
-    .restaurant-content p {
-      font-size: 15px;
-      margin-bottom: 10px;
-    }
-
+    .restaurant-content p,
     .tip-box {
-      background: #fff;
-      border-left: 5px solid var(--ottanio);
-      border-radius: 16px;
-      padding: 12px;
       font-size: 14px;
-      margin-top: 10px;
     }
 
     .restaurant-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+      flex-direction: column;
     }
 
-    .restaurant-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--ottanio);
-      color: #fff;
-      border-radius: 999px;
-      padding: 10px 15px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .restaurant-btn.light {
-      background: #fff;
-      color: var(--ottanio-dark);
-      border: 1px solid rgba(15, 127, 131, .25);
-    }
-
-    @media (max-width: 720px) {
-      body {
-        font-size: 14px;
-        line-height: 1.55;
-      }
-
-      .page-hero {
-        min-height: 26vh;
-        padding: 26px 16px;
-      }
-
-      .page-hero h1 {
-        font-size: 34px;
-        line-height: 1.15;
-      }
-
-      main {
-        padding: 18px 12px 44px;
-      }
-
-      section {
-        padding: 18px;
-        border-radius: 22px;
-      }
-
-      h2 {
-        font-size: 26px;
-      }
-
-      .food-choice-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .category-header {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .restaurant-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .restaurant-card img {
-        height: 175px;
-      }
-
-      .restaurant-content {
-        padding: 15px;
-      }
-
-      .restaurant-content h3 {
-        font-size: 23px;
-      }
-
-      .restaurant-content p,
-      .tip-box {
-        font-size: 14px;
-      }
-
-      .restaurant-actions {
-        flex-direction: column;
-      }
-
-      .restaurant-btn,
-      .back-category {
-        width: 100%;
-        text-align: center;
-      }
+    .restaurant-btn,
+    .back-category {
+      width: 100%;
+      text-align: center;
     }
   </style>
 </head>
@@ -247,16 +75,23 @@
           <small data-it="Pizzerie consigliate" data-en="Recommended pizzerias" data-es="Pizzerías recomendadas" data-fr="Pizzerias recommandées">Pizzerie consigliate</small>
         </button>
 
-        <button class="food-choice" onclick="showCategory('pesce')">
-          <span>🐟</span>
-          <strong data-it="Ho voglia di pesce" data-en="I feel like seafood" data-es="Me apetece pescado" data-fr="J’ai envie de poisson">Ho voglia di pesce</strong>
-          <small data-it="Ristoranti di mare" data-en="Seafood restaurants" data-es="Restaurantes de pescado" data-fr="Restaurants de poisson">Ristoranti di mare</small>
-        </button>
-
-        <button class="food-choice" onclick="showCategory('cucina')">
+        <button class="food-choice" onclick="showCategory('ristoranti')">
           <span>🍽️</span>
-          <strong data-it="Ho voglia di cucina tipica" data-en="I feel like traditional food" data-es="Me apetece cocina típica" data-fr="J’ai envie de cuisine traditionnelle">Ho voglia di cucina tipica</strong>
-          <small data-it="Ristoranti di terra" data-en="Meat and local restaurants" data-es="Restaurantes de tierra" data-fr="Restaurants de terre">Ristoranti di terra</small>
+          <strong
+            data-it="Ho voglia di cucina di mare o di terra"
+            data-en="I feel like seafood or local cuisine"
+            data-es="Me apetece cocina de mar o de tierra"
+            data-fr="J’ai envie de cuisine de mer ou de terre">
+            Ho voglia di cucina di mare o di terra
+          </strong>
+
+          <small
+            data-it="Ristoranti di pesce, carne e cucina tipica"
+            data-en="Seafood, meat and traditional restaurants"
+            data-es="Restaurantes de pescado, carne y cocina típica"
+            data-fr="Restaurants de poisson, viande et cuisine traditionnelle">
+            Ristoranti di pesce, carne e cucina tipica
+          </small>
         </button>
 
         <button class="food-choice" onclick="showCategory('gelato')">
@@ -293,155 +128,6 @@
                 data-fr="← Retour aux catégories">
           ← Torna alle categorie
         </button>
-      </div>
-
-      <div id="restaurant-grid" class="restaurant-grid"></div>
-    </section>
-  </main>
-<script>
-  var currentLang = 'it';
-
-  var categories = {
-    pizza: {
-      title: {
-        it: "Pizzerie consigliate",
-        en: "Recommended pizzerias",
-        es: "Pizzerías recomendadas",
-        fr: "Pizzerias recommandées"
-      },
-      restaurants: [
-        {
-          image: "assets/a-modo-bio.jpg",
-          mapsQuery: "A Modo Bio Brignano Salerno",
-          name: {
-            it: "A Modo Bio",
-            en: "A Modo Bio",
-            es: "A Modo Bio",
-            fr: "A Modo Bio"
-          },
-          desc: {
-            it: "Pizzeria vicina alla casa, comoda se non volete spostarvi troppo. È una buona soluzione per una pizza semplice, veloce e raggiungibile a piedi.",
-            en: "A pizzeria close to the house, convenient if you do not want to go too far. A good option for a simple, quick pizza within walking distance.",
-            es: "Una pizzería cerca de la casa, cómoda si no queréis desplazaros demasiado. Una buena opción para una pizza sencilla, rápida y a poca distancia a pie.",
-            fr: "Une pizzeria proche de la maison, pratique si vous ne voulez pas trop vous éloigner. Une bonne option pour une pizza simple et rapide, accessible à pied."
-          },
-          tip: {
-            it: "Vicino casa e raggiungibile a piedi: perfetta per una serata tranquilla senza prendere l’auto.",
-            en: "Close to the house and reachable on foot: perfect for a quiet evening without taking the car.",
-            es: "Cerca de la casa y accesible a pie: perfecta para una noche tranquila sin coger el coche.",
-            fr: "Proche de la maison et accessible à pied : parfait pour une soirée tranquille sans prendre la voiture."
-          }
-        },
-        {
-          image: "assets/errico-porzio-salerno.jpg",
-          mapsUrl: "https://g.co/kgs/Dia6YTf",
-          name: {
-            it: "Pizzeria Errico Porzio Salerno",
-            en: "Pizzeria Errico Porzio Salerno",
-            es: "Pizzeria Errico Porzio Salerno",
-            fr: "Pizzeria Errico Porzio Salerno"
-          },
-          desc: {
-            it: "Una pizzeria molto conosciuta, ideale se volete provare una pizza napoletana ricca, scenografica e molto social.",
-            en: "A very well-known pizzeria, ideal if you want to try a rich, eye-catching and very popular Neapolitan-style pizza.",
-            es: "Una pizzería muy conocida, ideal si queréis probar una pizza napolitana abundante, llamativa y muy popular.",
-            fr: "Une pizzeria très connue, idéale si vous voulez goûter une pizza napolitaine généreuse, spectaculaire et très populaire."
-          },
-          tip: {
-               it: "Perfetta se vi piacciono pizze abbondanti e gusti particolari.",
-               en: "Perfect if you like generous pizzas and special flavours.",
-               es: "Perfecta si os gustan las pizzas abundantes y los sabores especiales.",
-               fr: "Parfaite si vous aimez les pizzas généreuses et les saveurs originales."
-          }
-        },
-        {
-          image: "assets/pizzium-salerno.jpg",
-          mapsUrl: "https://g.co/kgs/Mm7WKix",
-          name: {
-            it: "Pizzium - Salerno",
-            en: "Pizzium - Salerno",
-            es: "Pizzium - Salerno",
-            fr: "Pizzium - Salerno"
-          },
-          desc: {
-            it: "Pizzeria colorata e moderna, con pizze ispirate alle diverse regioni italiane.",
-            en: "A colourful and modern pizzeria, with pizzas inspired by different Italian regions.",
-            es: "Una pizzería colorida y moderna, con pizzas inspiradas en distintas regiones italianas.",
-            fr: "Une pizzeria colorée et moderne, avec des pizzas inspirées des différentes régions italiennes."
-          },
-          tip: {
-            it: "Scegliete una pizza regionale se volete provare qualcosa di diverso dalla classica margherita.",
-            en: "Choose a regional pizza if you want to try something different from the classic margherita.",
-            es: "Elegid una pizza regional si queréis probar algo distinto de la clásica margarita.",
-            fr: "Choisissez une pizza régionale si vous voulez essayer autre chose que la classique margherita."
-          }
-        },
-        {
-          image: "assets/giagiu.jpg",
-          mapsUrl: "https://g.co/kgs/ukU2iTp",
-          name: {
-            it: "Giagiù",
-            en: "Giagiù",
-            es: "Giagiù",
-            fr: "Giagiù"
-          },
-          desc: {
-            it: "Locale consigliato per una pizza buona in un ambiente curato e piacevole.",
-            en: "A recommended place for good pizza in a pleasant and well-kept setting.",
-            es: "Un lugar recomendado para una buena pizza en un ambiente agradable y cuidado.",
-            fr: "Une adresse conseillée pour une bonne pizza dans un cadre agréable et soigné."
-          },
-          tip: {
-            it: "Ottimo se cercate una pizzeria non troppo informale ma comunque accogliente.",
-            en: "Great if you are looking for a pizzeria that is not too informal but still welcoming.",
-            es: "Ideal si buscáis una pizzería no demasiado informal pero acogedora.",
-            fr: "Idéal si vous cherchez une pizzeria pas trop informelle mais accueillante."
-          }
-        },
-        {
-          image: "assets/da-michele-salerno.jpg",
-          mapsQuery: "Da Michele Salerno",
-          name: {
-            it: "Da Michele Salerno",
-            en: "Da Michele Salerno",
-            es: "Da Michele Salerno",
-            fr: "Da Michele Salerno"
-          },
-          desc: {
-            it: "Una scelta perfetta per chi vuole una pizza classica, semplice e legata alla tradizione napoletana.",
-            en: "A perfect choice for those who want a classic, simple pizza linked to Neapolitan tradition.",
-            es: "Una opción perfecta para quienes quieren una pizza clásica, sencilla y ligada a la tradición napolitana.",
-            fr: "Un choix parfait pour ceux qui veulent une pizza classique, simple et liée à la tradition napolitaine."
-          },
-          tip: {
-            it: "Provate la margherita o la marinara.",
-            en: "Try the margherita or marinara.",
-            es: "Probad la margarita o la marinara.",
-            fr: "Goûtez la margherita ou la marinara."
-          }
-        },
-        {
-          image: "assets/pepe-nero.jpg",
-          mapsQuery: "Pepe Nero Salerno",
-          name: {
-            it: "Pepe Nero",
-            en: "Pepe Nero",
-            es: "Pepe Nero",
-            fr: "Pepe Nero"
-          },
-          desc: {
-            it: "Locale versatile: va bene per pizza, piatti di pesce e cucina di terra.",
-            en: "A versatile place: good for pizza, seafood dishes and meat/local cuisine.",
-            es: "Un lugar versátil: va bien para pizza, platos de pescado y cocina de tierra.",
-            fr: "Une adresse polyvalente : idéale pour la pizza, les plats de poisson et la cuisine de terre."
-          },
-          tip: {
-            it: "Sceglietelo se nel gruppo non tutti hanno voglia della stessa cosa.",
-            en: "Choose it if not everyone in the group wants the same type of food.",
-            es: "Elegidlo si en el grupo no todos quieren comer lo mismo.",
-            fr: "Choisissez-le si tout le groupe n’a pas envie de la même chose."
-          }
-        },
         {
           image: "assets/granammare.jpg",
           mapsQuery: "Granammare Pizza Fritti Cocktail Salerno",
@@ -467,12 +153,12 @@
       ]
     },
 
-    pesce: {
+    ristoranti: {
       title: {
-        it: "Specialità di pesce",
-        en: "Seafood specialities",
-        es: "Especialidades de pescado",
-        fr: "Spécialités de poisson"
+        it: "Cucina di mare o di terra",
+        en: "Seafood or local cuisine",
+        es: "Cocina de mar o de tierra",
+        fr: "Cuisine de mer ou de terre"
       },
       restaurants: [
         {
@@ -519,39 +205,6 @@
             fr: "Parfait pour un dîner romantique ou une soirée spéciale."
           }
         },
-        {
-          image: "assets/pepe-nero.jpg",
-          mapsQuery: "Pepe Nero Salerno",
-          name: {
-            it: "Pepe Nero",
-            en: "Pepe Nero",
-            es: "Pepe Nero",
-            fr: "Pepe Nero"
-          },
-          desc: {
-            it: "Locale versatile: va bene per pizza, piatti di pesce e cucina di terra.",
-            en: "A versatile place: good for pizza, seafood dishes and meat/local cuisine.",
-            es: "Un lugar versátil: va bien para pizza, platos de pescado y cocina de tierra.",
-            fr: "Une adresse polyvalente : idéale pour la pizza, les plats de poisson et la cuisine de terre."
-          },
-          tip: {
-            it: "Sceglietelo se nel gruppo non tutti hanno voglia della stessa cosa.",
-            en: "Choose it if not everyone in the group wants the same type of food.",
-            es: "Elegidlo si en el grupo no todos quieren comer lo mismo.",
-            fr: "Choisissez-le si tout le groupe n’a pas envie de la même chose."
-          }
-        }
-      ]
-    },
-
-    cucina: {
-      title: {
-        it: "Cucina tipica e ristoranti di terra",
-        en: "Traditional cuisine and land restaurants",
-        es: "Cocina típica y restaurantes de tierra",
-        fr: "Cuisine traditionnelle et restaurants de terre"
-      },
-      restaurants: [
         {
           image: "assets/da-nonna-maria.jpg",
           mapsUrl: "https://www.google.com/maps/search/?api=1&query=Da+Nonna+Maria+Salerno",
@@ -606,10 +259,10 @@
             fr: "Pepe Nero"
           },
           desc: {
-            it: "Locale versatile: va bene per pizza, piatti di pesce e cucina di terra.",
-            en: "A versatile place: good for pizza, seafood dishes and meat/local cuisine.",
-            es: "Un lugar versátil: va bien para pizza, platos de pescado y cocina de tierra.",
-            fr: "Une adresse polyvalente : idéale pour la pizza, les plats de poisson et la cuisine de terre."
+            it: "Locale versatile: va bene sia per piatti di mare sia per cucina di terra, quindi è comodo quando nel gruppo ci sono gusti diversi.",
+            en: "A versatile place, good for both seafood and local/meat dishes, convenient when people in the group have different tastes.",
+            es: "Un lugar versátil, válido tanto para platos de mar como para cocina de tierra, cómodo cuando en el grupo hay gustos diferentes.",
+            fr: "Une adresse polyvalente, idéale pour les plats de mer comme pour la cuisine de terre, pratique quand le groupe a des goûts différents."
           },
           tip: {
             it: "Sceglietelo se nel gruppo non tutti hanno voglia della stessa cosa.",
@@ -774,6 +427,8 @@
       restaurants: [
         {
           image: "assets/brignan-cafe.jpg",
+          featured: true,
+          walkable: true,
           mapsQuery: "Brignan Cafè Salerno Via Brignano Inferiore",
           name: {
             it: "Brignan Cafè",
@@ -795,7 +450,7 @@
           }
         },
         {
-          image: "assets/compagnia-buon-vino.jpg",
+          image: "assets/compagnia-del-buon-vino.jpg",
           mapsQuery: "Compagnia del buon vino Salerno",
           name: {
             it: "Compagnia del Buon Vino",
@@ -855,6 +510,12 @@
       en: "Tip",
       es: "Consejo",
       fr: "Conseil"
+    },
+    walkable: {
+      it: "🚶 Raggiungibile a piedi",
+      en: "🚶 Within walking distance",
+      es: "🚶 Se puede llegar a pie",
+      fr: "🚶 Accessible à pied"
     }
   };
 
@@ -911,9 +572,10 @@
       var mapsUrl = place.mapsUrl || "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(place.mapsQuery);
 
       return `
-        <article class="restaurant-card">
+        <article class="restaurant-card ${place.featured ? 'featured' : ''}">
           <img src="${place.image}" alt="${place.name[currentLang]}">
           <div class="restaurant-content">
+            ${place.walkable ? `<div class="walk-badge">${labels.walkable[currentLang]}</div>` : ''}
             <h3>${place.name[currentLang]}</h3>
             <p>${place.desc[currentLang]}</p>
 
