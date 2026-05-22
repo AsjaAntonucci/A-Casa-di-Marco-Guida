@@ -266,9 +266,18 @@
         </button>
 
         <button class="food-choice" onclick="showCategory('vino')">
-          <span>🍷</span>
-          <strong data-it="Ho voglia di vino" data-en="I feel like wine" data-es="Me apetece vino" data-fr="J’ai envie de vin">Ho voglia di vino</strong>
-          <small data-it="Wine bar e aperitivo" data-en="Wine bars and aperitivo" data-es="Wine bars y aperitivo" data-fr="Bars à vin et apéritif">Wine bar e aperitivo</small>
+          <span>☕</span>
+          <strong 
+            data-it="Ho voglia di bar / aperitivo" 
+            data-en="I feel like a café / aperitivo" 
+            data-es="Me apetece un bar / aperitivo" 
+            data-fr="J’ai envie d’un café / apéritif">Ho voglia di bar / aperitivo</strong>
+
+          <small 
+            data-it="Caffè, cocktail, vino e aperitivi" 
+            data-en="Coffee, cocktails, wine and aperitivo" 
+            data-es="Café, cócteles, vino y aperitivos" 
+            data-fr="Café, cocktails, vin et apéritifs">Caffè, cocktail, vino e aperitivi</small>
         </button>
 
         <button class="food-choice" onclick="showCategory('tipico')">
@@ -306,6 +315,28 @@
         fr: "Pizzerias recommandées"
       },
       restaurants: [
+        {
+          image: "assets/a-modo-bio.jpg",
+          mapsQuery: "A Modo Bio Brignano Salerno",
+          name: {
+            it: "A Modo Bio",
+            en: "A Modo Bio",
+            es: "A Modo Bio",
+            fr: "A Modo Bio"
+          },
+          desc: {
+            it: "Pizzeria vicina alla casa, comoda se non volete spostarvi troppo. È una buona soluzione per una pizza semplice, veloce e raggiungibile a piedi.",
+            en: "A pizzeria close to the house, convenient if you do not want to go too far. A good option for a simple, quick pizza within walking distance.",
+            es: "Una pizzería cerca de la casa, cómoda si no queréis desplazaros demasiado. Una buena opción para una pizza sencilla, rápida y a poca distancia a pie.",
+            fr: "Une pizzeria proche de la maison, pratique si vous ne voulez pas trop vous éloigner. Une bonne option pour une pizza simple et rapide, accessible à pied."
+          },
+          tip: {
+            it: "Vicino casa e raggiungibile a piedi: perfetta per una serata tranquilla senza prendere l’auto.",
+            en: "Close to the house and reachable on foot: perfect for a quiet evening without taking the car.",
+            es: "Cerca de la casa y accesible a pie: perfecta para una noche tranquila sin coger el coche.",
+            fr: "Proche de la maison et accessible à pied : parfait pour une soirée tranquille sans prendre la voiture."
+          }
+        },
         {
           image: "assets/errico-porzio-salerno.jpg",
           mapsUrl: "https://g.co/kgs/Dia6YTf",
@@ -718,12 +749,34 @@
 
     vino: {
       title: {
-        it: "Vino e aperitivo",
-        en: "Wine and aperitivo",
-        es: "Vino y aperitivo",
-        fr: "Vin et apéritif"
+        it: "Bar, vino e aperitivo",
+        en: "Cafés, wine and aperitivo",
+        es: "Bares, vino y aperitivo",
+        fr: "Cafés, vin et apéritif"
       },
       restaurants: [
+        {
+          image: "assets/brignan-cafe.jpg",
+          mapsQuery: "Brignan Cafè Salerno Via Brignano Inferiore",
+          name: {
+            it: "Brignan Cafè",
+            en: "Brignan Cafè",
+            es: "Brignan Cafè",
+            fr: "Brignan Cafè"
+          },
+          desc: {
+            it: "Bar convenzionato con A Casa di Marco e molto vicino alla struttura. Comodo se avete voglia di un caffè, una colazione, una pausa veloce o qualcosa da bere senza allontanarvi troppo.",
+            en: "Partner café of A Casa di Marco and very close to the property. Convenient if you feel like coffee, breakfast, a quick break or something to drink without going too far.",
+            es: "Bar asociado con A Casa di Marco y muy cerca de la casa. Cómodo si os apetece un café, un desayuno, una pausa rápida o algo para beber sin alejaros demasiado.",
+            fr: "Café partenaire de A Casa di Marco et très proche de la maison. Pratique si vous avez envie d’un café, d’un petit-déjeuner, d’une pause rapide ou de boire quelque chose sans trop vous éloigner."
+          },
+          tip: {
+            it: "Vicino casa: perfetto per un caffè al volo o per una pausa semplice durante la giornata.",
+            en: "Close to the house: perfect for a quick coffee or an easy break during the day.",
+            es: "Cerca de la casa: perfecto para un café rápido o una pausa sencilla durante el día.",
+            fr: "Proche de la maison : parfait pour un café rapide ou une pause simple pendant la journée."
+          }
+        },
         {
           image: "assets/compagnia-buon-vino.jpg",
           mapsQuery: "Compagnia del buon vino Salerno",
