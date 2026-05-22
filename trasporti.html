@@ -132,6 +132,10 @@
       font-size:14px;
     }
 
+    .transport-note strong {
+      color:var(--ottanio-dark);
+    }
+
     .transport-actions {
       display:flex;
       flex-wrap:wrap;
@@ -145,11 +149,14 @@
       justify-content:center;
       background:var(--ottanio);
       color:#fff;
+      border:none;
       border-radius:999px;
       padding:10px 15px;
+      font-family:'Poppins',sans-serif;
       font-size:13px;
       font-weight:600;
       text-decoration:none;
+      cursor:pointer;
     }
 
     .transport-btn.light {
@@ -159,10 +166,11 @@
     }
 
     details {
-      background:var(--ottanio-soft);
+      background:#fff;
       border-radius:18px;
       padding:14px 16px;
       margin-top:14px;
+      border:1px solid rgba(15,127,131,.16);
     }
 
     summary {
@@ -171,17 +179,17 @@
       color:var(--ottanio-dark);
     }
 
-    .img-card img {
-      width:100%;
-      border-radius:18px;
-      margin-top:12px;
-      cursor:zoom-in;
-      transition:transform .18s ease, box-shadow .18s ease;
+    .pdf-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
     }
 
-    .img-card img:hover {
-      transform:scale(1.01);
-      box-shadow:0 12px 28px rgba(0,80,85,.18);
+    .pdf-hint {
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px;
     }
 
     .lightbox {
@@ -199,13 +207,19 @@
       display:flex;
     }
 
-    .lightbox img {
-      max-width:96vw;
-      max-height:88vh;
-      object-fit:contain;
-      border-radius:14px;
+    .lightbox-content {
+      width:min(1100px, 96vw);
+      height:88vh;
       background:#fff;
+      border-radius:18px;
+      overflow:hidden;
       box-shadow:0 18px 60px rgba(0,0,0,.45);
+    }
+
+    .lightbox-content iframe {
+      width:100%;
+      height:100%;
+      border:0;
     }
 
     .lightbox-close {
@@ -270,7 +284,8 @@
         font-size:14px;
       }
 
-      .transport-actions {
+      .transport-actions,
+      .pdf-actions {
         flex-direction:column;
       }
 
@@ -282,9 +297,9 @@
         padding:10px;
       }
 
-      .lightbox img {
-        max-width:98vw;
-        max-height:84vh;
+      .lightbox-content {
+        width:98vw;
+        height:84vh;
         border-radius:10px;
       }
 
@@ -345,6 +360,72 @@
             Per raggiungere il centro senza prendere l'auto, potete usare il bus. Le linee utili sono la Linea 14 e la Linea B.
           </p>
 
+          <details open>
+            <summary data-it="Orario feriale - Linea 14"
+                     data-en="Weekday timetable - Line 14"
+                     data-es="Horario laborable - Línea 14"
+                     data-fr="Horaire en semaine - Ligne 14">Orario feriale - Linea 14</summary>
+
+            <div class="pdf-actions">
+              <button class="transport-btn"
+                      type="button"
+                      onclick="openPdfLightbox('assets/bus-feriale-14.pdf')"
+                      data-it="🔍 Apri orario a schermo intero"
+                      data-en="🔍 Open timetable full screen"
+                      data-es="🔍 Abrir horario a pantalla completa"
+                      data-fr="🔍 Ouvrir l'horaire en plein écran">🔍 Apri orario a schermo intero</button>
+
+              <a class="transport-btn light"
+                 href="assets/bus-feriale-14.pdf"
+                 target="_blank"
+                 data-it="📄 Apri PDF"
+                 data-en="📄 Open PDF"
+                 data-es="📄 Abrir PDF"
+                 data-fr="📄 Ouvrir le PDF">📄 Apri PDF</a>
+            </div>
+
+            <p class="pdf-hint"
+               data-it="Se il PDF non si visualizza bene sul telefono, usate il tasto “Apri PDF”."
+               data-en="If the PDF does not display well on your phone, use the “Open PDF” button."
+               data-es="Si el PDF no se ve bien en el teléfono, usad el botón “Abrir PDF”."
+               data-fr="Si le PDF ne s'affiche pas bien sur le téléphone, utilisez le bouton “Ouvrir le PDF”.">
+              Se il PDF non si visualizza bene sul telefono, usate il tasto “Apri PDF”.
+            </p>
+          </details>
+
+          <details>
+            <summary data-it="Orario festivo - Linea B"
+                     data-en="Holiday timetable - Line B"
+                     data-es="Horario festivo - Línea B"
+                     data-fr="Horaire jours fériés - Ligne B">Orario festivo - Linea B</summary>
+
+            <div class="pdf-actions">
+              <button class="transport-btn"
+                      type="button"
+                      onclick="openPdfLightbox('assets/bus-festivo-b.pdf')"
+                      data-it="🔍 Apri orario a schermo intero"
+                      data-en="🔍 Open timetable full screen"
+                      data-es="🔍 Abrir horario a pantalla completa"
+                      data-fr="🔍 Ouvrir l'horaire en plein écran">🔍 Apri orario a schermo intero</button>
+
+              <a class="transport-btn light"
+                 href="assets/bus-festivo-b.pdf"
+                 target="_blank"
+                 data-it="📄 Apri PDF"
+                 data-en="📄 Open PDF"
+                 data-es="📄 Abrir PDF"
+                 data-fr="📄 Ouvrir le PDF">📄 Apri PDF</a>
+            </div>
+
+            <p class="pdf-hint"
+               data-it="Se il PDF non si visualizza bene sul telefono, usate il tasto “Apri PDF”."
+               data-en="If the PDF does not display well on your phone, use the “Open PDF” button."
+               data-es="Si el PDF no se ve bien en el teléfono, usad el botón “Abrir PDF”."
+               data-fr="Si le PDF ne s'affiche pas bien sur le téléphone, utilisez le bouton “Ouvrir le PDF”.">
+              Se il PDF non si visualizza bene sul telefono, usate il tasto “Apri PDF”.
+            </p>
+          </details>
+
           <div class="transport-note"
                data-it="Consiglio: per andare verso il porto o il centro, potete scendere in zona Lungomare Trieste e poi proseguire a piedi."
                data-en="Tip: to go towards the port or the centre, you can get off near Lungomare Trieste and continue on foot."
@@ -362,11 +443,11 @@
           </div>
 
           <div class="transport-note"
-               data-it="Nota provvisoria: gli ultimi bus per salire verso casa sono indicativamente intorno alle 21:00. Gli orari precisi verranno aggiornati appena disponibili."
-               data-en="Temporary note: the last buses going back up towards the house are usually around 9:00 PM. Exact times will be updated as soon as available."
-               data-es="Nota provisional: los últimos buses para subir hacia la casa suelen ser alrededor de las 21:00. Los horarios exactos se actualizarán cuando estén disponibles."
-               data-fr="Note provisoire : les derniers bus pour remonter vers la maison sont généralement vers 21h00. Les horaires exacts seront mis à jour dès qu'ils seront disponibles.">
-            Nota provvisoria: gli ultimi bus per salire verso casa sono indicativamente intorno alle 21:00. Gli orari precisi verranno aggiornati appena disponibili.
+               data-it-html="<strong>Importante:</strong> prima di scendere con il pullman, vi consigliamo di controllare sempre che gli orari siano compatibili con le partenze e gli arrivi dei traghetti o con qualsiasi vostro impegno. Verificate anche eventuali variazioni di orario o scioperi."
+               data-en-html="<strong>Important:</strong> before taking the bus down to the centre, we recommend checking that the timetable is compatible with ferry departures and arrivals or with any of your plans. Also check for timetable changes or strikes."
+               data-es-html="<strong>Importante:</strong> antes de bajar en autobús, os recomendamos comprobar siempre que los horarios sean compatibles con las salidas y llegadas de los ferries o con cualquier compromiso que tengáis. Comprobad también posibles cambios de horario o huelgas."
+               data-fr-html="<strong>Important :</strong> avant de descendre en bus, nous vous conseillons de vérifier que les horaires sont compatibles avec les départs et arrivées des ferries ou avec vos autres engagements. Vérifiez également les éventuels changements d’horaires ou grèves.">
+            <strong>Importante:</strong> prima di scendere con il pullman, vi consigliamo di controllare sempre che gli orari siano compatibili con le partenze e gli arrivi dei traghetti o con qualsiasi vostro impegno. Verificate anche eventuali variazioni di orario o scioperi.
           </div>
         </div>
 
@@ -376,11 +457,11 @@
               data-es="Ferries desde el puerto de Salerno"
               data-fr="Ferries depuis le port de Salerne">Traghetti dal porto di Salerno</h3>
 
-          <p data-it="Dal porto di Salerno partono traghetti e aliscafi per varie località della Costiera Amalfitana, come Amalfi, Positano, Maiori, Minori, Cetara e Vietri sul Mare."
-             data-en="Ferries and fast boats depart from Salerno port to several Amalfi Coast towns, such as Amalfi, Positano, Maiori, Minori, Cetara and Vietri sul Mare."
-             data-es="Desde el puerto de Salerno salen ferries y barcos rápidos hacia varias localidades de la Costa Amalfitana, como Amalfi, Positano, Maiori, Minori, Cetara y Vietri sul Mare."
-             data-fr="Depuis le port de Salerne partent des ferries et bateaux rapides vers plusieurs localités de la Côte Amalfitaine, comme Amalfi, Positano, Maiori, Minori, Cetara et Vietri sul Mare.">
-            Dal porto di Salerno partono traghetti e aliscafi per varie località della Costiera Amalfitana, come Amalfi, Positano, Maiori, Minori, Cetara e Vietri sul Mare.
+          <p data-it="Da Salerno partono traghetti e aliscafi per varie località della Costiera Amalfitana, come Amalfi, Positano, Maiori, Minori, Cetara e Vietri sul Mare. Le partenze possono essere da Salerno Molo Manfredi oppure da Salerno Piazza della Concordia."
+             data-en="Ferries and fast boats depart from Salerno to several Amalfi Coast towns, such as Amalfi, Positano, Maiori, Minori, Cetara and Vietri sul Mare. Departures may be from Salerno Molo Manfredi or Salerno Piazza della Concordia."
+             data-es="Desde Salerno salen ferries y barcos rápidos hacia varias localidades de la Costa Amalfitana, como Amalfi, Positano, Maiori, Minori, Cetara y Vietri sul Mare. Las salidas pueden ser desde Salerno Molo Manfredi o Salerno Piazza della Concordia."
+             data-fr="Depuis Salerne partent des ferries et bateaux rapides vers plusieurs localités de la Côte Amalfitaine, comme Amalfi, Positano, Maiori, Minori, Cetara et Vietri sul Mare. Les départs peuvent se faire depuis Salerno Molo Manfredi ou Salerno Piazza della Concordia.">
+            Da Salerno partono traghetti e aliscafi per varie località della Costiera Amalfitana, come Amalfi, Positano, Maiori, Minori, Cetara e Vietri sul Mare. Le partenze possono essere da Salerno Molo Manfredi oppure da Salerno Piazza della Concordia.
           </p>
 
           <div class="transport-note"
@@ -392,11 +473,11 @@
           </div>
 
           <div class="transport-note"
-               data-it="Gli orari cambiano in base alla stagione e al meteo: controllate sempre gli orari aggiornati prima di partire."
-               data-en="Timetables change depending on the season and weather: always check updated times before leaving."
-               data-es="Los horarios cambian según la temporada y el clima: comprobad siempre los horarios actualizados antes de salir."
-               data-fr="Les horaires changent selon la saison et la météo : vérifiez toujours les horaires mis à jour avant de partir.">
-            Gli orari cambiano in base alla stagione e al meteo: controllate sempre gli orari aggiornati prima di partire.
+               data-it="Gli orari cambiano in base alla stagione e al meteo: controllate sempre gli orari aggiornati prima di partire e verificate da quale molo parte il vostro traghetto."
+               data-en="Timetables change depending on the season and weather: always check updated times before leaving and verify which pier your ferry departs from."
+               data-es="Los horarios cambian según la temporada y el clima: comprobad siempre los horarios actualizados antes de salir y verificad desde qué muelle sale vuestro ferry."
+               data-fr="Les horaires changent selon la saison et la météo : vérifiez toujours les horaires mis à jour avant de partir et le quai de départ de votre ferry.">
+            Gli orari cambiano in base alla stagione e al meteo: controllate sempre gli orari aggiornati prima di partire e verificate da quale molo parte il vostro traghetto.
           </div>
 
           <div class="transport-actions">
@@ -409,12 +490,20 @@
                data-fr="⛴️ Horaires Travelmar">⛴️ Orari Travelmar</a>
 
             <a class="transport-btn light"
-               href="https://www.google.com/maps/search/?api=1&query=Molo+Concordia+Salerno"
+               href="https://www.google.com/maps/search/?api=1&query=Molo+Manfredi+Salerno"
                target="_blank"
-               data-it="📍 Portami al porto"
-               data-en="📍 Take me to the port"
-               data-es="📍 Llévame al puerto"
-               data-fr="📍 M’emmener au port">📍 Portami al porto</a>
+               data-it="📍 Molo Manfredi"
+               data-en="📍 Molo Manfredi"
+               data-es="📍 Molo Manfredi"
+               data-fr="📍 Molo Manfredi">📍 Molo Manfredi</a>
+
+            <a class="transport-btn light"
+               href="https://www.google.com/maps/search/?api=1&query=Piazza+della+Concordia+Salerno"
+               target="_blank"
+               data-it="📍 Piazza della Concordia"
+               data-en="📍 Piazza della Concordia"
+               data-es="📍 Piazza della Concordia"
+               data-fr="📍 Piazza della Concordia">📍 Piazza della Concordia</a>
           </div>
         </div>
 
@@ -514,38 +603,15 @@
         </div>
 
       </div>
-
-      <details open>
-        <summary data-it="Orario feriale - Linea 14"
-                 data-en="Weekday timetable - Line 14"
-                 data-es="Horario laborable - Línea 14"
-                 data-fr="Horaire en semaine - Ligne 14">Orario feriale - Linea 14</summary>
-
-        <div class="img-card">
-          <img src="assets/bus-feriale-14.jpg"
-               alt="Orario bus feriale linea 14"
-               onclick="openLightbox(this.src, this.alt)">
-        </div>
-      </details>
-
-      <details>
-        <summary data-it="Orario festivo - Linea B"
-                 data-en="Holiday timetable - Line B"
-                 data-es="Horario festivo - Línea B"
-                 data-fr="Horaire jours fériés - Ligne B">Orario festivo - Linea B</summary>
-
-        <div class="img-card">
-          <img src="assets/bus-festivo-b.jpg"
-               alt="Orario bus festivo linea B"
-               onclick="openLightbox(this.src, this.alt)">
-        </div>
-      </details>
     </section>
   </main>
 
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close" type="button" onclick="closeLightbox()">×</button>
-    <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+  <div id="pdf-lightbox" class="lightbox" onclick="closePdfLightbox()">
+    <button class="lightbox-close" type="button" onclick="closePdfLightbox()">×</button>
+
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <iframe id="pdf-frame" src="" title="Orario pullman"></iframe>
+    </div>
   </div>
 
   <script>
@@ -592,31 +658,27 @@
       } catch (e) {}
     }
 
-    function openLightbox(src, alt) {
-      var lightbox = document.getElementById('lightbox');
-      var img = document.getElementById('lightbox-img');
+    function openPdfLightbox(src) {
+      var lightbox = document.getElementById('pdf-lightbox');
+      var frame = document.getElementById('pdf-frame');
 
-      img.src = src;
-      img.alt = alt || '';
-
+      frame.src = src;
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
-    function closeLightbox() {
-      var lightbox = document.getElementById('lightbox');
-      var img = document.getElementById('lightbox-img');
+    function closePdfLightbox() {
+      var lightbox = document.getElementById('pdf-lightbox');
+      var frame = document.getElementById('pdf-frame');
 
       lightbox.classList.remove('active');
-      img.src = '';
-      img.alt = '';
-
+      frame.src = '';
       document.body.style.overflow = '';
     }
 
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
-        closeLightbox();
+        closePdfLightbox();
       }
     });
 
